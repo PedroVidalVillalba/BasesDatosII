@@ -17,7 +17,7 @@ create table atraccionssoadultos(
   idadeMin integer,
   constraint atraccionssoadultospk primary key (nome),
   zona character varying(30),
-  constraint atraccionsfk1 foreign key (zona) references public.zonas(nome)
+  constraint atraccionssoadultosfk1 foreign key (zona) references public.zonas(nome)
   on update cascade on delete set null
 );
 
@@ -31,7 +31,7 @@ create table atraccionsfamiliares(
   idadeRecomendada integer,
   constraint atraccionsfamiliarespk primary key (nome),
   zona character varying(30),
-  constraint atraccionsfk1 foreign key (zona) references public.zonas(nome)
+  constraint atraccionsfamiliaresfk1 foreign key (zona) references public.zonas(nome)
   on update cascade on delete set null
 );
 
