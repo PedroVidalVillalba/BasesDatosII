@@ -1,4 +1,4 @@
 En la última tabla del diccionario, cambiar la primera columna (Sistemas de audio se pasa del ancho)
 
 En la creación de tablas, hay atributos en castellano (por ejemplo en música y puede haber más)
-En la creación de tablas, sigue habiendo atributos de ubicación. Hay que eliminarlos y añadir una fk zona si estuviera ya
+En la creación de tablas, sigue habiendo atributos de ubicación. Hay que eliminarlos y añadir una fk zona si no estuviera ya
