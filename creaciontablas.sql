@@ -33,7 +33,6 @@ create table atraccionsfamiliares(
 
 create table hostalaria(
   nomeEstablecemento character varying(30),
-  ubicacion character varying(30) not null,
   aforo integer not null,
   horaInicio time,
   horaFin time,
@@ -49,7 +48,6 @@ create table espectaculos(
   horaFin time,
   tematica character varying(15),
   descricion character varying(200),
-  ubicacion character varying(30) not null,
   constraint espectaculospk primary key(nome),
   zona character varying(30),
   constraint espectaculosfk1 foreign key (zona) references public.zonas(nome)
@@ -136,10 +134,10 @@ create table ir(
 );
 
 create table xantar(
-  dataVisita date,
+  data date,
   visitante character(9),
   establecemento character varying(30),
-  constraint xantarpk primary key(dataVisita,visitante,establecemento),
+  constraint xantarpk primary key(data,visitante,establecemento),
   constraint xantarfk1 foreign key (visitante)
   references public.visitantes(dni)
   on update cascade on delete cascade,
@@ -149,10 +147,10 @@ create table xantar(
 );
 
 create table asistir(
-  dataVisita date,
+  data date,
   visitante character(9),
   espectaculo character varying(30),
-  constraint asistirpk primary key(dataVisita,visitante,espectaculo),
+  constraint asistirpk primary key(data,visitante,espectaculo),
   constraint asistirfk1 foreign key (visitante)
   references public.visitantes(dni)
   on update cascade on delete cascade,
@@ -163,20 +161,19 @@ create table asistir(
 
 create table musica(
   codigoCancion character (9),
-  nombre character varying (30) not null,
-  clasificación character varying (30) not null,
-  popularidad integer,
+  nome character varying (30) not null,
+  clasificacion character varying (30) not null,
+  popularidade integer,
   artista character varying(30) not null,
-  álbum character varying(30),
+  album character varying(30),
   constraint musicapk primary key (codigoCancion)
 );
 
 
 create table sistemasDeAudio(
   identificador character (5),
-  función character varying (20) not null,
-  descripción character varying(150),
-  ubicación character varying (30) not null,
+  funcion character varying (20) not null,
+  descricion character varying(150),
   constraint sistemasDeAudiopk primary key (identificador),
   zona character varying(30),
   constraint atraccionsfk1 foreign key (zona) references public.zonas(nome)
@@ -184,15 +181,14 @@ create table sistemasDeAudio(
 );
 
 create table reproducir(
-  fechaReproduccion date,
-  codigoCancion character(9),
-  sistemaAudioIdentificador character (5),
-  constraint reproducirpk primary key(fechaReproduccion,codigoCancion,
-  sistemaAudioIdentificador),
-  constraint reproducirfk1 foreign key (codigoCancion)
+  data date,
+  musica character(9),
+  sistema character (5),
+  constraint reproducirpk primary key(data,musica,sistema),
+  constraint reproducirfk1 foreign key (musica)
   references public.musica(codigoCancion)
   on update cascade on delete cascade,
-  constraint reproducirfk2 foreign key (sistemaAudioIdentificador)
+  constraint reproducirfk2 foreign key (sistema)
   references public.sistemasDeAudio(identificador)
   on update cascade on delete cascade
 );
@@ -200,18 +196,18 @@ create table reproducir(
 create table DJ(
   dni character(9),
   nome character varying(60) not null,
-  calle character varying(40),
+  rua character varying(40),
   numero integer,
   cp integer,
-  localidad character varying(30),
+  localidade character varying(30),
   salario real not null,
   telefono character(9),
   fechaInicio date not null,
   fechaNacemento date,
   formacion character varying(100) not null,
-  identificadorSistema character varying(30) ,
+  sistema character varying(30) ,
   constraint DJpk primary key(dni),
-  constraint DJfk1 foreign key (identificadorSistema)
+  constraint DJfk1 foreign key (sistema)
   references public.sistemasDeAudio(identificador)
   on update cascade on delete set null
 );
