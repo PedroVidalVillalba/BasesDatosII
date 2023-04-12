@@ -6,18 +6,14 @@ import java.util.Objects;
 public class Hostalaria {
 
     private String nomeEstablecemento;
-    private String ubicacion;
     private Integer aforo;
     private LocalTime horaInicio;
     private LocalTime horaFin;
     private Zona zona;
 
-    public Hostalaria(String nomeEstablecemento, String ubicacion, Integer aforo, LocalTime horaInicio, LocalTime horaFin, Zona zona) {
+    public Hostalaria(String nomeEstablecemento, Integer aforo, LocalTime horaInicio, LocalTime horaFin, Zona zona) {
         if(nomeEstablecemento!=null){
             this.nomeEstablecemento = nomeEstablecemento;
-        }
-        if(ubicacion!=null){
-            this.ubicacion = ubicacion;
         }
         if(aforo!=null){
             this.aforo = aforo;
@@ -35,10 +31,6 @@ public class Hostalaria {
 
     public String getNomeEstablecemento() {
         return nomeEstablecemento;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
     }
 
     public Integer getAforo() {
@@ -59,10 +51,6 @@ public class Hostalaria {
 
     public void setNomeEstablecemento(String nomeEstablecemento) {
         this.nomeEstablecemento = nomeEstablecemento;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public void setAforo(Integer aforo) {

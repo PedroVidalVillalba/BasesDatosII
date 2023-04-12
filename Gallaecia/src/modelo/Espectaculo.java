@@ -9,10 +9,9 @@ public class Espectaculo {
     private LocalTime horaFin;
     private String tematica;
     private String descricion;
-    private String ubicacion;
     private Zona zona;
 
-    public Espectaculo(String nome, LocalTime horaInicio, LocalTime horaFin, String tematica, String descricion, String ubicacion, Zona zona) {
+    public Espectaculo(String nome, LocalTime horaInicio, LocalTime horaFin, String tematica, String descricion, Zona zona) {
         if(nome!=null){
             this.nome = nome;
         }
@@ -27,9 +26,6 @@ public class Espectaculo {
         }
         if(descricion!=null){
             this.descricion = descricion;
-        }
-        if(ubicacion!=null){
-            this.ubicacion = ubicacion;
         }
         if(zona!=null){
             this.zona = zona;
@@ -56,10 +52,6 @@ public class Espectaculo {
         return descricion;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
     public Zona getZona() {
         return zona;
     }
@@ -82,10 +74,6 @@ public class Espectaculo {
 
     public void setDescricion(String descricion) {
         this.descricion = descricion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public void setZona(Zona zona) {
