@@ -1,28 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.SceneController">
-   <children>
-      <MenuBar layoutX="-1.0" layoutY="1.0" prefHeight="23.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="General">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
-                  <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
-                  <MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
-                  <MenuItem mnemonicParsing="false" onAction="#switchToRating" text="Valoranos" />
-
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Registro">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Sign In" />
-                  <MenuItem mnemonicParsing="false" text="Login" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </children>
-</AnchorPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.SceneController" />
