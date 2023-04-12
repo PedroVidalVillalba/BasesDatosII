@@ -15,7 +15,7 @@
 
                 </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Registro">
+            <Menu fx:id="registro" mnemonicParsing="false" text="&#x2302; Home">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#switchToRegister" text="Sign In" />
                     <MenuItem mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
