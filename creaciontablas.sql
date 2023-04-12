@@ -1,4 +1,3 @@
-
 create table zonas(
   nome character varying(30),
   extension real,
@@ -200,7 +199,7 @@ create table reproducir(
 
 create table DJ(
   dni character(9),
-  nombre character varying(60) not null,
+  nome character varying(60) not null,
   calle character varying(40),
   numero integer,
   cp integer,
@@ -217,3 +216,21 @@ create table DJ(
   on update cascade on delete set null
 );
 
+create or replace function check_person_exists(dni char(9), nome varchar(60))
+    returns boolean
+    language sql
+as $$
+select exists (select 1 from visitantes as v where v.dni = $1 and v.nome = $2)
+           or exists (select 1 from traballadoresparque as t where t.dni = $1 and t.nome = $2)
+           or exists (select 1 from hostaleiros as h where h.dni = $1 and h.nome = $2)
+           or exists (select 1 from dj as d where d.dni = $1 and d.nome = $2)
+$$;
+
+create table Users (
+    id_user serial primary key,
+    dni char(9),
+    nome varchar(60),
+    username varchar(60),
+    password char(64),
+    constraint user_exists check (check_person_exists(dni, nome))
+);

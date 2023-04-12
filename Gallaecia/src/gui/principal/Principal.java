@@ -1,12 +1,11 @@
 package gui.principal;
 
+import baseDatos.UserType;
 import javafx.application.Application;
-import baseDatos.BaseDatos;
-import javafx.fxml.FXML;
+import baseDatos.DataBase;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -22,7 +21,7 @@ public class Principal extends Application {
     public Principal() {}
 
     public Principal(String[] args) {
-        new BaseDatos();
+        new DataBase(UserType.Guest);
         launch(args);
     }
     @Override
@@ -36,7 +35,7 @@ public class Principal extends Application {
 
         Scene scene = new Scene(mainContainer);//Necesita un nodo (hay muchos tipos)
 
-        // String css = this.getClass().getResource("Principal.css").toExternalForm();
+       // String css = this.getClass().getResource("Principal.css").toExternalForm();
        // scene.getStylesheets().add(css);
 
         stage.setScene(scene);//Seteamos la escena jjj
