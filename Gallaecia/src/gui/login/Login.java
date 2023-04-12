@@ -1,2 +1,4 @@
-package gui.login;public class Login {
+package gui.login;
+
+public class Login {
 }
