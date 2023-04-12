@@ -1,11 +1,11 @@
 package gui.principal;
 
+import baseDatos.UserType;
 import javafx.application.Application;
-import baseDatos.BaseDatos;
+import baseDatos.DataBase;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Principal extends Application {
@@ -15,7 +15,7 @@ public class Principal extends Application {
     public Principal() {}
 
     public Principal(String[] args) {
-        new BaseDatos();
+        new DataBase(UserType.Guest);
         launch(args);
     }
     @Override
