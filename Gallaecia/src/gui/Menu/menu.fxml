@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.Menu.MenuController"
+            prefHeight="7.0" prefWidth="600.0">
+    <MenuBar layoutY="1.0" prefHeight="23.0" prefWidth="600.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="General">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRating" text="Valoranos" />
+
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Registro">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Sign In" />
+                    <MenuItem mnemonicParsing="false" text="Login" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+</AnchorPane>
