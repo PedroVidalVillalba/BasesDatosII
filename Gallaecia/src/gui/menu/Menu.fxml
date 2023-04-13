@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.Menu.MenuController"
-            prefHeight="7.0" prefWidth="600.0">
-    <MenuBar layoutY="1.0" prefHeight="23.0" prefWidth="600.0">
+<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="23.0" prefWidth="600.0">
         <menus>
             <Menu mnemonicParsing="false" text="General">
                 <items>
@@ -21,10 +15,10 @@
 
                 </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Registro">
+            <Menu fx:id="registro" mnemonicParsing="false" text="&#x2302; Home">
                 <items>
-                    <MenuItem mnemonicParsing="false" text="Sign In" />
-                    <MenuItem mnemonicParsing="false" text="Login" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRegister" text="Sign In" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
                 </items>
             </Menu>
         </menus>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Gallaecia" uuid="1ce57bcb-4fd7-45d7-8610-e66d86563dbd">
+    <data-source source="LOCAL" name="Gallaecia@83.37.231.243" uuid="45e5b727-c771-43f8-b0cb-d5febad7bb7e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://debian-server:5432/Gallaecia</jdbc-url>
+      <jdbc-url>jdbc:postgresql://83.37.231.243:5432/Gallaecia</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
