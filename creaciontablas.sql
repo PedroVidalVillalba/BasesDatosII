@@ -7,14 +7,14 @@ create table zonas(
 );
 
 create table atraccions(
-nome character varying(30),
-aforo integer not null,
-alturaMin integer not null,
-custoMantemento real,
-descricion character varying(500),
-zona character varying(30),
-constraint atraccionsfk1 foreign key (zona) references public.zonas(nome),
-constraint atraccionspk primary key (nome)
+  nome character varying(30),
+  aforo integer not null,
+  alturaMin integer not null,
+  custoMantemento real,
+  descricion character varying(500),
+  zona character varying(30),
+  constraint atraccionsfk1 foreign key (zona) references public.zonas(nome),
+  constraint atraccionspk primary key (nome)
 );
 
 create table atraccionssoadultos(
