@@ -25,11 +25,15 @@ public class AtraccionFamiliar {
 
 
     public void setAtraccion(Atraccion atraccion) {
-        this.atraccion = atraccion;
+        if(atraccion!=null){
+            this.atraccion = atraccion;
+        }
     }
 
     public void setIdadeMin(Integer idadeRecomendada) {
-        this.idadeRecomendada = idadeRecomendada;
+        if(idadeRecomendada!=null){
+            this.idadeRecomendada = idadeRecomendada;
+        }
     }
 
     @Override

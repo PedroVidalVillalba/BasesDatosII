@@ -41,19 +41,27 @@ public class Zona {
 
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setExtension(Float extension) {
-        this.extension = extension;
+        if(extension!=null){
+            this.extension = extension;
+        }
     }
 
     public void setCoordenadaX(Float coordenadaX) {
-        this.coordenadaX = coordenadaX;
+        if(coordenadaX!=null){
+            this.coordenadaX = coordenadaX;
+        }
     }
 
     public void setCoordenadaY(Float coordenadaY) {
-        this.coordenadaY = coordenadaY;
+        if(coordenadaY!=null){
+            this.coordenadaY = coordenadaY;
+        }
     }
 
 

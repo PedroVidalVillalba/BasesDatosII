@@ -105,51 +105,75 @@ public class Hostaleiro {
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        if(dni!=null){
+            this.dni = dni;
+        }
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setRua(String rua) {
-        this.rua = rua;
+        if(rua!=null){
+            this.rua = rua;
+        }
     }
 
     public void setNumero(Integer numero) {
-        this.numero = numero;
+        if(numero!=null){
+            this.numero = numero;
+        }
     }
 
     public void setCp(Integer cp) {
-        this.cp = cp;
+        if(cp!=null){
+            this.cp = cp;
+        }
     }
 
     public void setLocalidade(String localidade) {
-        this.localidade = localidade;
+        if(localidade!=null){
+            this.localidade = localidade;
+        }
     }
 
     public void setSalario(Float salario) {
-        this.salario = salario;
+        if(salario!=null){
+            this.salario = salario;
+        }
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        if(telefono!=null){
+            this.telefono = telefono;
+        }
     }
 
     public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
+        if(dataInicio!=null){
+            this.dataInicio = dataInicio;
+        }
     }
 
     public void setDataNacemento(LocalDate dataNacemento) {
-        this.dataNacemento = dataNacemento;
+        if(dataNacemento!=null){
+            this.dataNacemento = dataNacemento;
+        }
     }
 
     public void setFormacion(String formacion) {
-        this.formacion = formacion;
+        if(formacion!=null){
+            this.formacion = formacion;
+        }
     }
 
     public void setHostalaria(Hostalaria hostalaria) {
-        this.hostalaria = hostalaria;
+        if(hostalaria!=null){
+            this.hostalaria = hostalaria;
+        }
     }
 
 
