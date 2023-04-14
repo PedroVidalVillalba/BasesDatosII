@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -19,8 +20,12 @@ public class MenuController {
         root.getChildren().set(1, content);
     }
 
-    public void switchToLogin(ActionEvent event) throws IOException {
+    public void switchToLogin(MouseEvent event) throws IOException {
         switchScene("../login/Login.fxml");
+    }
+
+    public void switchToPrincipal(MouseEvent event) throws IOException {
+        switchScene("../principal/Principal.fxml");
     }
 
     public void switchToRegister(ActionEvent event) throws IOException {
@@ -29,14 +34,14 @@ public class MenuController {
 
 
     public void switchToRide(ActionEvent event) throws IOException {
-        switchScene("../ride/Register.fxml");
+        switchScene("../ride/Ride.fxml");
     }
 
     public void switchToRestaurant(ActionEvent event) throws IOException {
         switchScene("../general/Restaurant.fxml");
     }
 
-    public void switchToRating(ActionEvent event) throws IOException {
+    public void switchToRating(MouseEvent event) throws IOException {
         switchScene("../general/Rating.fxml");
     }
 
