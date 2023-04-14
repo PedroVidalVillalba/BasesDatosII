@@ -50,23 +50,33 @@ public class Hostalaria {
     }
 
     public void setNomeEstablecemento(String nomeEstablecemento) {
-        this.nomeEstablecemento = nomeEstablecemento;
+        if(nomeEstablecemento!=null){
+            this.nomeEstablecemento = nomeEstablecemento;
+        }
     }
 
     public void setAforo(Integer aforo) {
-        this.aforo = aforo;
+        if(aforo!=null){
+            this.aforo = aforo;
+        }
     }
 
     public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+        if(horaInicio!=null){
+            this.horaInicio = horaInicio;
+        }
     }
 
     public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
+        if(horaFin!=null){
+            this.horaFin = horaFin;
+        }
     }
 
     public void setZona(Zona zona) {
-        this.zona = zona;
+        if(zona!=null){
+            this.zona = zona;
+        }
     }
 
     @Override

@@ -48,23 +48,33 @@ public class Medio {
     }
 
     public void setNomeMedio(String nomeMedio) {
-        this.nomeMedio = nomeMedio;
+        if(nomeMedio!=null){
+            this.nomeMedio = nomeMedio;
+        }
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        if(tipo!=null){
+            this.tipo = tipo;
+        }
     }
 
     public void setPrezo(Float prezo) {
-        this.prezo = prezo;
+        if(prezo!=null){
+            this.prezo = prezo;
+        }
     }
 
     public void setCapacidade(Integer capacidade) {
-        this.capacidade = capacidade;
+        if(capacidade!=null){
+            this.capacidade = capacidade;
+        }
     }
 
     public void setVelocidade(Float velocidade) {
-        this.velocidade = velocidade;
+        if(velocidade!=null){
+            this.velocidade = velocidade;
+        }
     }
 
     @Override

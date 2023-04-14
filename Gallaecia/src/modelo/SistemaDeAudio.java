@@ -40,19 +40,27 @@ public class SistemaDeAudio {
     }
 
     public void setIdentificador(String identificador) {
-        this.identificador = identificador;
+        if(identificador!=null){
+            this.identificador = identificador;
+        }
     }
 
     public void setFuncion(String funcion) {
-        this.funcion = funcion;
+        if(funcion!=null){
+            this.funcion = funcion;
+        }
     }
 
     public void setDescricion(String descricion) {
-        this.descricion = descricion;
+        if(descricion!=null){
+            this.descricion = descricion;
+        }
     }
 
     public void setZona(Zona zona) {
-        this.zona = zona;
+        if(zona!=null){
+            this.zona = zona;
+        }
     }
 
     @Override
