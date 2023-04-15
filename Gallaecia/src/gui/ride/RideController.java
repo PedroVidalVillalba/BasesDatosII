@@ -57,8 +57,8 @@ public class RideController implements Initializable {
                                      "Aforo: " + t1.getAforo() + "\n" +
                                      "Altura mínima: " + t1.getAlturaMin() + "\n\n" +
                                      "Ubicación: " + t1.getZona().getNome() + ".\n" +
-                                     "Latitud (en km): " + t1.getZona().getCoordenadaX() + "\n" +
-                                     "Altitud (en km): " + t1.getZona().getCoordenadaY();
+                                     "Latitud: " + t1.getZona().getCoordenadaX() + "\n" +
+                                     "Longitud: " + t1.getZona().getCoordenadaY();
 
                 myLabel.setText(descripcion);
             }
