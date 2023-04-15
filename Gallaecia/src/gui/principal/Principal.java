@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
+import modelo.Atraccion;
 
 public class Principal extends Application {
     /**
@@ -38,6 +39,18 @@ public class Principal extends Application {
         stage.show();//Mostramos el escenario
 
         //new Login(stage); //Necesitamos interfaz login
-    }
 
+        /* Test de RideDAO
+        try {
+            java.util.List<Atraccion> atracciones = DataBase.getCurrentDB().getAllRides();
+
+            for (Atraccion atraccion : atracciones) {
+                System.out.println(atraccion.getNome());
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+    }*/
+
+    }
 }

@@ -91,6 +91,9 @@ public class Atraccion {
         }
     }
 
+    public String toStringListView(){
+        return this.getNome() + " - " + this.getDescricion();
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
