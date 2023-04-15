@@ -1,6 +1,7 @@
 package baseDatos;
 
 import modelo.Atraccion;
+import modelo.Hostalaria;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,6 +17,8 @@ public class DataBase {
     private Connection connection;
 
     private RideDAO rideDAO;
+
+    private RestaurantDAO restaurantDAO;
 
     private UserType userType;
 
@@ -51,6 +54,7 @@ public class DataBase {
                     user);
 
             this.rideDAO = new RideDAO(this.connection);
+            this.restaurantDAO = new RestaurantDAO(this.connection);
 
             DataBase.currentDB = this;
 
@@ -81,5 +85,9 @@ public class DataBase {
      */
     public List<Atraccion> getAllRides(){
         return rideDAO.getAllRides();
+    }
+
+    public List<Hostalaria> getAllRestaurants(){
+        return restaurantDAO.getAllRestaurants();
     }
 }

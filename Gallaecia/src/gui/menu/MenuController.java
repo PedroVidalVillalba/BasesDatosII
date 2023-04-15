@@ -38,7 +38,7 @@ public class MenuController {
     }
 
     public void switchToRestaurant(ActionEvent event) throws IOException {
-        switchScene("../general/Restaurant.fxml");
+        switchScene("../restaurant/Restaurant.fxml");
     }
 
     public void switchToRating(MouseEvent event) throws IOException {
