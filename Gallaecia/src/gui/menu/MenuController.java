@@ -48,4 +48,7 @@ public class MenuController {
     public void switchToShow(ActionEvent event) throws IOException {
         switchScene("../general/Show.fxml");
     }
+    public void switchToChat(ActionEvent event) throws IOException {
+        switchScene("../chatGPT/Chat.fxml");
+    }
 }
