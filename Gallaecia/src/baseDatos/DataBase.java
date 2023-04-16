@@ -2,6 +2,7 @@ package baseDatos;
 
 import modelo.Atraccion;
 import modelo.Hostalaria;
+import modelo.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,14 +14,12 @@ import java.util.Properties;
 
 public class DataBase {
     private static DataBase currentDB;
-
     private Connection connection;
-
     private RideDAO rideDAO;
-
     private RestaurantDAO restaurantDAO;
-
+    private UserDAO userDAO;
     private UserType userType;
+    private User user;
 
     public DataBase(UserType userType) {
         Properties configuration = new Properties();
@@ -36,6 +35,8 @@ public class DataBase {
                     configurationFile = new FileInputStream("DataBaseAdmin.properties");
                     break;
             }
+
+            this.userType = userType;
 
             configuration.load(configurationFile);
             configurationFile.close();
@@ -53,6 +54,7 @@ public class DataBase {
                     configuration.getProperty("dataBase"),
                     user);
 
+            this.userDAO = new UserDAO(this.connection);
             this.rideDAO = new RideDAO(this.connection);
             this.restaurantDAO = new RestaurantDAO(this.connection);
 
@@ -77,6 +79,19 @@ public class DataBase {
 
     public UserType getUserType() {
         return this.userType;
+    }
+
+    public boolean login(String username, String password) {
+        this.user = userDAO.login(username, password);
+        if (user == null) {
+            System.err.println("ERROR: No se pudo realizar el inicio de sesión");
+            return false;
+        }
+        else if (user.getUserType() != this.userType) {
+            DataBase.closeCurrentDB();
+            new DataBase(user.getUserType());
+        }
+        return true;
     }
 
     /**
