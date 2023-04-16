@@ -6,11 +6,11 @@ public class Musica {
     private String codigoCancion;
     private String nome;
     private String clasificacion;
-    private Integer popularidad;
+    private Integer popularidade;
     private String artista;
     private String album;
 
-    public Musica(String codigoCancion, String nome, String clasificacion, Integer popularidad, String artista, String album) {
+    public Musica(String codigoCancion, String nome, String clasificacion, Integer popularidade, String artista, String album) {
         if(codigoCancion!=null){
             this.codigoCancion = codigoCancion;
         }
@@ -20,8 +20,8 @@ public class Musica {
         if(clasificacion!=null){
             this.clasificacion = clasificacion;
         }
-        if(popularidad!=null){
-            this.popularidad = popularidad;
+        if(popularidade!=null){
+            this.popularidade = popularidade;
         }
         if(artista!=null){
             this.artista = artista;
@@ -43,8 +43,8 @@ public class Musica {
         return clasificacion;
     }
 
-    public Integer getPopularidad() {
-        return popularidad;
+    public Integer getPopularidade() {
+        return popularidade;
     }
 
     public String getArtista() {
@@ -56,27 +56,39 @@ public class Musica {
     }
 
     public void setCodigoCancion(String codigoCancion) {
-        this.codigoCancion = codigoCancion;
+        if(codigoCancion!=null){
+            this.codigoCancion = codigoCancion;
+        }
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setClasificacion(String clasificacion) {
-        this.clasificacion = clasificacion;
+        if(clasificacion!=null){
+    this.clasificacion = clasificacion;
+        }
     }
 
-    public void setPopularidad(Integer popularidad) {
-        this.popularidad = popularidad;
+    public void setPopularidade(Integer popularidade) {
+        if(popularidade!=null){
+            this.popularidade = popularidade;
+        }
     }
 
     public void setArtista(String artista) {
-        this.artista = artista;
+        if(artista!=null){
+            this.artista = artista;
+        }
     }
 
     public void setAlbum(String album) {
-        this.album = album;
+        if(album!=null){
+            this.album = album;
+        }
     }
 
     @Override

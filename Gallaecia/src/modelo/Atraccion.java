@@ -56,29 +56,44 @@ public class Atraccion {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setAforo(Integer aforo) {
-        this.aforo = aforo;
+        if(aforo!=null){
+            this.aforo = aforo;
+        }
     }
 
     public void setAlturaMin(Integer alturaMin) {
-        this.alturaMin = alturaMin;
+        if(alturaMin!=null){
+            this.alturaMin = alturaMin;
+        }
     }
 
     public void setCustoMantemento(Float custoMantemento) {
-        this.custoMantemento = custoMantemento;
+        if(custoMantemento!=null){
+            this.custoMantemento = custoMantemento;
+        }
     }
 
     public void setDescricion(String descricion) {
-        this.descricion = descricion;
+        if(descricion!=null){
+            this.descricion = descricion;
+        }
     }
 
     public void setZona(Zona zona) {
-        this.zona = zona;
+        if(zona!=null){
+            this.zona = zona;
+        }
     }
 
+    public String toStringListView(){
+        return this.getNome() + " - " + this.getDescricion();
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

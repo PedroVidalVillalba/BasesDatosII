@@ -57,27 +57,39 @@ public class Espectaculo {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+        if(horaInicio!=null){
+            this.horaInicio = horaInicio;
+        }
     }
 
     public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
+        if(horaFin!=null){
+            this.horaFin = horaFin;
+        }
     }
 
     public void setTematica(String tematica) {
-        this.tematica = tematica;
+        if(tematica!=null){
+            this.tematica = tematica;
+        }
     }
 
     public void setDescricion(String descricion) {
-        this.descricion = descricion;
+        if(descricion!=null){
+            this.descricion = descricion;
+        }
     }
 
     public void setZona(Zona zona) {
-        this.zona = zona;
+        if(zona!=null){
+            this.zona = zona;
+        }
     }
 
     @Override

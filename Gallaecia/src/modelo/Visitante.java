@@ -65,31 +65,45 @@ public class Visitante {
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        if(dni!=null){
+            this.dni = dni;
+        }
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
+        if(nacionalidade!=null){
+            this.nacionalidade = nacionalidade;
+        }
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        if(telefono!=null){
+            this.telefono = telefono;
+        }
     }
 
     public void setDataNacemento(LocalDate dataNacemento) {
-        this.dataNacemento = dataNacemento;
+        if(dataNacemento!=null){
+            this.dataNacemento = dataNacemento;
+        }
     }
 
     public void setAltura(Integer altura) {
-        this.altura = altura;
+        if(altura!=null){
+            this.altura = altura;
+        }
     }
 
     public void setMedio(Medio medio) {
-        this.medio = medio;
+        if(medio!=null){
+            this.medio = medio;
+        }
     }
 
     @Override

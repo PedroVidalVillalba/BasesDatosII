@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
+import modelo.Atraccion;
 
 public class Principal extends Application {
     /**
@@ -39,5 +40,4 @@ public class Principal extends Application {
 
         //new Login(stage); //Necesitamos interfaz login
     }
-
 }

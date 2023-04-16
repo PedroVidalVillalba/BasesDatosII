@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
+    <children>
+        <ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="200.0" prefWidth="224.0" />
+        <Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="147.0" prefHeight="200.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="34.0" layoutY="24.0" prefHeight="91.0" prefWidth="537.0" text="En Gallaecia disfrutaras de todo: hasta de tus descansos para comer. El parque cuenta con restaurantes con especialidades de gustos variados: italianos, asiaticos, americanos... ¡Tenemos para todos!" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+      <Text layoutX="76.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pincha para ver informacion" textAlignment="CENTER" wrappingWidth="189.31396484375" />
+    </children>
+</AnchorPane>

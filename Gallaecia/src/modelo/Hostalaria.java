@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -7,11 +8,11 @@ public class Hostalaria {
 
     private String nomeEstablecemento;
     private Integer aforo;
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
+    private Time horaInicio;
+    private Time horaFin;
     private Zona zona;
 
-    public Hostalaria(String nomeEstablecemento, Integer aforo, LocalTime horaInicio, LocalTime horaFin, Zona zona) {
+    public Hostalaria(String nomeEstablecemento, Integer aforo, Time horaInicio, Time horaFin, Zona zona) {
         if(nomeEstablecemento!=null){
             this.nomeEstablecemento = nomeEstablecemento;
         }
@@ -37,11 +38,11 @@ public class Hostalaria {
         return aforo;
     }
 
-    public LocalTime getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
-    public LocalTime getHoraFin() {
+    public Time getHoraFin() {
         return horaFin;
     }
 
@@ -50,23 +51,33 @@ public class Hostalaria {
     }
 
     public void setNomeEstablecemento(String nomeEstablecemento) {
-        this.nomeEstablecemento = nomeEstablecemento;
+        if(nomeEstablecemento!=null){
+            this.nomeEstablecemento = nomeEstablecemento;
+        }
     }
 
     public void setAforo(Integer aforo) {
-        this.aforo = aforo;
+        if(aforo!=null){
+            this.aforo = aforo;
+        }
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHoraInicio(Time horaInicio) {
+        if(horaInicio!=null){
+            this.horaInicio = horaInicio;
+        }
     }
 
-    public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
+    public void setHoraFin(Time horaFin) {
+        if(horaFin!=null){
+            this.horaFin = horaFin;
+        }
     }
 
     public void setZona(Zona zona) {
-        this.zona = zona;
+        if(zona!=null){
+            this.zona = zona;
+        }
     }
 
     @Override

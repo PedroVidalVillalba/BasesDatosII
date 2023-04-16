@@ -3,25 +3,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
-    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="23.0" prefWidth="600.0">
+<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0">
         <menus>
-            <Menu mnemonicParsing="false" text="General">
+            <Menu>
+                <graphic>
+                    <Label text="Gallaecia" onMouseClicked="#switchToPrincipal"/>
+                </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Ocio">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
                     <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
                     <MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
-                    <MenuItem mnemonicParsing="false" onAction="#switchToRating" text="Valoranos" />
-
                 </items>
             </Menu>
-            <Menu fx:id="registro" mnemonicParsing="false" text="&#x2302; Home">
-                <items>
-                    <MenuItem mnemonicParsing="false" onAction="#switchToRegister" text="Sign In" />
-                    <MenuItem mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
-                </items>
+            <Menu>
+                <graphic>
+                    <Label text="Valóranos
+                                                               " onMouseClicked="#switchToRating"/>
+                </graphic>
+            </Menu>
+
+
+            <Menu>
+                <graphic>
+                    <Label text="Iniciar sesión" onMouseClicked="#switchToLogin"/>
+                </graphic>
             </Menu>
         </menus>
     </MenuBar>
-
 </AnchorPane>
+

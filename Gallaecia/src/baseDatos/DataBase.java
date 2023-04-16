@@ -1,16 +1,24 @@
 package baseDatos;
 
+import modelo.Atraccion;
+import modelo.Hostalaria;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 public class DataBase {
     private static DataBase currentDB;
 
     private Connection connection;
+
+    private RideDAO rideDAO;
+
+    private RestaurantDAO restaurantDAO;
 
     private UserType userType;
 
@@ -45,6 +53,9 @@ public class DataBase {
                     configuration.getProperty("dataBase"),
                     user);
 
+            this.rideDAO = new RideDAO(this.connection);
+            this.restaurantDAO = new RestaurantDAO(this.connection);
+
             DataBase.currentDB = this;
 
         } catch(IOException | SQLException exception) {
@@ -68,5 +79,15 @@ public class DataBase {
         return this.userType;
     }
 
+    /**
+     * Método de RideDAO.
+     * @return
+     */
+    public List<Atraccion> getAllRides(){
+        return rideDAO.getAllRides();
+    }
 
+    public List<Hostalaria> getAllRestaurants(){
+        return restaurantDAO.getAllRestaurants();
+    }
 }

@@ -15,9 +15,9 @@ public class DJ {
     private LocalDate dataInicio;
     private LocalDate dataNacemento;
     private String formacion;
-    private SistemaDeAudio sistemaDeAudio;
+    private SistemaDeAudio sistema;
 
-    public DJ(String dni, String nome, String rua, Integer numero, Integer cp, String localidade, Float salario, String telefono, LocalDate dataInicio, LocalDate dataNacemento, String formacion, SistemaDeAudio sistemaDeAudio) {
+    public DJ(String dni, String nome, String rua, Integer numero, Integer cp, String localidade, Float salario, String telefono, LocalDate dataInicio, LocalDate dataNacemento, String formacion, SistemaDeAudio sistema) {
         if(dni!=null){
             this.dni = dni;
         }
@@ -51,8 +51,8 @@ public class DJ {
         if(formacion!=null){
             this.formacion = formacion;
         }
-        if(sistemaDeAudio!=null){
-            this.sistemaDeAudio = sistemaDeAudio;
+        if(sistema!=null){
+            this.sistema = sistema;
         }
     }
 
@@ -100,56 +100,80 @@ public class DJ {
         return formacion;
     }
 
-    public SistemaDeAudio getSistemaDeAudio() {
-        return sistemaDeAudio;
+    public SistemaDeAudio getSistema() {
+        return sistema;
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        if(dni!=null){
+            this.dni = dni;
+        }
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome!=null){
+            this.nome = nome;
+        }
     }
 
     public void setRua(String rua) {
-        this.rua = rua;
+        if(rua!=null){
+            this.rua = rua;
+        }
     }
 
     public void setNumero(Integer numero) {
-        this.numero = numero;
+        if(numero!=null){
+            this.numero = numero;
+        }
     }
 
     public void setCp(Integer cp) {
-        this.cp = cp;
+        if(cp!=null){
+            this.cp = cp;
+        }
     }
 
     public void setLocalidade(String localidade) {
-        this.localidade = localidade;
+        if(localidade!=null){
+            this.localidade = localidade;
+        }
     }
 
     public void setSalario(Float salario) {
-        this.salario = salario;
+        if(salario!=null){
+            this.salario = salario;
+        }
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        if(telefono!=null){
+            this.telefono = telefono;
+        }
     }
 
     public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
+        if(dataInicio!=null){
+            this.dataInicio = dataInicio;
+        }
     }
 
     public void setDataNacemento(LocalDate dataNacemento) {
-        this.dataNacemento = dataNacemento;
+        if(dataNacemento!=null){
+            this.dataNacemento = dataNacemento;
+        }
     }
 
     public void setFormacion(String formacion) {
-        this.formacion = formacion;
+        if(formacion!=null){
+            this.formacion = formacion;
+        }
     }
 
-    public void setSistemaDeAudio(SistemaDeAudio sistemaDeAudio) {
-        this.sistemaDeAudio = sistemaDeAudio;
+    public void setSistema(SistemaDeAudio sistema) {
+        if(sistema!=null){
+            this.sistema = sistema;
+        }
     }
 
     @Override
