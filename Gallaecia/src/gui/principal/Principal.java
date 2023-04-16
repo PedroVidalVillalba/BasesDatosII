@@ -24,7 +24,7 @@ public class Principal extends Application {
     public void start(Stage stage) throws Exception {
 
         //FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Principal.fxml"));
-        Parent content = FXMLLoader.load(getClass().getResource("Principal.fxml"));
+        Parent content = FXMLLoader.load(getClass().getResource("../principal/Principal.fxml"));
         Parent menu = FXMLLoader.load(getClass().getResource("../menu/Menu.fxml"));
 
         Parent root = new VBox(menu, content);
