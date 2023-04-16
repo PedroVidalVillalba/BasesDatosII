@@ -231,3 +231,16 @@ create table Users (
 	is_admin boolean,
     constraint user_exists check (check_person_exists(dni, nome))
 );
+
+
+
+create table ReservasHostalaria (
+    nombrePersona varchar(30),
+    hostalaria character varying(30),
+    horaInicio time,
+    horaFin time,
+    check (horaFin >= horaInicio),
+    PRIMARY KEY (nombrePersona, hostalaria),
+    constraint reservasfk1 foreign key (hostalaria) references public.hostalaria(nomeEstablecemento)
+ 	on update cascade on delete set null
+);
