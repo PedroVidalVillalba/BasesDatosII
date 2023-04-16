@@ -45,7 +45,10 @@ public class MenuController {
 		switchScene("../general/Rating.fxml");
 	}
 
-	public void switchToShow(ActionEvent event) throws IOException {
-		switchScene("../general/Show.fxml");
-	}
+    public void switchToShow(ActionEvent event) throws IOException {
+        switchScene("../general/Show.fxml");
+    }
+    public void switchToChat(ActionEvent event) throws IOException {
+        switchScene("../chatGPT/Chat.fxml");
+    }
 }

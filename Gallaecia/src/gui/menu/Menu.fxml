@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
-	<MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0">
-		<menus>
-			<Menu>
-				<graphic>
-					<Label text="Gallaecia" onMouseClicked="#switchToPrincipal"/>
-				</graphic>
-			</Menu>
-			<Menu mnemonicParsing="false" text="Ocio">
-				<items>
-					<MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
-					<MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
-					<MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
-				</items>
-			</Menu>
-			<Menu>
-				<graphic>
-					<Label text="Valóranos
-                                                               " onMouseClicked="#switchToRating"/>
-				</graphic>
-			</Menu>
+<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0">
+        <menus>
+            <Menu>
+                <graphic>
+                    <Label onMouseClicked="#switchToPrincipal" text="Gallaecia" />
+                </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Ocio">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
+                </items>
+            </Menu>
+            <Menu>
+                <graphic>
+                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" prefWidth="92.0" text="Valóranos                                                                " />
+                </graphic>
+            </Menu>
 
 
-			<Menu>
-				<graphic>
-					<Label text="Iniciar sesión" onMouseClicked="#switchToLogin"/>
-				</graphic>
-			</Menu>
-		</menus>
-	</MenuBar>
+            <Menu>
+                <graphic>
+                    <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" />
+                </graphic>
+            </Menu>
+         <Menu mnemonicParsing="false" text="+Info">
+           <items>
+             <MenuItem mnemonicParsing="false" onAction="#switchToChat" text="Informacion" />
+           </items>
+         </Menu>
+        </menus>
+    </MenuBar>
 </AnchorPane>
-
