@@ -228,5 +228,6 @@ create table Users (
     nome varchar(60),
     username varchar(60),
     password char(64),
+	is_admin boolean,
     constraint user_exists check (check_person_exists(dni, nome))
 );
