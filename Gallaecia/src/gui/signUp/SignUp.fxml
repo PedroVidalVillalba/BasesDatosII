@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.signUp.SignUpController">
+	<Text layoutX="36.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crea una cuenta ahora y disfruta de todas las ventajas." />
+
+	<Text layoutX="387.0" layoutY="115.0" text="Nueva cuenta" />
+	<TextField fx:id="userField" layoutX="347.0" layoutY="156.0" promptText="Usuario" />
+	<PasswordField fx:id="passwordField" layoutX="347.0" layoutY="197.0" promptText="Nueva contraseña" />
+	<PasswordField fx:id="passwordField1" layoutX="347.0" layoutY="237.0" promptText="Repite la contraseña" />
+
+	<Text layoutX="99.0" layoutY="111.0" text="Datos personales" />
+	<TextField fx:id="nameField" layoutX="70.0" layoutY="128.0" promptText="Nombre y apellidos" />
+	<TextField fx:id="dniField" layoutX="70.0" layoutY="158.0" promptText="DNI" />
+	<TextField fx:id="phoneField" layoutX="70.0" layoutY="188.0" promptText="Teléfono" />
+	<TextField fx:id="heightField" layoutX="70.0" layoutY="218.0" promptText="Altura (en centímetros)" />
+	<DatePicker fx:id="birthDatePicker" layoutX="70.0" layoutY="248.0" promptText="Fecha de nacimiento" />
+	<ComboBox fx:id="nationalityComboBox" layoutX="70.0" layoutY="278.0" prefWidth="150.0" promptText="Nacionalidad" />
+
+	<Button layoutX="254.0" layoutY="349.0" mnemonicParsing="false" onAction="#signUp" text="Registrarse" />
+</AnchorPane>

@@ -15,57 +15,57 @@ import java.util.List;
  */
 public class RideDAO extends AbstractDAO{
 
-    public RideDAO (Connection conexion){
-        super.setConexion(conexion);
-    }
+	public RideDAO (Connection conexion){
+		super.setConexion(conexion);
+	}
 
-    /**
-     * Método para obtener todas las atracciones.
-     * @return
-     * @throws SQLException
-     */
-    public java.util.List<Atraccion> getAllRides(){
+	/**
+	 * Método para obtener todas las atracciones.
+	 * @return
+	 * @throws SQLException
+	 */
+	public java.util.List<Atraccion> getAllRides(){
 
-        java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
-        Atraccion atraccionactual;
-        Connection con;
+		java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
+		Atraccion atraccionactual;
+		Connection con;
 
-        PreparedStatement stm = null;
-        ResultSet rs;
+		PreparedStatement stm = null;
+		ResultSet rs;
 
-        con = this.getConexion();
+		con = this.getConexion();
 
-        String consulta = "SELECT a.nome, a.aforo, a.alturamin, a.customantemento, a.descricion, " +
-                          "z.nome as nomezona, z.extension, z.coordenadax, z.coordenaday " +
-                          "FROM atraccions a " +
-                          "JOIN zonas z ON a.zona = z.nome";
+		String consulta = "SELECT a.nome, a.aforo, a.alturamin, a.customantemento, a.descricion, " +
+				"z.nome as nomezona, z.extension, z.coordenadax, z.coordenaday " +
+				"FROM atraccions a " +
+				"JOIN zonas z ON a.zona = z.nome";
 
-        try{
+		try{
 
-            stm = con.prepareStatement(consulta);
-            rs = stm.executeQuery();
+			stm = con.prepareStatement(consulta);
+			rs = stm.executeQuery();
 
-            while (rs.next()){
-                atraccionactual = new Atraccion(
-                        rs.getString("nome"),
-                        rs.getInt("aforo"),
-                        rs.getInt("alturamin"),
-                        rs.getFloat("customantemento"),
-                        rs.getString("descricion"),
-                        new Zona(
-                                rs.getString("nomezona"),
-                                rs.getFloat("extension"),
-                                rs.getFloat("coordenadax"),
-                                rs.getFloat("coordenaday")
-                        )
-                );
-                resultado.add(atraccionactual);
-            }
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
+			while (rs.next()){
+				atraccionactual = new Atraccion(
+						rs.getString("nome"),
+						rs.getInt("aforo"),
+						rs.getInt("alturamin"),
+						rs.getFloat("customantemento"),
+						rs.getString("descricion"),
+						new Zona(
+								rs.getString("nomezona"),
+								rs.getFloat("extension"),
+								rs.getFloat("coordenadax"),
+								rs.getFloat("coordenaday")
+						)
+				);
+				resultado.add(atraccionactual);
+			}
+		} catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
 
-        return resultado;
+		return resultado;
 
-    }
+	}
 }
