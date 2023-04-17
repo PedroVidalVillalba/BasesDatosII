@@ -1,0 +1,4 @@
+#menuIniciarSesion .menu, .menu-item, .context-menu {
+    -fx-background-color: beige;
+}
+
