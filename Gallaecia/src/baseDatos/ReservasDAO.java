@@ -24,8 +24,7 @@ public class ReservasDAO extends AbstractDAO{
 
         con = this.getConexion();
 
-        String consulta = "SELECT a.nombrePersona, a.hostalaria, a.horaInicio, a.horaFin, a.fecha"+
-                "FROM reservashostalaria a ";
+        String consulta = "SELECT * FROM reservashostalaria a ";
 
         try{
 
@@ -47,5 +46,9 @@ public class ReservasDAO extends AbstractDAO{
         }
 
         return resultado;
+    }
+
+    public Connection getConnection() {
+        return this.getConexion();
     }
 }

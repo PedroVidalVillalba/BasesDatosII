@@ -10,8 +10,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Reserva;
 
+import javafx.collections.FXCollections;
+
+
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class gestReservaController implements Initializable {
@@ -30,6 +35,9 @@ public class gestReservaController implements Initializable {
     private TableColumn<Reserva, String> horaFinColumn;
 
     private ReservasDAO reservasDAO;
+    private Connection connection;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,9 +47,20 @@ public class gestReservaController implements Initializable {
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("Hora inicio"));
         horaFinColumn.setCellValueFactory(new PropertyValueFactory<>("Hora fin"));
 
-        tablaReservas.setPlaceholder(new Label());  // Dejar vacío el texto por defecto cuando la tabla no tiene elementos
-        tablaReservas.setItems((ObservableList<Reserva>) reservasDAO.getAllReservas());
+        //tablaReservas.setPlaceholder(new Label());  // Dejar vacío el texto por defecto cuando la tabla no tiene elementos
+        connection= reservasDAO.getConnection();
+        reservasDAO = new ReservasDAO(connection);
+        List<Reserva> reservas = reservasDAO.getAllReservas();
+        ObservableList<Reserva> listaReservas = FXCollections.observableArrayList(reservas);
+        tablaReservas.setItems(listaReservas);
+
+
+        /*reservasDAO = new ReservasDAO(connection);
+        List<Reserva> reservas = reservasDAO.getAllReservas();
+        ObservableList<Reserva> listaReservas = FXCollections.observableArrayList(reservas);
+        tablaReservas.setItems(listaReservas);*/
     }
+
 
 
 
