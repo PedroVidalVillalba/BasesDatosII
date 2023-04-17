@@ -94,5 +94,9 @@ public class RestaurantController implements Initializable {
 		switchScene("../reserva/Reserva.fxml");
 	}
 
+	public void switchToEliminarReserva(ActionEvent event) throws IOException {
+		switchScene("../gestionReserva/gestionReserva.fxml");
+	}
+
 
 }
