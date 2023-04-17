@@ -16,6 +16,7 @@ public class DataBase {
 	private RideDAO rideDAO;
 	private RestaurantDAO restaurantDAO;
 	private UserDAO userDAO;
+	private ReservasDAO reservasDAO;
 	private UserType userType;
 	private User user;
 
@@ -115,6 +116,10 @@ public class DataBase {
 
 	public List<Hostalaria> getAllRestaurants(){
 		return restaurantDAO.getAllRestaurants();
+	}
+
+	public List<Reserva> getAllReservas() {
+		return reservasDAO.getAllReservas();
 	}
 
 	public void insertarReserva(Reserva reserva) throws SQLException{

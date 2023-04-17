@@ -33,10 +33,10 @@
                     <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" />
                 </graphic>
             </Menu>
-         <Menu mnemonicParsing="false" text="+Info">
-           <items>
-             <MenuItem mnemonicParsing="false" onAction="#switchToChat" text="Informacion" />
-           </items>
+         <Menu>
+             <graphic>
+                 <Label onMouseClicked="#switchToChat" text="ChatGPT" />
+             </graphic>
          </Menu>
         </menus>
     </MenuBar>
