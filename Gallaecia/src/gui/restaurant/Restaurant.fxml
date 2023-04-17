@@ -7,7 +7,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
 	<children>
 		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="200.0" prefWidth="224.0" />
-		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="147.0" prefHeight="200.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
+		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="119.0" prefHeight="184.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
 			<font>
 				<Font size="16.0" />
 			</font>
@@ -18,5 +18,6 @@
 			</font>
 		</Label>
 		<Text layoutX="76.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pincha para ver informacion" textAlignment="CENTER" wrappingWidth="189.31396484375" />
+      <Button layoutX="363.0" layoutY="312.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
 	</children>
 </AnchorPane>

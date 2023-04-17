@@ -237,10 +237,11 @@ create table Users (
 create table ReservasHostalaria (
     nombrePersona varchar(30),
     hostalaria character varying(30),
-    horaInicio time,
-    horaFin time,
+    horaInicio varchar(10),
+    horaFin varchar(10),
+    fecha date,
     check (horaFin >= horaInicio),
-    PRIMARY KEY (nombrePersona, hostalaria),
+    PRIMARY KEY (nombrePersona, hostalaria, fecha, horaInicio),
     constraint reservasfk1 foreign key (hostalaria) references public.hostalaria(nomeEstablecemento)
  	on update cascade on delete set null
 );

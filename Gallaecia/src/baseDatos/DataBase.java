@@ -1,9 +1,6 @@
 package baseDatos;
 
-import modelo.Atraccion;
-import modelo.Hostalaria;
-import modelo.User;
-import modelo.Visitante;
+import modelo.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -118,5 +115,9 @@ public class DataBase {
 
 	public List<Hostalaria> getAllRestaurants(){
 		return restaurantDAO.getAllRestaurants();
+	}
+
+	public void insertarReserva(Reserva reserva) throws SQLException{
+		restaurantDAO.insertarReserva(reserva);
 	}
 }

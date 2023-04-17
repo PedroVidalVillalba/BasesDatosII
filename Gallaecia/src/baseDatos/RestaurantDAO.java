@@ -2,6 +2,7 @@ package baseDatos;
 
 import modelo.Zona;
 import modelo.Hostalaria;
+import modelo.Reserva;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -65,6 +66,20 @@ public class RestaurantDAO extends AbstractDAO{
 		}
 
 		return resultado;
+
+	}
+
+	public void insertarReserva(Reserva reserva) throws SQLException{
+		Connection con = this.getConexion();
+		PreparedStatement stmLibro=null;
+			stmLibro=con.prepareStatement("insert into reservashostalaria values (?,?,?,?,?)");
+			stmLibro.setString(1, reserva.getNombre());
+			stmLibro.setString(2, reserva.getHostalaria());
+			stmLibro.setString(3, reserva.getHoraInicio());
+			stmLibro.setString(4, reserva.getHoraFin());
+			stmLibro.setDate(5,reserva.getFecha());
+			stmLibro.executeUpdate();
+
 
 	}
 }
