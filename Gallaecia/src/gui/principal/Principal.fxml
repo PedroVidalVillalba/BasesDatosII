@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.SceneController" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.SceneController">
+   <children>
+      <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="600.0" />
+      <AnchorPane layoutX="103.0" layoutY="147.0" prefHeight="106.0" prefWidth="394.0" style="-fx-background-color: lightgreen;">
+         <children>
+            <Text layoutX="8.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;La vida es como una montaña rusa, llena de altos y bajos, giros y vueltas, y momentos emocionantes que nunca olvidaremos&quot; -Dolly Parton" textAlignment="CENTER" wrappingWidth="377.5498046875">
+               <font>
+                  <Font name="CMU Bright SemiBoldOblique" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
