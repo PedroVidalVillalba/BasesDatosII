@@ -2,17 +2,19 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController">
 	<children>
+      <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" opacity="0.17" />
 		<PasswordField fx:id="passwordField" layoutX="262.0" layoutY="176.0" />
 		<Text layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
 		<TextField fx:id="usernameField" layoutX="262.0" layoutY="132.0" />
 		<Text layoutX="198.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
 		<Button fx:id="loginButton" layoutX="248.0" layoutY="267.0" mnemonicParsing="false" onAction="#login" text="Iniciar sesión" />
 		<Button fx:id="signUpButton" layoutX="309.0" layoutY="334.0" mnemonicParsing="false" onAction="#signUp" text="Regístrate" />
-		<Text fx:id="resultText" layoutX="248.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fallo en el inicio de sesión" fill="red" visible="false" />
+		<Text fx:id="resultText" fill="red" layoutX="248.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fallo en el inicio de sesión" visible="false" />
 		<Text layoutX="173.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta?" />
 		<Text layoutX="36.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce tus credenciales para acceder a tu información." />
 	</children>

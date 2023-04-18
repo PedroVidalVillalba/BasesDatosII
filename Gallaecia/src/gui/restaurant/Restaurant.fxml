@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
 	<children>
+      <ImageView fx:id="imageView" fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../principal/restaurante.jpg" />
+         </image></ImageView>
 		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="200.0" prefWidth="224.0" />
 		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
 			<font>

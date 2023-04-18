@@ -1,4 +1,17 @@
 #menuIniciarSesion .menu, .menu-item, .context-menu {
-    -fx-background-color: beige;
+    -fx-background-color: #A4DDED;
+    -fx-font-family:'serif';
+    -fx-font-size: 15px;
 }
+
+.button{
+    -fx-font-family:'serif';
+    -fx-font-size: 14px;
+}
+
+.label{
+    -fx-font-family:'serif';
+    -fx-font-size: 14px;
+}
+
 

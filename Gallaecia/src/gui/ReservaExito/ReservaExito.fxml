@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaExito.ReservaExitoController">
+   <children>
+      <Text fx:id="myLabel" layoutX="182.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La reserva se ha realizado con éxito" />
+      <Button layoutX="269.0" layoutY="278.0" mnemonicParsing="false" onAction="#switchToRestaurant" text="Volver" />
+   </children>
+</AnchorPane>

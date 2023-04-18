@@ -5,18 +5,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="7.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
-    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: ivory; -fx-border-style: none none solid none;">
+<AnchorPane prefHeight="7.0" prefWidth="600.0" style="-fx-background-color: #B0C4DE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #B0C4DE; -fx-border-style: none none solid none;">
         <menus>
             <Menu>
                 <graphic>
                     <Label onMouseClicked="#switchToPrincipal" text="Gallaecia">
-                  <font>
-                     <Font name="DejaVu Serif Condensed Bold" size="13.0" />
-                  </font></Label>
+                  </Label>
                 </graphic>
             </Menu>
-            <Menu mnemonicParsing="false" text="Ocio">
+            <Menu mnemonicParsing="false" text="Ocio" styleClass="label">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
                     <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
@@ -25,7 +23,8 @@
             </Menu>
             <Menu>
                 <graphic>
-                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos" />
+                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos">
+                  </Label>
                 </graphic>
             </Menu>
             <Menu>
@@ -36,14 +35,14 @@
 
             <Menu>
                 <graphic>
-                    <Label text="                                    " />
+                    <Label text="                              " />
                 </graphic>
             </Menu>
 
             <Menu fx:id="menuIniciarSesion">
                 <graphic>
-                    <Label onMouseClicked="#switchToLogin" style="-fx-border-style: solid solid solid solid;" styleClass="menu-item" text="Iniciar sesión" textOverrun="CLIP">
-                    </Label>
+                    <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" >
+                  </Label>
                 </graphic>
 
             </Menu>

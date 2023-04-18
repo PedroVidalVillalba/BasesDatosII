@@ -71,7 +71,7 @@ public class ReservaController implements Initializable {
             Reserva reserva = new Reserva(nombre, restaurant, horaInicio, horaFin, date2);
             try {
                 DataBase.getCurrentDB().insertarReserva(reserva);
-                switchScene("../reserva/ReservaExito.fxml");
+                switchScene("../ReservaExito/ReservaExito.fxml");
             } catch (SQLException e){
                 errorText.setVisible(true);
             }

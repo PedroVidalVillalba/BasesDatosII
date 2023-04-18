@@ -20,11 +20,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import modelo.Hostalaria;
 import modelo.Reserva;
+
+import javax.swing.text.html.ImageView;
 
 public class RestaurantController implements Initializable {
 
