@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
 	<children>
-      <ImageView fx:id="imageView" fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../principal/restaurante.jpg" />
          </image></ImageView>
