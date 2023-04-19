@@ -27,11 +27,11 @@ public class DataBase {
 		try {
 			switch (userType) {
 				case Admin:
-					configurationFile = new FileInputStream("DataBaseGuest.properties");
+					configurationFile = new FileInputStream("properties/DataBaseAdmin.properties");
 					break;
 				case Guest:
 				default:
-					configurationFile = new FileInputStream("DataBaseAdmin.properties");
+					configurationFile = new FileInputStream("properties/DataBaseAdmin.properties");
 					break;
 			}
 
@@ -102,8 +102,8 @@ public class DataBase {
 		this.userType = UserType.Guest;
 	}
 
-	public void signUp(Visitante visitante, User user) {
-		userDAO.signUp(visitante, user);
+	public boolean signUp(Visitante visitante, User user) {
+		return userDAO.signUp(visitante, user);
 	}
 
 	/**

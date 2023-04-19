@@ -20,5 +20,7 @@
 	<DatePicker fx:id="birthDatePicker" layoutX="70.0" layoutY="248.0" promptText="Fecha de nacimiento" />
 	<ComboBox fx:id="nationalityComboBox" layoutX="70.0" layoutY="278.0" prefWidth="150.0" promptText="Nacionalidad" />
 
-	<Button layoutX="254.0" layoutY="349.0" mnemonicParsing="false" onAction="#signUp" text="Registrarse" />
+	<Text fx:id="errorText" fill="red" layoutX="200.0" layoutY="322.0" visible="false"/>
+
+	<Button layoutX="254.0" layoutY="348.0" mnemonicParsing="false" onAction="#signUp" text="Registrarse" />
 </AnchorPane>

@@ -4,15 +4,13 @@ import baseDatos.Password;
 import baseDatos.UserType;
 
 public class User {
-	private Integer id;
 	private String dni;
 	private String nome;
 	private String username;
 	private Password password;
 	private UserType userType;
 
-	public User(Integer id, String dni, String nome, String username, String pass, boolean isAdmin) {
-		this.id = id;
+	public User(String dni, String nome, String username, String pass, boolean isAdmin) {
 		this.dni = dni;
 		this.nome = nome;
 		this.username = username;

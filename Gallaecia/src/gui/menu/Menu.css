@@ -1,7 +1,16 @@
-#menuIniciarSesion .menu, .menu-item, .context-menu {
+.root {
+    -fx-background-color: #A4DDED;
+    -fx-font-family: 'serif';
+}
+
+.menu-bar {
     -fx-background-color: #A4DDED;
     -fx-font-family:'serif';
     -fx-font-size: 15px;
+}
+
+#loginMenu {
+    -fx-alignment: CENTER_RIGHT;
 }
 
 .button{

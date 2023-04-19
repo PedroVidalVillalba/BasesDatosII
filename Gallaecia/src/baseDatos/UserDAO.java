@@ -15,19 +15,21 @@ public class UserDAO extends AbstractDAO {
 	public User login(String username, String password) {
 		List<User> result = new ArrayList<>();
 		User user = null;
-		Connection connection = this.getConexion();;
+		Connection connection = this.getConexion();
 
-		String query =  "select id_user, dni, nome, username, password, is_admin " +
+		String query =  "select dni, nome, username, password, is_admin " +
 				"from Users " +
-				"where username = '" + username +"' " +
-				"  and password = '" + new Password(username, password) + "'";
+				"where username = ? " +
+				"  and password = ?;";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, username);
+			preparedStatement.setString(2, new Password(username, password).toString());
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
-				user = new User(resultSet.getInt("id_user"),
+				user = new User(
 						resultSet.getString("dni"),
 						resultSet.getString("nome"),
 						resultSet.getString("username"),
@@ -46,7 +48,8 @@ public class UserDAO extends AbstractDAO {
 		return user;
 	}
 
-	public void signUp(Visitante visitante, User user) {
+	public boolean signUp(Visitante visitante, User user) {
+		boolean success;
 		Connection connection = this.getConexion();
 
 		String query =
@@ -61,7 +64,7 @@ public class UserDAO extends AbstractDAO {
 			preparedStatement.setString(2, visitante.getNome());
 			preparedStatement.setString(3, visitante.getNacionalidade());
 			preparedStatement.setString(4, visitante.getTelefono());
-			preparedStatement.setDate(5, Date.valueOf(visitante.getDataNacemento()));
+			preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : Date.valueOf(visitante.getDataNacemento())));
 			preparedStatement.setInt(6, visitante.getAltura());
 			// preparedStatement.setString(7, visitante.getMedio().toString()); // No implementado aún. Cuando se haga hay que cambiar la numeración de las siguientes
 			preparedStatement.setString(7, user.getDni());
@@ -71,8 +74,22 @@ public class UserDAO extends AbstractDAO {
 			preparedStatement.setBoolean(11, user.isAdmin());
 			preparedStatement.executeUpdate();
 			connection.commit();
+			success = true;
 		} catch (SQLException exception) {
-			System.err.println(exception.getMessage());
+			try {
+				connection.rollback();
+			} catch (SQLException exception1) {
+				System.err.println(exception1.getMessage());
+			}
+			success = false;
+		} finally {
+			try {
+				connection.setAutoCommit(true);
+			} catch (SQLException exception) {
+				System.err.println(exception.getMessage());
+			}
 		}
+
+		return success;
 	}
 }
