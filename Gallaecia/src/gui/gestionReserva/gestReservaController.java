@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -35,9 +36,7 @@ public class gestReservaController implements Initializable {
     @FXML
     private TableColumn<Reserva, Date> fechaColumn;
     @FXML
-    private TableColumn<Reserva, String> horaInicioColumn;
-    @FXML
-    private TableColumn<Reserva, String> horaFinColumn;
+    private TableColumn<Reserva, Time> horaInicioColumn;
 
 
 
@@ -47,9 +46,13 @@ public class gestReservaController implements Initializable {
         hostalariaColumn.setCellValueFactory(new PropertyValueFactory<>("hostalaria"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
-        horaFinColumn.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
 
         List<Reserva> reservas = DataBase.getCurrentDB().getAllReservas();
+        for (Reserva r : reservas) {
+            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getUsername())) {
+                reservas.remove(r);
+            }
+        }
         ObservableList<Reserva> listaReservas = FXCollections.observableArrayList(reservas);
 
         tablaReservas.setItems(listaReservas);
