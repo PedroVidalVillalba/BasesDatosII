@@ -17,7 +17,6 @@ public class Principal extends Application {
 	public Principal() {}
 
 	public Principal(String[] args) {
-		new DataBase(UserType.Guest);
 		launch(args);
 	}
 	@Override

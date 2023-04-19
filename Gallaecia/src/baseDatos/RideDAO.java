@@ -14,7 +14,7 @@ import java.util.List;
  * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
  */
 public class RideDAO extends AbstractDAO{
-
+	public RideDAO() {}
 	public RideDAO (Connection conexion){
 		super.setConexion(conexion);
 	}

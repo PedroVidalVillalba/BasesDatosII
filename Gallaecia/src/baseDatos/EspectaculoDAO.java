@@ -16,6 +16,7 @@ import java.util.List;
 
 public class EspectaculoDAO extends AbstractDAO{
 
+    public EspectaculoDAO() {}
     public EspectaculoDAO (Connection conexion){
         super.setConexion(conexion);
     }

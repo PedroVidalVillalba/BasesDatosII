@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ReservasDAO extends AbstractDAO{
+    public ReservasDAO() {}
     public ReservasDAO (Connection conexion){
         super.setConexion(conexion);
     }

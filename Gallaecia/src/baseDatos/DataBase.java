@@ -7,9 +7,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Clase fachada para interactuar con la base de datos.
+ * Sigue el patrón singleton
+ */
 public class DataBase {
 	private static DataBase currentDB;
 	private Connection connection;
@@ -18,10 +23,30 @@ public class DataBase {
 	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasDAO reservasDAO;
+	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
 
-	public DataBase(UserType userType) {
+	private DataBase(UserType userType) {
+		this.DAOList = new ArrayList<>();
+
+		/* Inicializar los DAOs */
+		this.userDAO = new UserDAO();
+		this.DAOList.add(userDAO);
+		this.rideDAO = new RideDAO();
+		this.DAOList.add(userDAO);
+		this.restaurantDAO = new RestaurantDAO();
+		this.DAOList.add(userDAO);
+		this.espectaculoDAO = new EspectaculoDAO();
+		this.DAOList.add(userDAO);
+		this.reservasDAO = new ReservasDAO();
+		this.DAOList.add(reservasDAO);
+
+		/* Establecer la conexión */
+		this.establishConnection(UserType.Guest);
+	}
+
+	public void establishConnection(UserType userType) {
 		Properties configuration = new Properties();
 		FileInputStream configurationFile;
 
@@ -48,18 +73,18 @@ public class DataBase {
 			user.setProperty("user", configuration.getProperty("user"));
 			user.setProperty("password", configuration.getProperty("password"));
 
+			if (this.connection != null) {
+				DataBase.closeCurrentDB();
+			}
 			this.connection = DriverManager.getConnection("jdbc:" + manager + "://" +
 							configuration.getProperty("server") + ":" +
 							configuration.getProperty("port") + "/" +
 							configuration.getProperty("dataBase"),
 					user);
 
-			this.userDAO = new UserDAO(this.connection);
-			this.rideDAO = new RideDAO(this.connection);
-			this.restaurantDAO = new RestaurantDAO(this.connection);
-			this.espectaculoDAO = new EspectaculoDAO(this.connection);
-
-			DataBase.currentDB = this;
+			for (AbstractDAO dao : this.DAOList) {
+				dao.setConexion(this.connection);
+			}
 
 		} catch(IOException | SQLException exception) {
 			System.err.println(exception.getMessage());
@@ -67,12 +92,17 @@ public class DataBase {
 	}
 
 	public static DataBase getCurrentDB() {
+		if (DataBase.currentDB == null) {
+			DataBase.currentDB = new DataBase(UserType.Guest);
+		}
 		return DataBase.currentDB;
 	}
 
 	public static void closeCurrentDB() {
 		try {
-			currentDB.connection.close();
+			if (currentDB != null && currentDB.connection != null) {
+				currentDB.connection.close();
+			}
 		} catch (SQLException exception) {
 			System.err.println(exception.getMessage());
 		}
@@ -93,7 +123,7 @@ public class DataBase {
 		}
 		else if (user.getUserType() != this.userType) {
 			DataBase.closeCurrentDB();
-			new DataBase(user.getUserType());
+			this.establishConnection(user.getUserType());
 		}
 		return true;
 	}

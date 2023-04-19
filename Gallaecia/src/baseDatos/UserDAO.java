@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends AbstractDAO {
+	public UserDAO() {}
 	public UserDAO(Connection connection) {
 		super.setConexion(connection);
 	}
