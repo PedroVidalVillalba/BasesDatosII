@@ -56,6 +56,7 @@ public class DataBase {
 			this.userDAO = new UserDAO(this.connection);
 			this.rideDAO = new RideDAO(this.connection);
 			this.restaurantDAO = new RestaurantDAO(this.connection);
+			this.reservasDAO = new ReservasDAO(this.connection);
 
 			DataBase.currentDB = this;
 
@@ -124,5 +125,9 @@ public class DataBase {
 
 	public void insertarReserva(Reserva reserva) throws SQLException{
 		restaurantDAO.insertarReserva(reserva);
+	}
+
+	public void borrarReserva(Reserva reserva) {
+		reservasDAO.borrarReserva(reserva);
 	}
 }

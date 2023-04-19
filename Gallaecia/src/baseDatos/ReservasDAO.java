@@ -1,5 +1,6 @@
 package baseDatos;
 
+import javafx.collections.ObservableList;
 import modelo.Hostalaria;
 import modelo.Reserva;
 import modelo.Zona;
@@ -51,4 +52,26 @@ public class ReservasDAO extends AbstractDAO{
     public Connection getConnection() {
         return this.getConexion();
     }
+
+    public void borrarReserva(Reserva reserva){
+        Connection con;
+        PreparedStatement stmLibro=null;
+
+        con=super.getConexion();
+
+        try {
+            stmLibro=con.prepareStatement("delete from reservashostalaria where nombrePersona = ? AND hostalaria = ? AND fecha = ? AND horaInicio = ?;");
+            stmLibro.setString(1, reserva.getNombre());
+            stmLibro.setString(2, reserva.getHostalaria());
+            stmLibro.setDate(3, reserva.getFecha());
+            stmLibro.setString(4, reserva.getHoraInicio());
+            stmLibro.executeUpdate();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        } finally {
+            try {stmLibro.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
+
 }

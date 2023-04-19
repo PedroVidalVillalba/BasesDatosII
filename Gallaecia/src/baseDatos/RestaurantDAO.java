@@ -1,5 +1,6 @@
 package baseDatos;
 
+import javafx.collections.ObservableList;
 import modelo.Zona;
 import modelo.Hostalaria;
 import modelo.Reserva;

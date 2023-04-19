@@ -19,6 +19,6 @@
          </columnResizePolicy>
       </TableView>
       <Text layoutX="23.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para completar o eliminar una reserva, elija la fila correspondiente y pulse el boton" wrappingWidth="337.587890625" />
-      <Button layoutX="508.0" layoutY="38.0" mnemonicParsing="false" text="Eliminar" />
+      <Button layoutX="508.0" layoutY="38.0" mnemonicParsing="false" onAction="#eliminarReserva" text="Eliminar" />
    </children>
 </AnchorPane>
