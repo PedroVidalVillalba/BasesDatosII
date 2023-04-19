@@ -68,4 +68,66 @@ public class RideDAO extends AbstractDAO{
 		return resultado;
 
 	}
+
+	public void insertRide(Atraccion atraccion) throws SQLException {
+
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "INSERT INTO atracciones (nome, aforo, alturamin, customantemento, descricion, zona) VALUES (?, ?, ?, ?, ?, ?)";
+
+		try {
+
+			stm = con.prepareStatement(consulta);
+			stm.setString(1, atraccion.getNome());
+			stm.setInt(2, atraccion.getAforo());
+			stm.setInt(3, atraccion.getAlturaMin());
+			stm.setFloat(4, atraccion.getCustoMantemento());
+			stm.setString(5, atraccion.getDescricion());
+			stm.setString(6, atraccion.getZona().getNome());
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void updateRide(Atraccion atraccion) throws SQLException {
+
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "UPDATE atracciones SET aforo = ?, alturamin = ?, customantemento = ?, descricion = ?, zona = ? WHERE nome = ?";
+
+		try {
+
+			stm = con.prepareStatement(consulta);
+			stm.setInt(1, atraccion.getAforo());
+			stm.setInt(2, atraccion.getAlturaMin());
+			stm.setFloat(3, atraccion.getCustoMantemento());
+			stm.setString(4, atraccion.getDescricion());
+			stm.setString(5, atraccion.getZona().getNome());
+			stm.setString(6, atraccion.getNome());
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void deleteRide(String nombre) throws SQLException {
+
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "DELETE FROM atracciones WHERE nome = ?";
+
+		try {
+
+			stm = con.prepareStatement(consulta);
+			stm.setString(1, nombre);
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }
