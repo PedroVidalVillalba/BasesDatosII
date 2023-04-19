@@ -31,8 +31,8 @@ public class Principal extends Application {
 
 		Scene scene = new Scene(root);  //Necesita un nodo (hay muchos tipos)
 
-		// String css = this.getClass().getResource("Principal.css").toExternalForm();
-		// scene.getStylesheets().add(css);
+		// Cerrar la conexión al salir
+		stage.setOnCloseRequest(event -> {DataBase.closeCurrentDB(); System.exit(0);});
 
 		stage.setScene(scene);//Seteamos la escena jjj
 		stage.setTitle("Gallaecia");

@@ -1,17 +1,18 @@
 package modelo;
 
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 
 public class Espectaculo {
 	private String nome;
-	private LocalTime horaInicio;
-	private LocalTime horaFin;
+	private Time horaInicio;
+	private Time horaFin;
 	private String tematica;
 	private String descricion;
 	private Zona zona;
 
-	public Espectaculo(String nome, LocalTime horaInicio, LocalTime horaFin, String tematica, String descricion, Zona zona) {
+	public Espectaculo(String nome, Time horaInicio, Time horaFin, String tematica, String descricion, Zona zona) {
 		if(nome!=null){
 			this.nome = nome;
 		}
@@ -36,11 +37,11 @@ public class Espectaculo {
 		return nome;
 	}
 
-	public LocalTime getHoraInicio() {
+	public Time getHoraInicio() {
 		return horaInicio;
 	}
 
-	public LocalTime getHoraFin() {
+	public Time getHoraFin() {
 		return horaFin;
 	}
 
@@ -62,13 +63,13 @@ public class Espectaculo {
 		}
 	}
 
-	public void setHoraInicio(LocalTime horaInicio) {
+	public void setHoraInicio(Time horaInicio) {
 		if(horaInicio!=null){
 			this.horaInicio = horaInicio;
 		}
 	}
 
-	public void setHoraFin(LocalTime horaFin) {
+	public void setHoraFin(Time horaFin) {
 		if(horaFin!=null){
 			this.horaFin = horaFin;
 		}

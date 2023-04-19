@@ -5,26 +5,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="7.0" prefWidth="600.0" style="-fx-background-color: #B0C4DE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
-    <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #B0C4DE; -fx-border-style: none none solid none;">
-        <menus>
+<AnchorPane prefHeight="7.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar fx:id="menuBar" prefHeight="27.0" prefWidth="600.0">
             <Menu>
                 <graphic>
-                    <Label onMouseClicked="#switchToPrincipal" text="Gallaecia">
-                  </Label>
+                    <Label onMouseClicked="#switchToPrincipal" text="Gallaecia" />
                 </graphic>
             </Menu>
-            <Menu mnemonicParsing="false" text="Ocio" styleClass="label">
+            <Menu mnemonicParsing="false" text="Ocio">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
                     <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
-                    <MenuItem mnemonicParsing="false" onAction="#switchToShow" text="Espectaculos" />
+                    <MenuItem mnemonicParsing="false" onAction="#switchToEspectaculo" text="Espectaculos" />
                 </items>
             </Menu>
             <Menu>
                 <graphic>
-                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos">
-                  </Label>
+                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos" />
                 </graphic>
             </Menu>
             <Menu>
@@ -33,22 +30,19 @@
                 </graphic>
             </Menu>
 
-            <Menu>
+            <Menu visible="false">
                 <graphic>
-                    <Label text="                              " />
+                    <Label  text="Administrar" />
                 </graphic>
             </Menu>
 
-            <Menu fx:id="menuIniciarSesion">
+            <Menu fx:id="loginMenu">
                 <graphic>
-                    <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" >
-                  </Label>
+                    <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" />
                 </graphic>
-
             </Menu>
-        </menus>
     </MenuBar>
     <stylesheets>
-        <URL value="@menu.css" /> <!-- Ruta al archivo CSS -->
+        <URL value="@Menu.css" /> <!-- Ruta al archivo CSS -->
     </stylesheets>
 </AnchorPane>

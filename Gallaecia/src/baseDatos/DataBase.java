@@ -15,6 +15,7 @@ public class DataBase {
 	private Connection connection;
 	private RideDAO rideDAO;
 	private RestaurantDAO restaurantDAO;
+	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasDAO reservasDAO;
 	private UserType userType;
@@ -27,11 +28,11 @@ public class DataBase {
 		try {
 			switch (userType) {
 				case Admin:
-					configurationFile = new FileInputStream("DataBaseGuest.properties");
+					configurationFile = new FileInputStream("properties/DataBaseAdmin.properties");
 					break;
 				case Guest:
 				default:
-					configurationFile = new FileInputStream("DataBaseAdmin.properties");
+					configurationFile = new FileInputStream("properties/DataBaseAdmin.properties");
 					break;
 			}
 
@@ -56,7 +57,7 @@ public class DataBase {
 			this.userDAO = new UserDAO(this.connection);
 			this.rideDAO = new RideDAO(this.connection);
 			this.restaurantDAO = new RestaurantDAO(this.connection);
-			this.reservasDAO = new ReservasDAO(this.connection);
+			this.espectaculoDAO = new EspectaculoDAO(this.connection);
 
 			DataBase.currentDB = this;
 
@@ -103,8 +104,8 @@ public class DataBase {
 		this.userType = UserType.Guest;
 	}
 
-	public void signUp(Visitante visitante, User user) {
-		userDAO.signUp(visitante, user);
+	public boolean signUp(Visitante visitante, User user) {
+		return userDAO.signUp(visitante, user);
 	}
 
 	/**
@@ -117,6 +118,10 @@ public class DataBase {
 
 	public List<Hostalaria> getAllRestaurants(){
 		return restaurantDAO.getAllRestaurants();
+	}
+
+	public List<Espectaculo> getAllEspectaculos(){
+		return espectaculoDAO.getAllEspectaculos();
 	}
 
 	public List<Reserva> getAllReservas() {

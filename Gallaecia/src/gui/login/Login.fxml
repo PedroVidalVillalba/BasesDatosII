@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController">
 	<children>
-      <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" opacity="0.17" />
+<!--      <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" opacity="0.17" />-->
 		<PasswordField fx:id="passwordField" layoutX="262.0" layoutY="176.0" />
 		<Text layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
 		<TextField fx:id="usernameField" layoutX="262.0" layoutY="132.0" />

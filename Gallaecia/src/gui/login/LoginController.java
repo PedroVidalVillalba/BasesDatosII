@@ -52,11 +52,11 @@ public class LoginController implements Initializable {
 			greetingsText.setText("Bienvenido " + user.getNome() + ".\nPuede cerrar sesión en cualquier momento pulsando el botón de abajo.");
 		}
 
-		File file = new File("src/gui/principal/carrusel.mp4");
-		media = new Media(file.toURI().toString());
-		mediaPlayer = new MediaPlayer(media);
-		mediaView.setMediaPlayer(mediaPlayer);
-		mediaPlayer.play();
+//		File file = new File("src/gui/principal/carrusel.mp4");
+//		media = new Media(file.toURI().toString());
+//		mediaPlayer = new MediaPlayer(media);
+//		mediaView.setMediaPlayer(mediaPlayer);
+//		mediaPlayer.play();
 	}
 
 	private void switchScene(String FXMLFileName) {

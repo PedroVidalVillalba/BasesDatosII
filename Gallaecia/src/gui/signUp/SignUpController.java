@@ -1,6 +1,7 @@
 package gui.signUp;
 
 import baseDatos.DataBase;
+import gui.menu.MenuController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import modelo.User;
 import modelo.Visitante;
 
@@ -39,6 +41,8 @@ public class SignUpController implements Initializable {
 	private DatePicker birthDatePicker;
 	@FXML
 	private ComboBox<String> nationalityComboBox;
+	@FXML
+	private Text errorText;
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,7 +70,7 @@ public class SignUpController implements Initializable {
 		String nome = nameField.getText();
 		String dni = dniField.getText();
 		String telefono = phoneField.getText();
-		Integer altura = Integer.decode(heightField.getText());
+		Integer altura;
 		LocalDate dataNacemento = birthDatePicker.getValue();
 		String nacionalidade = nationalityComboBox.getValue();
 
@@ -74,14 +78,51 @@ public class SignUpController implements Initializable {
 		String password = passwordField.getText();
 		String password1 = passwordField1.getText();
 
-		if (!password.equals(password1)) {
-			// Do smt
+		errorText.setVisible(false);
+
+		if (username.isBlank() || password.isBlank() || password1.isBlank()) {
+			errorText.setText("Debes rellenar los campos de usuario y contraseña");
+			errorText.setVisible(true);
+			return;
 		}
 
+		if (!password.equals(password1)) {
+			errorText.setText("Las contraseñas no coinciden");
+			errorText.setVisible(true);
+			return;
+		}
+
+		if (nome.isBlank() || dni.isBlank()) {
+			errorText.setText("Debes rellenar los campos de nombre y DNI");
+			errorText.setVisible(true);
+			return;
+		}
+
+		try {
+			altura = Integer.valueOf(heightField.getText());
+			if (altura <= 0) {
+				errorText.setText("La altura tiene que ser un número entero positivo");
+				errorText.setVisible(true);
+				return;
+			}
+		} catch (NumberFormatException exception) {
+			errorText.setText("La altura debe ser un número");
+			errorText.setVisible(true);
+			return;
+		}
+
+		telefono = telefono.isBlank() ? null : telefono;
+
 		Visitante visitante = new Visitante(dni, nome, nacionalidade, telefono, dataNacemento, altura, null);
-		User user = new User(0, dni, nome, username, password, false);
-		DataBase.getCurrentDB().signUp(visitante, user);
-		DataBase.getCurrentDB().login(username, password);
-		switchScene("../login/LoginSuccessful.fxml");
+		User user = new User(dni, nome, username, password, false);
+		boolean success = DataBase.getCurrentDB().signUp(visitante, user);
+		if (success) {
+			DataBase.getCurrentDB().login(username, password);
+			switchScene("../login/LoginSuccessful.fxml");
+		}
+		else {
+			errorText.setText("El usuario ya está registrado o el visitante ya tiene un usuario asociado");
+			errorText.setVisible(true);
+		}
 	}
 }
