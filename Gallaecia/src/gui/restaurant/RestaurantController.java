@@ -69,7 +69,7 @@ public class RestaurantController implements Initializable {
 
 				String descripcion = "Aforo: " + t1.getAforo() + "\n" +
 						"Hora apertura: " + t1.getHoraInicio() + "\n\n" +
-						"Hora peche: " + t1.getHoraFin() + "\n\n" +
+						"Hora cierre: " + t1.getHoraFin() + "\n\n" +
 						"Ubicación: " + t1.getZona().getNome() + ".\n" +
 						"Latitud: " + t1.getZona().getCoordenadaX() + "\n" +
 						"Longitud: " + t1.getZona().getCoordenadaY();
@@ -80,8 +80,6 @@ public class RestaurantController implements Initializable {
 		});
 	}
 
-	@FXML
-	private MenuBar menuBar;//NOTA
 
 	private void switchScene(String FXMLFileName) throws IOException {
 		try {
