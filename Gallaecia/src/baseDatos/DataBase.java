@@ -15,6 +15,7 @@ public class DataBase {
 	private Connection connection;
 	private RideDAO rideDAO;
 	private RestaurantDAO restaurantDAO;
+	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasDAO reservasDAO;
 	private UserType userType;
@@ -56,6 +57,7 @@ public class DataBase {
 			this.userDAO = new UserDAO(this.connection);
 			this.rideDAO = new RideDAO(this.connection);
 			this.restaurantDAO = new RestaurantDAO(this.connection);
+			this.espectaculoDAO = new EspectaculoDAO(this.connection);
 
 			DataBase.currentDB = this;
 
@@ -116,6 +118,10 @@ public class DataBase {
 
 	public List<Hostalaria> getAllRestaurants(){
 		return restaurantDAO.getAllRestaurants();
+	}
+
+	public List<Espectaculo> getAllEspectaculos(){
+		return espectaculoDAO.getAllEspectaculos();
 	}
 
 	public List<Reserva> getAllReservas() {
