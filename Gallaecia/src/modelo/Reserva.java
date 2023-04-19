@@ -7,15 +7,13 @@ import java.util.Objects;
 public class Reserva {
     private String nombre;
     private String hostalaria;
-    private String horaInicio;
-    private String horaFin;
+    private Time horaInicio;
     private Date fecha;
 
-    public Reserva(String nombre, String hostalaria, String horaInicio, String horaFin, Date fecha) {
+    public Reserva(String nombre, String hostalaria, Time horaInicio, Date fecha) {
         this.nombre = nombre;
         this.hostalaria = hostalaria;
         this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
         this.fecha=fecha;
     }
 
@@ -35,20 +33,12 @@ public class Reserva {
         this.hostalaria = hostalaria;
     }
 
-    public String getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(String horaInicio) {
+    public void setHoraInicio(Time horaInicio) {
         this.horaInicio = horaInicio;
-    }
-
-    public String getHoraFin() {
-        return horaFin;
-    }
-
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
     }
 
     public Date getFecha() {

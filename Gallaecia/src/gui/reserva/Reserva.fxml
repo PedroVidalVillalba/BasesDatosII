@@ -6,13 +6,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.reserva.ReservaController">
    <children>
-      <ComboBox fx:id="restaurantComboBox" layoutX="51.0" layoutY="87.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige restaurante" />
-      <TextField fx:id="personaTextField" layoutX="51.0" layoutY="124.0" prefHeight="24.0" prefWidth="249.0" promptText="Nombre y apellidos" />
       <DatePicker fx:id="dateDatePicker" layoutX="51.0" layoutY="160.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige día" />
-      <TextField fx:id="horaInicioTextField" layoutX="51.0" layoutY="200.0" prefHeight="24.0" prefWidth="249.0" promptText="Hora de inicio (hh:mm)" />
-      <TextField fx:id="horaFinTextField" layoutX="51.0" layoutY="239.0" prefHeight="24.0" prefWidth="249.0" promptText="Hora de fin (hh:mm)" />
       <Button layoutX="259.0" layoutY="322.0" mnemonicParsing="false" onAction="#NuevaReserva" text="Confirmar" />
       <Text layoutX="51.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rellena los campos para efectuar la reserva." />
-      <Text fx:id="errorText" fill="RED" layoutX="365.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: la reserva ya existe" visible="false" />
+      <Text fx:id="errorText" fill="RED" layoutX="365.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: la reserva ya existe o ha dejado algún campo vacío" visible="false" wrappingWidth="184.2890625" />
+      <ComboBox fx:id="horaComboBox" layoutX="51.0" layoutY="200.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige hora" />
    </children>
 </AnchorPane>

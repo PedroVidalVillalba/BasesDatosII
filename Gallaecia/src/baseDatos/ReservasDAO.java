@@ -37,8 +37,7 @@ public class ReservasDAO extends AbstractDAO{
                 atraccionactual = new Reserva(
                         rs.getString("nombrePersona"),
                         rs.getString("hostalaria"),
-                        rs.getString("horaInicio"),
-                        rs.getString("horaFin"),
+                        rs.getTime("horaInicio"),
                         rs.getDate("fecha")
                 );
                 resultado.add(atraccionactual);
@@ -65,7 +64,7 @@ public class ReservasDAO extends AbstractDAO{
             stmLibro.setString(1, reserva.getNombre());
             stmLibro.setString(2, reserva.getHostalaria());
             stmLibro.setDate(3, reserva.getFecha());
-            stmLibro.setString(4, reserva.getHoraInicio());
+            stmLibro.setTime(4, reserva.getHoraInicio());
             stmLibro.executeUpdate();
 
         } catch (SQLException e){

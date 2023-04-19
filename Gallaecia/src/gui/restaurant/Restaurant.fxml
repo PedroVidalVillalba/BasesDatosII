@@ -11,7 +11,7 @@
          <image>
             <Image url="@../principal/restaurante.jpg" />
          </image></ImageView>
-		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="200.0" prefWidth="224.0" />
+		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="165.0" prefWidth="224.0" />
 		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
 			<font>
 				<Font size="16.0" />
@@ -22,8 +22,9 @@
 				<Font size="14.0" />
 			</font>
 		</Label>
-		<Text layoutX="70.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pincha para ver informacion" textAlignment="CENTER" wrappingWidth="189.31396484375" />
+		<Text layoutX="48.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pincha para ver informacion. Debe estar registrado para reservar." textAlignment="CENTER" wrappingWidth="233.31396484375" />
       <Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
       <Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
+      <Text fx:id="errorMensaje" visible="false" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" />
 	</children>
 </AnchorPane>

@@ -19,21 +19,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
+import static gui.restaurant.RestaurantController.restauranteElegido;
+
 public class ReservaController implements Initializable {
 
     @FXML
-    private TextField personaTextField;
-    @FXML
-    private TextField horaInicioTextField;
-    @FXML
-    private TextField horaFinTextField;
-    @FXML
-    private ComboBox<String> restaurantComboBox;
+    private ComboBox<Time> horaComboBox;
     @FXML
     private DatePicker dateDatePicker;
     @FXML
@@ -42,30 +39,38 @@ public class ReservaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        java.util.List<Hostalaria> hostalarias = DataBase.getCurrentDB().getAllRestaurants();
+        ArrayList<Time> tiempos = new ArrayList<>();
+        for (int i=0; i<12; i++) {
+            Time time = new Time(12+i,0,0);
+            tiempos.set(i,time);
+        }
+        horaComboBox.getItems().setAll(tiempos);
+        /*java.util.List<Hostalaria> hostalarias = DataBase.getCurrentDB().getAllRestaurants();
         ArrayList<String> restaurants = new ArrayList<>();
         for (Hostalaria h : hostalarias) {
             restaurants.add(h.getNomeEstablecemento());
         }
-        restaurantComboBox.getItems().setAll(restaurants);
+        restaurantComboBox.getItems().setAll(restaurants);*/
+
+
     }
 
     public void NuevaReserva(ActionEvent event) throws IOException {
-        String nombre = personaTextField.getText();
-        String restaurant = restaurantComboBox.getValue();
-        LocalDate date = dateDatePicker.getValue();
-        String horaInicio = horaInicioTextField.getText();
-        String horaFin = horaFinTextField.getText();
+        if (DataBase.getCurrentDB().getUser()!=null) {
+            String nombre = DataBase.getCurrentDB().getUser().getUsername();
+            String restaurant = restauranteElegido.getNomeEstablecemento();
+            LocalDate date = dateDatePicker.getValue();
+            Time horaInicio = horaComboBox.getValue();
             Date date2 = Date.valueOf(date); // Magic happens here!
 
-            Reserva reserva = new Reserva(nombre, restaurant, horaInicio, horaFin, date2);
+            Reserva reserva = new Reserva(nombre, restaurant, horaInicio, date2);
             try {
                 DataBase.getCurrentDB().insertarReserva(reserva);
                 SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
             } catch (SQLException e){
                 errorText.setVisible(true);
             }
+        }
 
 
     }

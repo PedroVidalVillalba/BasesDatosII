@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
 import gui.SceneManager;
+import gui.reserva.ReservaController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -24,13 +25,18 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Hostalaria;
 import modelo.Reserva;
 
-import javax.swing.text.html.ImageView;
 
 public class RestaurantController implements Initializable {
+
+	public static Hostalaria restauranteElegido;
+
+	@FXML
+	private Text errorMensaje;
 
 	@FXML
 	private ListView<Hostalaria> myListView;
@@ -83,11 +89,23 @@ public class RestaurantController implements Initializable {
 
 
 	public void switchToNuevaReserva(ActionEvent event) throws IOException {
-		SceneManager.getSceneManager().switchScene("./reserva/Reserva.fxml");
+		if (DataBase.getCurrentDB().getUser()!=null) {
+			if (myListView.getSelectionModel().getSelectedItem()!=null) {
+				restauranteElegido = myListView.getSelectionModel().getSelectedItem();
+			}
+			SceneManager.getSceneManager().switchScene("./reserva/Reserva.fxml");
+		} else {
+			errorMensaje.setVisible(true);
+		}
 	}
 
 	public void switchToEliminarReserva(ActionEvent event) throws IOException {
-		SceneManager.getSceneManager().switchScene("./gestionReserva/gestionReserva.fxml");
+		if (DataBase.getCurrentDB().getUser()!=null) {
+			SceneManager.getSceneManager().switchScene("./gestionReserva/gestionReserva.fxml");
+		} else {
+			errorMensaje.setVisible(true);
+		}
+
 	}
 
 
