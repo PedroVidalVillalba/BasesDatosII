@@ -91,3 +91,17 @@ INSERT INTO atraccions VALUES ('Rueda de la Fortuna', 35, 110, 2200.50, '¡Disfr
 -- Inserción 11
 INSERT INTO atraccions VALUES ('Laberinto de Espejos', 20, 90, 1200.75, '¡Entra en un mundo de espejos y confusión en este laberinto familiar!', 'Cubierta B');
 
+INSERT INTO espectaculos (nome, horaInicio, horaFin, tematica, descricion, zona) VALUES
+('Espectáculo de magia de Alex', '16:00:00', '17:00:00', 'Magia', 'Alex es uno de los mejores magos del país', 'Cubierta A'),
+('Concierto de rock de The Eagles', '20:00:00', '23:00:00', 'Rock', 'El legendario grupo de rock tocará sus éxitos más grandes.', 'Descampado B'),
+('Obra de teatro de Shakespeare', '18:00:00', '20:00:00', 'Drama', 'Una de las obras más famosas de Shakespeare se presenta en vivo.', 'Descampado A'),
+('Espectáculo de comedia de Jerry Seinfeld', '19:30:00', '21:00:00', 'Comedia', 'El famoso comediante Jerry Seinfeld se presenta en vivo.', 'Cubierta A'),
+('Concierto de música clásica de Beethoven', '19:00:00', '21:00:00', 'Música Clásica', 'Una orquesta tocará algunas de las más famosas piezas de Beethoven.', 'Descampado B'),
+('Espectáculo de danza de ballet clásico', '17:00:00', '19:00:00', 'Danza', 'Un espectáculo impresionante de ballet clásico.', 'Descampado A'),
+('Concierto de pop de Ariana Grande', '21:00:00', '23:00:00', 'Pop', 'La sensación del pop Ariana Grande se presenta en vivo.', 'Cubierta A'),
+('Espectáculo de circo', '15:00:00', '17:00:00', 'Circo', 'Un espectáculo de circo lleno de acrobacias y trucos.', 'Descampado B'),
+('Concierto de música country de Garth Brooks', '18:00:00', '20:00:00', 'Música Country', 'El rey de la música country, Garth Brooks, se presenta en vivo.', 'Descampado A'),
+('Espectáculo de comedia de Kevin Hart', '20:30:00', '22:00:00', 'Comedia', 'El famoso comediante Kevin Hart se presenta en vivo.', 'Cubierta A'),
+('Concierto de música electrónica de David Guetta', '22:00:00', '00:00:00', 'Música Electrónica', 'El famoso DJ David Guetta tocará en vivo su mejor música electrónica.', 'Descampado B'),
+('Espectáculo de flamenco', '17:30:00', '19:00:00', 'Flamenco', 'Un espectáculo de flamenco lleno de pasión y ritmo.', 'Descampado A'),
+('Concierto de jazz de Miles Davis', '19:00:00', '21:00:00', 'Jazz', 'Una banda tocará algunas de las más famosas piezas de Miles Davis.', 'Cubierta');
