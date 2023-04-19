@@ -10,6 +10,7 @@ import java.time.ZoneId;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -81,22 +82,12 @@ public class RestaurantController implements Initializable {
 	}
 
 
-	private void switchScene(String FXMLFileName) throws IOException {
-		try {
-			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
-			VBox root = (VBox) myLabel.getScene().getRoot();
-			root.getChildren().set(1, content);
-		} catch (IOException exception) {
-			System.err.println(exception.getMessage());
-		}
-	}
-
 	public void switchToNuevaReserva(ActionEvent event) throws IOException {
-		switchScene("../reserva/Reserva.fxml");
+		SceneManager.getSceneManager().switchScene("./reserva/Reserva.fxml");
 	}
 
 	public void switchToEliminarReserva(ActionEvent event) throws IOException {
-		switchScene("../gestionReserva/gestionReserva.fxml");
+		SceneManager.getSceneManager().switchScene("./gestionReserva/gestionReserva.fxml");
 	}
 
 

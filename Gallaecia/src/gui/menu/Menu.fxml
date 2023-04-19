@@ -30,7 +30,7 @@
                 </graphic>
             </Menu>
 
-            <Menu visible="false">
+            <Menu fx:id="adminMenu" visible="false">
                 <graphic>
                     <Label  text="Administrar" />
                 </graphic>
@@ -38,7 +38,7 @@
 
             <Menu fx:id="loginMenu">
                 <graphic>
-                    <Label onMouseClicked="#switchToLogin" text="Iniciar sesión" />
+                    <Label fx:id="loginText" onMouseClicked="#switchToLogin" text="Iniciar sesión" />
                 </graphic>
             </Menu>
     </MenuBar>

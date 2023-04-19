@@ -1,6 +1,7 @@
 package gui.principal;
 
 import baseDatos.UserType;
+import gui.SceneManager;
 import javafx.application.Application;
 import baseDatos.DataBase;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,9 @@ public class Principal extends Application {
 		Parent content = FXMLLoader.load(getClass().getResource("Principal.fxml"));
 		Parent menu = FXMLLoader.load(getClass().getResource("../menu/Menu.fxml"));
 
-		Parent root = new VBox(menu, content);
+		VBox root = new VBox(menu, content);
+
+		SceneManager.getSceneManager().setRoot(root);
 
 		Scene scene = new Scene(root);  //Necesita un nodo (hay muchos tipos)
 

@@ -1,6 +1,7 @@
 package gui.signUp;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import gui.menu.MenuController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,16 +57,6 @@ public class SignUpController implements Initializable {
 		nationalityComboBox.getItems().setAll(countryList);
 	}
 
-	private void switchScene(String FXMLFileName) {
-		try {
-			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
-			VBox root = (VBox) userField.getScene().getRoot();
-			root.getChildren().set(1, content);
-		} catch (IOException exception) {
-			System.err.println(exception.getMessage());
-		}
-	}
-
 	public void signUp() {
 		String nome = nameField.getText();
 		String dni = dniField.getText();
@@ -118,7 +109,8 @@ public class SignUpController implements Initializable {
 		boolean success = DataBase.getCurrentDB().signUp(visitante, user);
 		if (success) {
 			DataBase.getCurrentDB().login(username, password);
-			switchScene("../login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().switchScene("./login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().refreshMenu();
 		}
 		else {
 			errorText.setText("El usuario ya está registrado o el visitante ya tiene un usuario asociado");

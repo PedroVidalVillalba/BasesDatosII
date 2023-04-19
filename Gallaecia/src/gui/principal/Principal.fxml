@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.principal.PrincipalController">
    <children>
       <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" layoutX="-100.00" />
       <AnchorPane layoutX="103.0" layoutY="147.0" prefHeight="106.0" prefWidth="394.0" style="-fx-background-color: #D0F0C0;">

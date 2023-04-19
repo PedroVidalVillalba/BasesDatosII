@@ -1,6 +1,7 @@
 package gui.login;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -59,16 +60,6 @@ public class LoginController implements Initializable {
 //		mediaPlayer.play();
 	}
 
-	private void switchScene(String FXMLFileName) {
-		try {
-			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
-			VBox root = (VBox) loginButton.getScene().getRoot();
-			root.getChildren().set(1, content);
-		} catch (IOException exception) {
-			System.err.println(exception.getMessage());
-		}
-	}
-
 	public void login() {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
@@ -76,7 +67,8 @@ public class LoginController implements Initializable {
 		boolean success = DataBase.getCurrentDB().login(username, password);
 
 		if (success) {
-			switchScene("../login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().switchScene("./login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().refreshMenu();
 		}
 		else {
 			resultText.setVisible(true);
@@ -85,11 +77,12 @@ public class LoginController implements Initializable {
 
 	public void logout() {
 		DataBase.getCurrentDB().logout();
+		SceneManager.getSceneManager().refreshMenu();
 		logoutText.setVisible(true);
 	}
 
 	public void signUp() {
-		switchScene("../signUp/SignUp.fxml");
+		SceneManager.getSceneManager().switchScene("./signUp/SignUp.fxml");
 	}
 
 }

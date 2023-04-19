@@ -1,6 +1,7 @@
 package gui.reserva;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,16 +51,6 @@ public class ReservaController implements Initializable {
         restaurantComboBox.getItems().setAll(restaurants);
     }
 
-    private void switchScene(String FXMLFileName) throws IOException {
-        try {
-            Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
-            VBox root = (VBox) errorText.getScene().getRoot();
-            root.getChildren().set(1, content);
-        } catch (IOException exception) {
-            System.err.println(exception.getMessage());
-        }
-    }
-
     public void NuevaReserva(ActionEvent event) throws IOException {
         String nombre = personaTextField.getText();
         String restaurant = restaurantComboBox.getValue();
@@ -71,7 +62,7 @@ public class ReservaController implements Initializable {
             Reserva reserva = new Reserva(nombre, restaurant, horaInicio, horaFin, date2);
             try {
                 DataBase.getCurrentDB().insertarReserva(reserva);
-                switchScene("../ReservaExito/ReservaExito.fxml");
+                SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
             } catch (SQLException e){
                 errorText.setVisible(true);
             }
