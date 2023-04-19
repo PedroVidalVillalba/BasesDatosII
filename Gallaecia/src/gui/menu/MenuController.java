@@ -45,14 +45,12 @@ public class MenuController {
 	public void switchToRestaurant(ActionEvent event) throws IOException {
 		switchScene("../restaurant/Restaurant.fxml");
 	}
-
+	public void switchToEspectaculo(ActionEvent event) throws IOException {
+		switchScene("../espectaculo/Espectaculo.fxml");
+	}
 	public void switchToRating(MouseEvent event) throws IOException {
 		switchScene("../general/Rating.fxml");
 	}
-
-    public void switchToShow(ActionEvent event) throws IOException {
-        switchScene("../general/Show.fxml");
-    }
     public void switchToChat(MouseEvent event) throws IOException {
         switchScene("../chatGPT/Chat.fxml");
     }
