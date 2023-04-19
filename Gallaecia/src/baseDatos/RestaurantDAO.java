@@ -40,7 +40,7 @@ public class RestaurantDAO extends AbstractDAO{
 		String consulta = "SELECT a.nomeEstablecemento, a.aforo, a.horaInicio, a.horaFin, " +
 				"z.nome as nomezona, z.extension, z.coordenadax, z.coordenaday " +
 				"FROM hostalaria a " +
-				"JOIN zonas z ON a.zona = z.nome";
+				"JOIN zonas z ON a.zona = z.nome;";
 
 		try{
 
