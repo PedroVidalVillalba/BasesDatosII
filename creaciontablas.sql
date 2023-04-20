@@ -212,6 +212,17 @@ create table DJ(
   on update cascade on delete set null
 );
 
+create table valoracions(
+  identificador character (5),
+  descricion character varying(200),
+  puntuacion integer not null,
+  visitante character(9),
+  constraint valoracionspk primary key (identificador),
+  constraint valoracionsfk1 foreign key (visitante)
+  references public.visitantes(dni)
+  on update cascade on delete set null
+ );
+
 create or replace function check_person_exists(dni char(9), nome varchar(60))
     returns boolean
     language sql
