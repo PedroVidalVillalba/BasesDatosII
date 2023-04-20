@@ -1,4 +1,12 @@
-En la última tabla del diccionario, cambiar la primera columna (Sistemas de audio se pasa del ancho)
+Donde añadir la parte de modificaciones sobre el proyecto original? Texto de ejemplo
 
-En la creación de tablas, hay atributos en castellano (por ejemplo en música y puede haber más)
-En la creación de tablas, sigue habiendo atributos de ubicación. Hay que eliminarlos y añadir una fk zona si no estuviera ya
+O modelo orixinal foi mantido en todo o posible. Sobre o traballo base, engadíronse os catro anexos individuais con coidado de non solaparse. 
+Por exemplo, coa aparición das zonas do parque, cada atracción, espectáculo, sistema de audio e establecemento hostaleiro ten unha zona asignada,
+en vez dun atributo ubicación. Tamén foron necesarios cambios menores debido a algunhas incoherencias entre os nomes dos atributos entre diferentes
+modelos e tivemos que traducir un anexo que estaba escrito en castelán.
+
+Con respecto ás nosas funcionalidades, engadiuse a tabla de valoracións relacionada cos visitantes para poder almacenalas ¿¿¿¿y alguna mas????
+
+
+
+Funcionalidades??
