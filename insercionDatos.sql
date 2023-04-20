@@ -92,6 +92,23 @@ INSERT INTO atraccions VALUES ('Rueda de la Fortuna', 35, 110, 2200.50, '¡Disfr
 -- Inserción 11
 INSERT INTO atraccions VALUES ('Laberinto de Espejos', 20, 90, 1200.75, '¡Entra en un mundo de espejos y confusión en este laberinto familiar!', 'Cubierta B');
 
+-- Inserciones atracciones solo adultos
+INSERT INTO atraccionssoadultos VALUES('Montaña Rusa del Terror', 18),
+('Tren del Oeste', 16),
+('Giroscopio del Futuro', 18),
+('Torre de Caída Libre', 16);
+
+-- Inserciones atracciones familiares
+INSERT INTO atraccionsfamiliares VALUES('Barca Vikinga Familiar', 8),
+('Carrusel de Mariposas', 5),
+('Tobogán Acuático Familiar', 6),
+('Laberinto del Minotauro', 8),
+('Cine 7D', 5),
+('Rueda de la Fortuna', 6),
+('Laberinto de Espejos', 5);
+
+
+-- Inserciones espectaculos
 INSERT INTO espectaculos (nome, horaInicio, horaFin, tematica, descricion, zona) VALUES
 ('Espectáculo de magia de Alex', '16:00:00', '17:00:00', 'Magia', 'Alex es uno de los mejores magos del país', 'Cubierta A'),
 ('Concierto de The Eagles', '20:00:00', '23:00:00', 'Rock', 'El legendario grupo de rock tocará sus éxitos más grandes.', 'Descampado B'),
@@ -106,3 +123,70 @@ INSERT INTO espectaculos (nome, horaInicio, horaFin, tematica, descricion, zona)
 ('Concierto de David Guetta', '22:00:00', '00:00:00', 'Electrónica', 'El famoso DJ David Guetta tocará en vivo su mejor música electrónica.', 'Descampado B'),
 ('Espectáculo de flamenco', '17:30:00', '19:00:00', 'Flamenco', 'Un espectáculo de flamenco lleno de pasión y ritmo.', 'Descampado A'),
 ('Concierto de Miles Davis', '19:00:00', '21:00:00', 'Jazz', 'Una banda tocará algunas de las más famosas piezas de Miles Davis.', 'Cubierta B');
+
+
+-- Inserciones sistemas de audio
+INSERT INTO sistemasDeAudio VALUES
+  ('00000', 'Megafonía', 'Sistema de megafonía para la Cubierta A', 'Cubierta A'),
+  ('00001', 'Música ambiental', 'Sistema de música ambiental para el Descampado B', 'Descampado B');
+
+
+-- Inserciones trabajadores parque
+INSERT INTO traballadoresParque VALUES 
+  ('11111111A', 'Juan Pérez', 'Calle Mayor', 12, 28001, 'Madrid', 1500, '912345678', '2022-01-01', '1980-01-01', 'Bachillerato', 'Montaña Rusa del Terror', NULL),
+  ('22222222B', 'María Gómez', 'Avenida de la Playa', 25, 08001, 'Barcelona', 1800, '933456789', '2022-01-01', '1985-03-12', 'Ciclo Formativo de Grado Superior', NULL, 'Espectáculo de magia de Alex'),
+  ('33333333C', 'Pedro Fernández', 'Calle del Sol', 7, 41001, 'Sevilla', 1200, '954567890', '2022-01-01', '1990-05-21', 'Grado en Turismo', 'Cine 7D', NULL);
+  
+  
+-- Inserciones DJ
+INSERT INTO dj VALUES
+  ('44444444D', 'Ana García', 'Plaza Mayor', 1, 28005, 'Madrid', 2000, '915432109', '2022-01-01', '1988-07-15', 'Grado en Marketing', '00000'),
+  ('55555555E', 'Lucía Ruiz', 'Calle de la Paz', 3, 46001, 'Valencia', 1600, '963210987', '2022-01-01', '1995-10-31', 'Ciclo Formativo de Grado Medio', '00001');
+  
+-- Inserciones hostaleiros
+INSERT INTO hostaleiros VALUES
+  ('66666666F', 'Jorge López', 'Calle de la Estrella', 21, 50001, 'Zaragoza', 1400, '976543210', '2022-01-01', '1993-12-25', 'Grado en Comunicación Audiovisual', 'La Parrilla Argentina'),
+  ('77777777G', 'Sara Martínez', 'Calle del Mar', 5, 15001, 'A Coruña', 1300, '981234567', '2022-01-01', '1991-02-18', 'Grado en Administración de Empresas', 'El Rincón de la Paella');
+  
+  
+--Inserciones musica
+INSERT INTO musica (codigoCancion, nome, clasificacion, popularidade, artista, album) VALUES
+('000000000', 'Shape of You', 'Pop', 95, 'Ed Sheeran', '÷'),
+('000000001', 'Bohemian Rhapsody', 'Rock', 90, 'Queen', 'A Night at the Opera'),
+('000000002', 'Fly Me to the Moon', 'Jazz', 80, 'Frank Sinatra', 'It Might As Well Be Swing'),
+('000000003', 'Gangstas Paradise', 'Hip Hop', 85, 'Coolio', 'Gangstas Paradise'),
+('000000004', 'Purple Rain', 'R&B', 90, 'Prince', 'Purple Rain'),
+('000000005', 'Stairway to Heaven', 'Rock', 95, 'Led Zeppelin', 'Led Zeppelin IV'),
+('000000006', 'Take the "A" Train', 'Jazz', 70, 'Duke Ellington', 'Never No Lament'),
+('000000007', 'Lose Yourself', 'Hip Hop', 90, 'Eminem', '8 Mile'),
+('000000008', 'Billie Jean', 'Pop', 85, 'Michael Jackson', 'Thriller'),
+('000000009', 'Whats Going On', 'R&B', 80, 'Marvin Gaye', 'Whats Going On'),
+('000000010', 'Happy', 'Pop', 75, 'Pharrell Williams', 'G I R L'),
+('000000011', 'November Rain', 'Rock', 80, 'Guns N Roses', 'Use Your Illusion I'),
+('000000012', 'My Funny Valentine', 'Jazz', 70, 'Chet Baker', 'Chet Baker Sings'),
+('000000013', 'Nuthin But a "G" Thang', 'Hip Hop', 80, 'Dr. Dre', 'The Chronic'),
+('000000014', 'Lets Stay Together', 'R&B', 75, 'Al Green', 'Lets Stay Together'),
+('000000015', 'Smooth', 'Pop', 85, 'Santana feat. Rob Thomas', 'Supernatural'),
+('000000016', 'Sweet Child O Mine', 'Rock', 90, 'Guns N Roses', 'Appetite for Destruction'),
+('000000017', 'So What', 'Jazz', 75, 'Miles Davis', 'Kind of Blue'),
+('000000018', 'Juicy', 'Hip Hop', 80, 'The Notorious B.I.G.', 'Ready to Die'),
+('000000019', 'I Will Always Love You', 'R&B', 90, 'Whitney Houston', 'The Bodyguard Soundtrack');
+
+-- Inserciones medios
+INSERT INTO medios VALUES
+('Barco1', 'acuatico', 10, 200, 50),
+('Helicoptero1', 'aereo', 100, 4, 100);
+
+-- Inserciones visitantes
+INSERT INTO visitantes VALUES
+('345678901', 'Carlos Rodriguez', 'Colombia', '345678901', '1985-08-23', 180, 'Barco1'),
+('456789012', 'Laura Fernández', 'Argentina', '456789012', '1999-04-15', 170, 'Helicoptero1'),
+('567890123', 'Sofía Fernández', 'Argentina', '567890123', '1997-11-07', 165, 'Helicoptero1'),
+('678901234', 'Luisa Herrera', 'España', '678901234', '1988-07-02', 155, 'Barco1'),
+('789012345', 'Alejandro Castro', 'España', '789012345', '1996-03-20', 185, 'Barco1');
+
+-- Inserciones valoraciones
+INSERT INTO valoracions VALUES 
+('00000', 'La experiencia en las atracciones fue increíble, lo pasé genial.', 5, '345678901'),
+('00001', 'Las atracciones y espectáculos me encantaron, así como el trato de todos los trabajadores. Repetiría sin dudarlo', 5, '456789012'),
+('00002', 'El espectáculo nocturno fue impresionante, sin embargo las filas para las atracciones eran muy largas.', 4, '789012345');
