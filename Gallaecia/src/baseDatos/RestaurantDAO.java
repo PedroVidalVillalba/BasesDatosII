@@ -26,45 +26,47 @@ public class RestaurantDAO extends AbstractDAO{
 	 * @return
 	 * @throws SQLException
 	 */
-	public java.util.List<Hostalaria> getAllRestaurants(){
+	public java.util.List<Hostalaria> getAllRestaurants() throws SQLException {
 
 		java.util.List<Hostalaria> resultado = new java.util.ArrayList<Hostalaria>();
 		Hostalaria atraccionactual;
-		Connection con;
-
-		PreparedStatement stm = null;
+		Connection con = this.getConexion();
+		PreparedStatement stm;
 		ResultSet rs;
-
-		con = this.getConexion();
 
 		String consulta = "SELECT a.nomeEstablecemento, a.aforo, a.horaInicio, a.horaFin, " +
 				"z.nome as nomezona, z.extension, z.coordenadax, z.coordenaday " +
 				"FROM hostalaria a " +
-				"JOIN zonas z ON a.zona = z.nome;";
+				"JOIN zonas z ON a.zona = z.nome";
 
-		try{
 
-			stm = con.prepareStatement(consulta);
-			rs = stm.executeQuery();
+		//System.out.println(con.isClosed());
 
-			while (rs.next()){
-				atraccionactual = new Hostalaria(
-						rs.getString("nomeEstablecemento"),
-						rs.getInt("aforo"),
-						rs.getTime("horaInicio"),
-						rs.getTime("horaFin"),
-						new Zona(
-								rs.getString("nomezona"),
-								rs.getFloat("extension"),
-								rs.getFloat("coordenadax"),
-								rs.getFloat("coordenaday")
-						)
-				);
-				resultado.add(atraccionactual);
+		if (con!=null) {
+			try{
+				stm = con.prepareStatement(consulta);
+				rs = stm.executeQuery();
+
+				while (rs.next()){
+					atraccionactual = new Hostalaria(
+							rs.getString("nomeEstablecemento"),
+							rs.getInt("aforo"),
+							rs.getTime("horaInicio"),
+							rs.getTime("horaFin"),
+							new Zona(
+									rs.getString("nomezona"),
+									rs.getFloat("extension"),
+									rs.getFloat("coordenadax"),
+									rs.getFloat("coordenaday")
+							)
+					);
+					resultado.add(atraccionactual);
+				}
+			} catch (SQLException e){
+				System.err.println(e.getMessage());
 			}
-		} catch (SQLException e){
-			System.err.println(e.getMessage());
 		}
+
 
 		return resultado;
 

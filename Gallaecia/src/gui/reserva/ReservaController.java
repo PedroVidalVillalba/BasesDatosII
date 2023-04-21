@@ -40,9 +40,9 @@ public class ReservaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Time> tiempos = new ArrayList<>();
-        for (int i=0; i<12; i++) {
+        for (int i=0; i<11; i++) {
             Time time = new Time(12+i,0,0);
-            tiempos.set(i,time);
+            tiempos.add(i,time);
         }
         horaComboBox.getItems().setAll(tiempos);
         /*java.util.List<Hostalaria> hostalarias = DataBase.getCurrentDB().getAllRestaurants();
@@ -60,15 +60,20 @@ public class ReservaController implements Initializable {
             String nombre = DataBase.getCurrentDB().getUser().getUsername();
             String restaurant = restauranteElegido.getNomeEstablecemento();
             LocalDate date = dateDatePicker.getValue();
-            Time horaInicio = horaComboBox.getValue();
-            Date date2 = Date.valueOf(date); // Magic happens here!
-
-            Reserva reserva = new Reserva(nombre, restaurant, horaInicio, date2);
-            try {
-                DataBase.getCurrentDB().insertarReserva(reserva);
-                SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
-            } catch (SQLException e){
+            LocalDate today = LocalDate.now();
+            if (!date.isAfter(today) && !date.isEqual(today)) {
                 errorText.setVisible(true);
+            } else {
+                Time horaInicio = horaComboBox.getValue();
+                Date date2 = Date.valueOf(date); // Magic happens here!
+
+                Reserva reserva = new Reserva(nombre, restaurant, horaInicio, date2);
+                try {
+                    DataBase.getCurrentDB().insertarReserva(reserva);
+                    SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
+                } catch (SQLException e){
+                    errorText.setVisible(true);
+                }
             }
         }
 

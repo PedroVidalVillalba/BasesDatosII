@@ -146,7 +146,7 @@ public class DataBase {
 		return rideDAO.getAllRides();
 	}
 
-	public List<Hostalaria> getAllRestaurants(){
+	public List<Hostalaria> getAllRestaurants() throws SQLException {
 		return restaurantDAO.getAllRestaurants();
 	}
 

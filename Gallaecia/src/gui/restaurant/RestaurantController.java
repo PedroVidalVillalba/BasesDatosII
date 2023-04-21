@@ -4,9 +4,21 @@ package gui.restaurant;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ResourceBundle;
+
+import baseDatos.DataBase;
+import baseDatos.UserType;
+import gui.SceneManager;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+
+import java.net.URL;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
@@ -48,7 +60,13 @@ public class RestaurantController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 
-		hostalarias = DataBase.getCurrentDB().getAllRestaurants();
+		restauranteElegido = null;
+
+		try {
+			hostalarias = DataBase.getCurrentDB().getAllRestaurants();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
 		for (Hostalaria h : hostalarias) {
 			myListView.getItems().add(h);

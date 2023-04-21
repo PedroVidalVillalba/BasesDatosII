@@ -9,7 +9,7 @@
       <DatePicker fx:id="dateDatePicker" layoutX="51.0" layoutY="160.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige día" />
       <Button layoutX="259.0" layoutY="322.0" mnemonicParsing="false" onAction="#nuevaReserva" text="Confirmar" />
       <Text layoutX="51.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rellena los campos para efectuar la reserva." />
-      <Text fx:id="errorText" fill="RED" layoutX="365.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: la reserva ya existe o ha dejado algún campo vacío" visible="false" wrappingWidth="184.2890625" />
+      <Text fx:id="errorText" fill="RED" layoutX="365.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: la reserva ya existe, ha dejado algún campo vacío o la fecha es incorrecta" visible="false" wrappingWidth="184.2890625" />
       <ComboBox fx:id="horaComboBox" layoutX="51.0" layoutY="200.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige hora" />
    </children>
 </AnchorPane>
