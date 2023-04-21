@@ -55,7 +55,7 @@ public class ReservaController implements Initializable {
 
     }
 
-    public void NuevaReserva(ActionEvent event) throws IOException {
+    public void nuevaReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getUsername();
             String restaurant = restauranteElegido.getNomeEstablecemento();

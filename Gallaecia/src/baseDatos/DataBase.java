@@ -34,11 +34,11 @@ public class DataBase {
 		this.userDAO = new UserDAO();
 		this.DAOList.add(userDAO);
 		this.rideDAO = new RideDAO();
-		this.DAOList.add(userDAO);
+		this.DAOList.add(rideDAO);
 		this.restaurantDAO = new RestaurantDAO();
-		this.DAOList.add(userDAO);
+		this.DAOList.add(restaurantDAO);
 		this.espectaculoDAO = new EspectaculoDAO();
-		this.DAOList.add(userDAO);
+		this.DAOList.add(espectaculoDAO);
 		this.reservasDAO = new ReservasDAO();
 		this.DAOList.add(reservasDAO);
 

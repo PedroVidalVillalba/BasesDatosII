@@ -36,7 +36,6 @@ public class SceneManager {
 			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
 			this.root.getChildren().set(1, content);
 		} catch (IOException exception) {
-			System.err.println("Error: ");
 			exception.printStackTrace();
 		}
 	}

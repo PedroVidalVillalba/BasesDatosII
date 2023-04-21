@@ -26,7 +26,7 @@ public class RideDAO extends AbstractDAO{
 	 */
 	public java.util.List<Atraccion> getAllRides(){
 
-		java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
+		java.util.List<Atraccion> resultado = new java.util.ArrayList<>();
 		Atraccion atraccionactual;
 		Connection con;
 
@@ -38,7 +38,7 @@ public class RideDAO extends AbstractDAO{
 		String consulta = "SELECT a.nome, a.aforo, a.alturamin, a.customantemento, a.descricion, " +
 				"z.nome as nomezona, z.extension, z.coordenadax, z.coordenaday " +
 				"FROM atraccions a " +
-				"JOIN zonas z ON a.zona = z.nome";
+				"JOIN zonas z ON a.zona = z.nome;";
 
 		try{
 
@@ -73,7 +73,7 @@ public class RideDAO extends AbstractDAO{
 
 		Connection con = this.getConexion();
 		PreparedStatement stm = null;
-		String consulta = "INSERT INTO atracciones (nome, aforo, alturamin, customantemento, descricion, zona) VALUES (?, ?, ?, ?, ?, ?)";
+		String consulta = "INSERT INTO atraccions (nome, aforo, alturamin, customantemento, descricion, zona) VALUES (?, ?, ?, ?, ?, ?);";
 
 		try {
 
@@ -95,7 +95,7 @@ public class RideDAO extends AbstractDAO{
 
 		Connection con = this.getConexion();
 		PreparedStatement stm = null;
-		String consulta = "UPDATE atracciones SET aforo = ?, alturamin = ?, customantemento = ?, descricion = ?, zona = ? WHERE nome = ?";
+		String consulta = "UPDATE atraccions SET aforo = ?, alturamin = ?, customantemento = ?, descricion = ?, zona = ? WHERE nome = ?;";
 
 		try {
 
@@ -117,7 +117,7 @@ public class RideDAO extends AbstractDAO{
 
 		Connection con = this.getConexion();
 		PreparedStatement stm = null;
-		String consulta = "DELETE FROM atracciones WHERE nome = ?";
+		String consulta = "DELETE FROM atraccions WHERE nome = ?;";
 
 		try {
 

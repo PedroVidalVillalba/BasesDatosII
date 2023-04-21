@@ -30,12 +30,6 @@
                 </graphic>
             </Menu>
 
-        <Menu>
-            <graphic>
-                <Label onMouseClicked="#switchToRestaurant" text="Restaurantes" />
-            </graphic>
-        </Menu>
-
             <Menu fx:id="adminMenu" visible="false">
                 <graphic>
                     <Label  text="Administrar" />
