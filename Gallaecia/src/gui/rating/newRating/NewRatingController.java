@@ -39,14 +39,16 @@ public class NewRatingController implements Initializable {
 
     public void newRating(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
-            DataBase.getCurrentDB().newRating(descriptionField.getText(), (int)scoreField.getValue());
+            int score = (int)scoreField.getValue();
+            if(score < 1 || score > 5) score = 5;
+            DataBase.getCurrentDB().newRating(descriptionField.getText(), score);
         }
 
-        SceneManager.getSceneManager().switchScene(".rating/Rating.fxml");
+        SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
     }
 
     public void cancel(ActionEvent event) throws IOException {
-        SceneManager.getSceneManager().switchScene(".rating/Rating.fxml");
+        SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
     }
 
 

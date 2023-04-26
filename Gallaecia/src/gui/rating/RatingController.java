@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Valoracion;
@@ -25,6 +26,8 @@ public class RatingController implements Initializable {
     private Text errorMensaje;
     @FXML
     private Label myLabel;
+    @FXML
+    private ImageView starIcon;
 
     private java.util.List<Valoracion> valoracions;
 
@@ -61,14 +64,18 @@ public class RatingController implements Initializable {
                         "Puntuación: " + t1.getPuntuacion() + "\n" +
                         "Descripción: " + t1.getDescricion();
                 myLabel.setText(descripcion);
+                if(!starIcon.isVisible()) starIcon.setVisible(true);
+
             }
 
+
         });
+        //starIcon.isVisible();
     }
 
     public void switchToNewRating(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
-            SceneManager.getSceneManager().switchScene(".rating/newRating/NewRating.fxml");
+            SceneManager.getSceneManager().switchScene("./rating/newRating/NewRating.fxml");
         } else {
             errorMensaje.setVisible(true);
         }
