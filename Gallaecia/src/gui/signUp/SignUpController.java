@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.sql.Date;
 
 public class SignUpController implements Initializable {
 	@FXML
@@ -62,7 +63,7 @@ public class SignUpController implements Initializable {
 		String dni = dniField.getText();
 		String telefono = phoneField.getText();
 		Integer altura;
-		LocalDate dataNacemento = birthDatePicker.getValue();
+		Date dataNacemento = Date.valueOf(birthDatePicker.getValue());
 		String nacionalidade = nationalityComboBox.getValue();
 
 		String username = userField.getText();
