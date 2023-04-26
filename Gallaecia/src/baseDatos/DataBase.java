@@ -23,6 +23,7 @@ public class DataBase {
 	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasDAO reservasDAO;
+	private RatingDAO ratingDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -41,6 +42,8 @@ public class DataBase {
 		this.DAOList.add(espectaculoDAO);
 		this.reservasDAO = new ReservasDAO();
 		this.DAOList.add(reservasDAO);
+		this.ratingDAO = new RatingDAO();
+		this.DAOList.add(ratingDAO);
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -157,6 +160,12 @@ public class DataBase {
 	public List<Espectaculo> getAllEspectaculos(){
 		return espectaculoDAO.getAllEspectaculos();
 	}
+
+	public List<Valoracion> getAllRatings(){
+		return ratingDAO.getAllRatings();
+	}
+
+	public void newRating(String descricion, int puntuacion){ ratingDAO.newRating(descricion, puntuacion); }
 
 	public List<Reserva> getAllReservas() {
 		return reservasDAO.getAllReservas();

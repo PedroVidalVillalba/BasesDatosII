@@ -1,6 +1,6 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Visitante {
@@ -8,11 +8,11 @@ public class Visitante {
 	private String nome;
 	private String nacionalidade;
 	private String telefono;
-	private LocalDate dataNacemento;
+	private Date dataNacemento;
 	private Integer altura;
 	private Medio medio;
 
-	public Visitante(String dni, String nome, String nacionalidade, String telefono, LocalDate dataNacemento, Integer altura, Medio medio) {
+	public Visitante(String dni, String nome, String nacionalidade, String telefono, Date dataNacemento, Integer altura, Medio medio) {
 		if(dni!=null){
 			this.dni = dni;
 		}
@@ -52,7 +52,7 @@ public class Visitante {
 		return telefono;
 	}
 
-	public LocalDate getDataNacemento() {
+	public Date getDataNacemento() {
 		return dataNacemento;
 	}
 
@@ -88,7 +88,7 @@ public class Visitante {
 		}
 	}
 
-	public void setDataNacemento(LocalDate dataNacemento) {
+	public void setDataNacemento(Date dataNacemento) {
 		if(dataNacemento!=null){
 			this.dataNacemento = dataNacemento;
 		}

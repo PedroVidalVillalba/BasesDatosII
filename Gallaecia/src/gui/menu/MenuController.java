@@ -46,7 +46,7 @@ public class MenuController implements Initializable {
 		SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");
 	}
 	public void switchToRating() {
-		SceneManager.getSceneManager().switchScene("./general/Rating.fxml");
+		SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
 	}
     public void switchToChat() {
         SceneManager.getSceneManager().switchScene("./chatGPT/Chat.fxml");

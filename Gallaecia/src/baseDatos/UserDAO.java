@@ -65,7 +65,8 @@ public class UserDAO extends AbstractDAO {
 			preparedStatement.setString(2, visitante.getNome());
 			preparedStatement.setString(3, visitante.getNacionalidade());
 			preparedStatement.setString(4, visitante.getTelefono());
-			preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : Date.valueOf(visitante.getDataNacemento())));
+			//preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : Date.valueOf(visitante.getDataNacemento())));
+			preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : visitante.getDataNacemento()));
 			preparedStatement.setInt(6, visitante.getAltura());
 			// preparedStatement.setString(7, visitante.getMedio().toString()); // No implementado aún. Cuando se haga hay que cambiar la numeración de las siguientes
 			preparedStatement.setString(7, user.getDni());
