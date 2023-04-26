@@ -214,6 +214,7 @@ create table DJ(
 
 create table valoracions(
   identificador character (5),
+  data date,
   descricion character varying(200),
   puntuacion integer not null,
   visitante character(9),

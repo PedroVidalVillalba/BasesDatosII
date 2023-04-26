@@ -18,6 +18,13 @@ public class User {
 		this.userType = isAdmin ? UserType.Admin : UserType.Guest;
 	}
 
+	public User(String dni, String nome, String username, boolean isAdmin) {
+		this.dni = dni;
+		this.nome = nome;
+		this.username = username;
+		this.userType = isAdmin ? UserType.Admin : UserType.Guest;
+	}
+
 	public String getDni() {
 		return this.dni;
 	}
@@ -39,6 +46,11 @@ public class User {
 	}
 
 	public boolean isAdmin() {
+		return this.userType == UserType.Admin;
+	}
+
+	/* Para que funcione el PropertyValueFactory de JavaFX */
+	public boolean getIsAdmin() {
 		return this.userType == UserType.Admin;
 	}
 }

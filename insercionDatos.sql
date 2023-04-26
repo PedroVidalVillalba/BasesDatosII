@@ -187,6 +187,6 @@ INSERT INTO visitantes VALUES
 
 -- Inserciones valoraciones
 INSERT INTO valoracions VALUES 
-('00000', 'La experiencia en las atracciones fue increíble, lo pasé genial.', 5, '345678901'),
-('00001', 'Las atracciones y espectáculos me encantaron, así como el trato de todos los trabajadores. Repetiría sin dudarlo', 5, '456789012'),
-('00002', 'El espectáculo nocturno fue impresionante, sin embargo las filas para las atracciones eran muy largas.', 4, '789012345');
+('00000', '2023-04-20', 'La experiencia en las atracciones fue increíble, lo pasé genial.', 5, '345678901'),
+('00001', '2023-04-22', 'Las atracciones y espectáculos me encantaron, así como el trato de todos los trabajadores. Repetiría sin dudarlo', 5, '456789012'),
+('00002', '2023-04-25', 'El espectáculo nocturno fue impresionante, sin embargo las colas para las atracciones eran muy largas.', 4, '789012345');

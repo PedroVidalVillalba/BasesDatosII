@@ -52,6 +52,10 @@ public class MenuController implements Initializable {
         SceneManager.getSceneManager().switchScene("./chatGPT/Chat.fxml");
     }
 
+	public void switchToAdmin() {
+		SceneManager.getSceneManager().switchScene("./admin/Admin.fxml");
+	}
+
 	public void refresh() {
 		adminMenu.setVisible(DataBase.getCurrentDB().getUserType() == UserType.Admin);
 		loginText.setText(DataBase.getCurrentDB().getUser() == null ? "Iniciar sesión" : "Cerrar sesión");
