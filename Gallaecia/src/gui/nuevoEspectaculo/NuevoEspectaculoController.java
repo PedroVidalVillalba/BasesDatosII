@@ -83,7 +83,7 @@ public class NuevoEspectaculoController implements Initializable {
                 Espectaculo espectaculo = new Espectaculo(nombre.getText(), horaInicio.getValue(), horaFin.getValue(), descripcion.getText(),tematica.getText() ,listaZonas.getSelectionModel().getSelectedItem());
                 try {
                     DataBase.getCurrentDB().insertarEspectaculo(espectaculo);
-                    SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
+                    SceneManager.getSceneManager().switchScene("./reservaExitoIr/ReservaExito.fxml");
                 } catch (SQLException e){
                     errorText.setVisible(true);
                 }
