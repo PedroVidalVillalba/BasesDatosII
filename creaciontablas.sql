@@ -214,7 +214,7 @@ create table DJ(
 );
 
 create table valoracions(
-  identificador character (5),
+  identificador serial,
   data date,
   descricion character varying(200),
   puntuacion integer not null,
