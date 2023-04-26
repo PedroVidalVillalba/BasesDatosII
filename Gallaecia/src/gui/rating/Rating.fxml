@@ -13,7 +13,7 @@
                 <Font size="16.0" />
             </font>n
         </Label>
-        <Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="¡Tu opinión es importante! Consulta aquí reseñas de otros usuarios o escribe la tuya" textAlignment="CENTER" wrapText="true">
+        <Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="¡Tu opinión es importante! Consulta aquí reseñas de otros usuarios o escribe la tuya." textAlignment="CENTER" wrapText="true">
             <font>
                 <Font size="14.0" />
             </font>

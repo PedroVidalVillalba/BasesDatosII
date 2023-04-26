@@ -34,8 +34,9 @@ public class RatingDAO extends AbstractDAO {
         String consulta = "SELECT v.identificador, v.data, v.descricion, v.puntuacion, vis.dni, vis.nome, " +
                 "vis.nacionalidade, vis. telefono, vis.dataNacemento, vis.altura, m.nomeMedio, " +
                 "m.tipo, m.prezo, m.capacidade, m.velocidade " +
-                "FROM valoracions v, visitantes vis, medios m " +
-                "where v.visitante = vis.dni and vis.medioTransporte = m.nomeMedio";
+                "FROM valoracions v, visitantes vis " +
+                "LEFT JOIN medios m ON vis.medioTransporte = m.nomeMedio " +
+                "where v.visitante = vis.dni;";
 
         try{
 
