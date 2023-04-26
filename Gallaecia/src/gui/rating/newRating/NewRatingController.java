@@ -42,11 +42,11 @@ public class NewRatingController implements Initializable {
             DataBase.getCurrentDB().newRating(descriptionField.getText(), (int)scoreField.getValue());
         }
 
-        SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
+        SceneManager.getSceneManager().switchScene(".rating/Rating.fxml");
     }
 
     public void cancel(ActionEvent event) throws IOException {
-        SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
+        SceneManager.getSceneManager().switchScene(".rating/Rating.fxml");
     }
 
 

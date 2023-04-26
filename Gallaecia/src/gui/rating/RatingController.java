@@ -68,7 +68,7 @@ public class RatingController implements Initializable {
 
     public void switchToNewRating(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
-            SceneManager.getSceneManager().switchScene("./rating/newRating/NewRating.fxml");
+            SceneManager.getSceneManager().switchScene(".rating/newRating/NewRating.fxml");
         } else {
             errorMensaje.setVisible(true);
         }
