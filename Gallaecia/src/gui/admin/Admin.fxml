@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-			xmlns:fx="http://javafx.com/fxml"
-			fx:controller="gui.admin.AdminController"
-			prefHeight="400.0" prefWidth="600.0">
-	<TableView fx:id="userTable" prefWidth="600.0">
-		<columns>
-			<TableColumn fx:id="dniColumn" text="DNI"/>
-			<TableColumn fx:id="nomeColumn" text="Nombre"/>
-			<TableColumn fx:id="usernameColumn" text="Nombre de usuario"/>
-			<TableColumn fx:id="isAdminColumn" text="Permisos de administrador"/>
-		</columns>
-	</TableView>
-
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.AdminController">
+	<VBox prefHeight="432.0" prefWidth="160.0">
+		<Button fx:id="asistirButton" onAction="#adminAsistir" text="Asistir" prefWidth="160.0"/>
+		<Button fx:id="atraccionsButton" onAction="#adminAtraccions" text="Atraccions" prefWidth="160.0"/>
+		<Button fx:id="atraccionsFamiliaresButton" onAction="#adminAtraccionsFamiliares" text="AtraccionsFamiliares" prefWidth="160.0"/>
+		<Button fx:id="atraccionsAdultosButton" onAction="#adminAtraccionsAdultos" text="AtraccionsAdultos" prefWidth="160.0"/>
+		<Button fx:id="djButton" onAction="#adminDJ" text="DJ" prefWidth="160.0"/>
+		<Button fx:id="espectaculosButton" onAction="#adminEspectaculos" text="Espectaculos" prefWidth="160.0"/>
+		<Button fx:id="hostalariaButton" onAction="#adminHostalaria" text="Hostalaria" prefWidth="160.0"/>
+		<Button fx:id="hostaleirosButton" onAction="#adminHostaleiros" text="Hostaleiros" prefWidth="160.0"/>
+		<Button fx:id="irButton" onAction="#adminIr" text="Ir" prefWidth="160.0"/>
+		<Button fx:id="mediosButton" onAction="#adminMedios" text="Medios" prefWidth="160.0"/>
+		<Button fx:id="musicaButton" onAction="#adminMusica" text="Musica" prefWidth="160.0"/>
+		<Button fx:id="reproducirButton" onAction="#adminReproducir" text="Reproducir" prefWidth="160.0"/>
+		<Button fx:id="sistemasDeAudioButton" onAction="#adminSistemasDeAudio" text="SistemasDeAudio" prefWidth="160.0"/>
+		<Button fx:id="traballadoresParqueButton" onAction="#adminTraballadoresParque" text="TraballadoresParque" prefWidth="160.0"/>
+		<Button fx:id="usersButton" onAction="#adminUsers" text="Users" prefWidth="160.0"/>
+		<Button fx:id="visitantesButton" onAction="#adminVisitantes" text="Visitantes" prefWidth="160.0"/>
+		<Button fx:id="xantarButton" onAction="#adminXantar" text="Xantar" prefWidth="160.0"/>
+		<Button fx:id="zonasButton" onAction="#adminZonas" text="Zonas" prefWidth="160.0"/>
+	</VBox>
+	<stylesheets>
+		<URL value="@Admin.css"/>
+	</stylesheets>
 </AnchorPane>

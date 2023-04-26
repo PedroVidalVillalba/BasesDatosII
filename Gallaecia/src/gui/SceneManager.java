@@ -4,6 +4,7 @@ import gui.menu.MenuController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -30,6 +31,9 @@ public class SceneManager {
 	public void setRoot(VBox root) {
 		this.root = root;
 	}
+	public VBox getRoot() {
+		return this.root;
+	}
 
 	public void switchScene(String FXMLFileName) {
 		try {
@@ -40,7 +44,17 @@ public class SceneManager {
 		}
 	}
 
+	public void switchAdminTable(String FXMLFileName) {
+		try {
+			Parent tableView = FXMLLoader.load(getClass().getResource(FXMLFileName));
+			HBox content = (HBox) this.root.getChildren().get(1);
+			content.getChildren().set(1, tableView);
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
+	}
 	public void refreshMenu() {
 		menuController.refresh();
 	}
+
 }

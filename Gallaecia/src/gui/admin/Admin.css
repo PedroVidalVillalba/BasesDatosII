@@ -1,0 +1,14 @@
+.vbox {
+    -fx-background-color: blue;
+    -fx-fill-width: true;
+}
+
+.button {
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+    -fx-border: none;
+}
+
+.button:hover {
+    -fx-background-color: lightblue;
+}
