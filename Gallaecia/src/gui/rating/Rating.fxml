@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.RatingController">
+    <children>
+        <ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
+        <Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="150.0" prefHeight="138.0" prefWidth="277.0" text="" textAlignment="JUSTIFY" wrapText="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="¡Tu opinión es importante! Consulta aquí reseñas de otros usuarios o escribe la tuya" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToNewRating" text="Escribir una reseña" />
+        <Text fx:id="errorMensaje" visible="false" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" />
+    </children>
+</AnchorPane>

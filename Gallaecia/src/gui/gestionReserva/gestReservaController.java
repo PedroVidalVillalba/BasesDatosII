@@ -53,7 +53,7 @@ public class gestReservaController implements Initializable {
                 reservas.remove(r);
             }
         }
-        ObservableList<Reserva> listaReservas = FXCollections.observableArrayList(reservas);
+        ObservableList<Reserva> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
     }

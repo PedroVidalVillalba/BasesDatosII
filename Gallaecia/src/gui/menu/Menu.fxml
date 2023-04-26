@@ -32,7 +32,7 @@
 
             <Menu fx:id="adminMenu" visible="false">
                 <graphic>
-                    <Label  text="Administrar" />
+                    <Label  onMouseClicked="#switchToAdmin" text="Administrar" />
                 </graphic>
             </Menu>
 

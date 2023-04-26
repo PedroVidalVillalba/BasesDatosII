@@ -65,7 +65,8 @@ public class UserDAO extends AbstractDAO {
 			preparedStatement.setString(2, visitante.getNome());
 			preparedStatement.setString(3, visitante.getNacionalidade());
 			preparedStatement.setString(4, visitante.getTelefono());
-			preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : Date.valueOf(visitante.getDataNacemento())));
+			//preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : Date.valueOf(visitante.getDataNacemento())));
+			preparedStatement.setDate(5, (visitante.getDataNacemento() == null ? null : visitante.getDataNacemento()));
 			preparedStatement.setInt(6, visitante.getAltura());
 			// preparedStatement.setString(7, visitante.getMedio().toString()); // No implementado aún. Cuando se haga hay que cambiar la numeración de las siguientes
 			preparedStatement.setString(7, user.getDni());
@@ -93,4 +94,50 @@ public class UserDAO extends AbstractDAO {
 
 		return success;
 	}
+
+	public List<User> getAllUsers() {
+		List<User> result = new ArrayList<>();
+		User user = null;
+		Connection connection = this.getConexion();
+
+		String query = 	"select dni, nome, username, is_admin " +
+						"from users;";
+
+		try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				user = new User(
+						resultSet.getString("dni"),
+						resultSet.getString("nome"),
+						resultSet.getString("username"),
+						resultSet.getBoolean("is_admin"));
+				result.add(user);
+			}
+		} catch (SQLException exception) {
+			System.err.println(exception.getMessage());
+		}
+
+		return result;
+	}
+
+	/**
+	 * Deletes a user from the database by their username.
+	 *
+	 * @param username the username of the user to be deleted.
+	 */
+	public void deleteUserByUsername(String username) {
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "DELETE FROM users WHERE username = ?;";
+
+		try {
+			stm = con.prepareStatement(consulta);
+			stm.setString(1, username);
+			stm.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

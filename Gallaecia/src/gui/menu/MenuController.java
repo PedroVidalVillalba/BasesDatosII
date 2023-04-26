@@ -62,11 +62,15 @@ public class MenuController implements Initializable {
 	}
 
 	public void switchToRating() {
-		SceneManager.getSceneManager().switchScene("./general/Rating.fxml");
+		SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
 	}
     public void switchToChat() {
         SceneManager.getSceneManager().switchScene("./chatGPT/Chat.fxml");
     }
+
+	public void switchToAdmin() {
+		SceneManager.getSceneManager().switchScene("./admin/user/AdminUser.fxml");
+	}
 
 	public void refresh() {
 		adminMenu.setVisible(DataBase.getCurrentDB().getUserType() == Admin);
