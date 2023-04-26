@@ -23,6 +23,8 @@ public class DataBase {
 	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasXantarDAO reservasDAO;
+	private ZonaDAO zonaDAO;
+	private ReservasXantarDAO reservasDAO;
 
 	private ReservasIrDAO reservasIrDA0;
 	private RatingDAO ratingDAO;
@@ -44,6 +46,8 @@ public class DataBase {
 		this.DAOList.add(espectaculoDAO);
 		this.reservasDAO = new ReservasXantarDAO();
 		this.DAOList.add(reservasDAO);
+		this.zonaDAO = new ZonaDAO();
+		this.DAOList.add(zonaDAO);
 		this.ratingDAO = new RatingDAO();
 		this.DAOList.add(ratingDAO);
 		this.reservasIrDA0 = new ReservasIrDAO();
@@ -195,6 +199,15 @@ public class DataBase {
 		reservasIrDA0.borrarReservaIr(reserva);
 	}
 
+	public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException{
+		espectaculoDAO.insertarEspectaculo(espectaculo);
+	}
+
 	public void deleteUser(String username) { userDAO.deleteUserByUsername(username);}
 
+
+
+	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
 }
+
+

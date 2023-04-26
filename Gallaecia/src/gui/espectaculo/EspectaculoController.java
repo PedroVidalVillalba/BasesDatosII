@@ -1,13 +1,16 @@
 package gui.espectaculo;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -21,6 +24,8 @@ public class EspectaculoController implements Initializable {
     private ListView<Espectaculo> myListView;
     @FXML
     private Label myLabel;
+    @FXML
+    private Button nuevoEspectaculo;
 
     private java.util.List<Espectaculo> espectaculos;
 
@@ -65,6 +70,10 @@ public class EspectaculoController implements Initializable {
             }
 
         });
+    }
+
+    public void nuevoEspectaculo(){
+        SceneManager.getSceneManager().switchScene("./nuevoEspectaculo/NuevoEspectaculo.fxml");
     }
 
 
