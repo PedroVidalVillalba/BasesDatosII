@@ -23,6 +23,7 @@ public class DataBase {
 	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
 	private ReservasDAO reservasDAO;
+	private ZonaDAO zonaDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -41,6 +42,8 @@ public class DataBase {
 		this.DAOList.add(espectaculoDAO);
 		this.reservasDAO = new ReservasDAO();
 		this.DAOList.add(reservasDAO);
+		this.zonaDAO = new ZonaDAO();
+		this.DAOList.add(zonaDAO);
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -120,8 +123,7 @@ public class DataBase {
 		this.user = userDAO.login(username, password);
 		if (user == null) {
 			return false;
-		}
-		else if (user.getUserType() != this.userType) {
+		} else if (user.getUserType() != this.userType) {
 			DataBase.closeCurrentDB();
 			this.establishConnection(user.getUserType());
 		}
@@ -165,4 +167,12 @@ public class DataBase {
 	public void borrarReserva(Reserva reserva) {
 		reservasDAO.borrarReserva(reserva);
 	}
+
+	public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException{
+		espectaculoDAO.insertarEspectaculo(espectaculo);
+	}
+
+	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
 }
+
+

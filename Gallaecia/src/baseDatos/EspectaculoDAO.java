@@ -1,5 +1,6 @@
 package baseDatos;
 import modelo.Espectaculo;
+import modelo.Reserva;
 import modelo.Zona;
 import modelo.Atraccion;
 
@@ -68,5 +69,26 @@ public class EspectaculoDAO extends AbstractDAO{
         }
 
         return resultado;
+    }
+    public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException {
+
+            Connection con = this.getConexion();
+            PreparedStatement stmEspectaculo=null;
+            stmEspectaculo=con.prepareStatement("insert into Espectaculos values (?,?,?,?,?,?)");
+            try{
+            stmEspectaculo.setString(1, espectaculo.getNome());
+            stmEspectaculo.setTime(2, espectaculo.getHoraInicio());
+            stmEspectaculo.setTime(3, espectaculo.getHoraFin());
+            stmEspectaculo.setString(4,espectaculo.getTematica());
+            stmEspectaculo.setString(5,espectaculo.getDescricion());
+            stmEspectaculo.setString(6,espectaculo.getZona().getNome());
+            stmEspectaculo.executeUpdate();
+
+            } catch (SQLException e){
+                System.out.println(e.getMessage());
+            } finally {
+                try {stmEspectaculo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            }
+
     }
 }
