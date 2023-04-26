@@ -138,6 +138,10 @@ public class DataBase {
 		return userDAO.signUp(visitante, user);
 	}
 
+	public List<User> getAllUsers() {
+		return userDAO.getAllUsers();
+	}
+
 	/**
 	 * Método de RideDAO.
 	 * @return
@@ -165,4 +169,5 @@ public class DataBase {
 	public void borrarReserva(Reserva reserva) {
 		reservasDAO.borrarReserva(reserva);
 	}
+
 }

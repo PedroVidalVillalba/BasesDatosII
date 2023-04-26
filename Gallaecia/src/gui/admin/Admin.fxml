@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+			xmlns:fx="http://javafx.com/fxml"
+			fx:controller="gui.admin.AdminController"
+			prefHeight="400.0" prefWidth="600.0">
+	<TableView fx:id="userTable" prefWidth="600.0">
+		<columns>
+			<TableColumn fx:id="dniColumn" text="DNI"/>
+			<TableColumn fx:id="nomeColumn" text="Nombre"/>
+			<TableColumn fx:id="usernameColumn" text="Nombre de usuario"/>
+			<TableColumn fx:id="isAdminColumn" text="Permisos de administrador"/>
+		</columns>
+	</TableView>
+
+</AnchorPane>

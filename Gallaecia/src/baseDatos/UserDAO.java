@@ -93,4 +93,30 @@ public class UserDAO extends AbstractDAO {
 
 		return success;
 	}
+
+	public List<User> getAllUsers() {
+		List<User> result = new ArrayList<>();
+		User user = null;
+		Connection connection = this.getConexion();
+
+		String query = 	"select dni, nome, username, is_admin " +
+						"from users;";
+
+		try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				user = new User(
+						resultSet.getString("dni"),
+						resultSet.getString("nome"),
+						resultSet.getString("username"),
+						resultSet.getBoolean("is_admin"));
+				result.add(user);
+			}
+		} catch (SQLException exception) {
+			System.err.println(exception.getMessage());
+		}
+
+		return result;
+	}
 }
