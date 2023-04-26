@@ -120,4 +120,24 @@ public class UserDAO extends AbstractDAO {
 
 		return result;
 	}
+
+	/**
+	 * Deletes a user from the database by their username.
+	 *
+	 * @param username the username of the user to be deleted.
+	 */
+	public void deleteUserByUsername(String username) {
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "DELETE FROM users WHERE username = ?;";
+
+		try {
+			stm = con.prepareStatement(consulta);
+			stm.setString(1, username);
+			stm.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

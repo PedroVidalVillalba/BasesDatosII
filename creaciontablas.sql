@@ -121,12 +121,13 @@ create table visitantes(
 
 
 create table ir(
-  dataVisita date,
-  visitante character(9),
+  nombrePersona character varying (60) not null,
   atraccion character varying(30),
-  constraint irpk primary key(dataVisita,visitante,atraccion),
-  constraint irfk1 foreign key (visitante)
-  references public.visitantes(dni)
+  horaInicio time,
+  fecha date,
+  constraint irpk primary key(nombrePersona, atraccion, horaInicio, fecha),
+  constraint irfk1 foreign key (nombrePersona)
+  references public.visitantes(nome)
   on update cascade on delete cascade,
   constraint irfk2 foreign key (atraccion)
   references public.atraccions(nome)
@@ -246,11 +247,10 @@ create table Users (
 
 
 
-create table ReservasHostalaria (
+create table Xantar (
     nombrePersona varchar(30),
     hostalaria character varying(30),
-    horaInicio varchar(10),
-    horaFin varchar(10),
+    horaInicio time,
     fecha date,
     check (horaFin >= horaInicio),
     PRIMARY KEY (nombrePersona, hostalaria, fecha, horaInicio),

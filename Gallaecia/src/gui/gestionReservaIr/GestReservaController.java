@@ -1,65 +1,58 @@
-package gui.gestionReserva;
+package gui.gestionReservaIr;
 
 import baseDatos.DataBase;
-import baseDatos.ReservasDAO;
+import baseDatos.ReservasIrDAO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modelo.Reserva;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.collections.FXCollections;
+import modelo.ReservaIrAtraccion;
+import modelo.ReservaXantar;
 
-import javafx.collections.FXCollections;
-
-
-import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class gestReservaController implements Initializable {
+public class GestReservaController implements Initializable {
 
     @FXML
-    private TableView<Reserva> tablaReservas;
+    private TableView<ReservaIrAtraccion> tablaReservas;
     @FXML
-    private TableColumn<Reserva, String> personaColumn;
+    private TableColumn<ReservaIrAtraccion, String> personaColumn;
     @FXML
-    private TableColumn<Reserva, String> hostalariaColumn;
+    private TableColumn<ReservaIrAtraccion, String> atraccionColumn;
     @FXML
-    private TableColumn<Reserva, Date> fechaColumn;
+    private TableColumn<ReservaIrAtraccion, Date> fechaColumn;
     @FXML
-    private TableColumn<Reserva, Time> horaInicioColumn;
+    private TableColumn<ReservaIrAtraccion, Time> horaInicioColumn;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         personaColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        hostalariaColumn.setCellValueFactory(new PropertyValueFactory<>("hostalaria"));
+        atraccionColumn.setCellValueFactory(new PropertyValueFactory<>("atraccion"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
-        List<Reserva> reservas = DataBase.getCurrentDB().getAllReservas();
-        for (Reserva r : reservas) {
+        List<ReservaIrAtraccion> reservas = DataBase.getCurrentDB().getAllReservasIr();
+        for (ReservaIrAtraccion r : reservas) {
             if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getUsername())) {
                 reservas.remove(r);
             }
         }
-        ObservableList<Reserva> listaReservas = FXCollections.observableList(reservas);
+        ObservableList<ReservaIrAtraccion> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
     }
 
     public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
-            Reserva selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
+            ReservaIrAtraccion selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
@@ -68,7 +61,7 @@ public class gestReservaController implements Initializable {
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
-                DataBase.getCurrentDB().borrarReserva(selectedItem);
+                DataBase.getCurrentDB().borrarReservaIr(selectedItem);
             }
 
     }

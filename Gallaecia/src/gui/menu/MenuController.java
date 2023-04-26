@@ -7,9 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
+import modelo.User;
 
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static baseDatos.UserType.Admin;
+import static baseDatos.UserType.Guest;
 
 public class MenuController implements Initializable {
 	@FXML
@@ -42,9 +47,20 @@ public class MenuController implements Initializable {
 	public void switchToRestaurant() {
 		SceneManager.getSceneManager().switchScene("./restaurant/Restaurant.fxml");
 	}
+
 	public void switchToEspectaculo() {
-		SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");
+
+		//if(DataBase.getCurrentDB().getUser() != null){
+			//User user = DataBase.getCurrentDB().getUser();
+			if (DataBase.getCurrentDB().getUserType().equals(Admin)) {
+				SceneManager.getSceneManager().switchScene("./espectaculo/EspectaculoAdmin.fxml");
+			} else {
+				SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");
+			}
+
+
 	}
+
 	public void switchToRating() {
 		SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
 	}
@@ -53,11 +69,11 @@ public class MenuController implements Initializable {
     }
 
 	public void switchToAdmin() {
-		SceneManager.getSceneManager().switchScene("./admin/Admin.fxml");
+		SceneManager.getSceneManager().switchScene("./admin/user/AdminUser.fxml");
 	}
 
 	public void refresh() {
-		adminMenu.setVisible(DataBase.getCurrentDB().getUserType() == UserType.Admin);
+		adminMenu.setVisible(DataBase.getCurrentDB().getUserType() == Admin);
 		loginText.setText(DataBase.getCurrentDB().getUser() == null ? "Iniciar sesión" : "Cerrar sesión");
 	}
 
