@@ -3,46 +3,48 @@
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="7.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
-    <MenuBar fx:id="menuBar" prefHeight="27.0" prefWidth="600.0">
-            <Menu>
-                <graphic>
-                    <Label onMouseClicked="#switchToPrincipal" text="Gallaecia" />
-                </graphic>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Ocio">
-                <items>
-                    <MenuItem mnemonicParsing="false" onAction="#switchToRide" text="Atracciones" />
-                    <MenuItem mnemonicParsing="false" onAction="#switchToRestaurant" text="Restaurantes" />
-                    <MenuItem mnemonicParsing="false" onAction="#switchToEspectaculo" text="Espectaculos" />
-                </items>
-            </Menu>
-            <Menu>
-                <graphic>
-                    <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos" />
-                </graphic>
-            </Menu>
-            <Menu>
-                <graphic>
-                    <Label onMouseClicked="#switchToChat" text="ChatGPT" />
-                </graphic>
-            </Menu>
+<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
+    <MenuBar HBox.hgrow="NEVER">
+        <Menu>
+            <graphic>
+                <Label onMouseClicked="#switchToPrincipal" text="Gallaecia" />
+            </graphic>
+        </Menu>
+        <Menu text="Ocio">
+            <MenuItem onAction="#switchToRide" text="Atracciones" />
+            <MenuItem onAction="#switchToRestaurant" text="Restaurantes" />
+            <MenuItem onAction="#switchToEspectaculo" text="Espectaculos" />
+        </Menu>
+        <Menu>
+            <graphic>
+                <Label onMouseClicked="#switchToRating" prefHeight="16.0" text="Valóranos" />
+            </graphic>
+        </Menu>
+        <Menu>
+            <graphic>
+                <Label onMouseClicked="#switchToChat" text="ChatGPT" />
+            </graphic>
+        </Menu>
 
-            <Menu fx:id="adminMenu" visible="false">
-                <graphic>
-                    <Label  onMouseClicked="#switchToAdmin" text="Administrar" />
-                </graphic>
-            </Menu>
+        <Menu fx:id="adminMenu" visible="false">
+            <graphic>
+                <Label onMouseClicked="#switchToAdmin" text="Administrar" />
+            </graphic>
+        </Menu>
+    </MenuBar>
 
-            <Menu fx:id="loginMenu">
-                <graphic>
-                    <Label fx:id="loginText" onMouseClicked="#switchToLogin" text="Iniciar sesión" />
-                </graphic>
-            </Menu>
+    <!-- Para que el login aparezca alineado a la derecha  -->
+    <Region styleClass="relleno" HBox.hgrow="ALWAYS" />
+
+    <MenuBar HBox.hgrow="NEVER">
+        <Menu fx:id="loginMenu" styleClass="login-menu">
+            <graphic>
+                <Label fx:id="loginText" onMouseClicked="#switchToLogin" text="Iniciar sesión" />
+            </graphic>
+        </Menu>
     </MenuBar>
     <stylesheets>
         <URL value="@Menu.css" /> <!-- Ruta al archivo CSS -->
     </stylesheets>
-</AnchorPane>
+</HBox>

@@ -1,26 +1,41 @@
-.root {
-    -fx-background-color: #A4DDED;
-    -fx-font-family: 'serif';
-}
-
 .menu-bar {
-    -fx-background-color: #A4DDED;
-    -fx-font-family:'serif';
-    -fx-font-size: 15px;
+    -fx-background-color: #212121;
+    -fx-text-fill: white;
+    -fx-font-family: serif;
+    -fx-font-size: 16;
 }
 
-#loginMenu {
-    -fx-alignment: CENTER_RIGHT;
+.relleno {
+    -fx-background-color: #212121;
 }
 
-.button{
-    -fx-font-family:'serif';
-    -fx-font-size: 14px;
+.menu {
+    -fx-text-fill: white;
 }
 
-.label{
-    -fx-font-family:'serif';
-    -fx-font-size: 14px;
+.menu:hover {
+    -fx-background-color: #444444;
+    -fx-cursor: hand;
 }
 
+.menu:showing {
+    -fx-background-color: #444444;
+}
 
+.menu .label {
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-background-color: #212121;
+    -fx-text-fill: white;
+}
+
+.menu-item:hover {
+    -fx-background-color: #444444;
+    -fx-cursor: hand;
+}
+
+.context-menu {
+    -fx-background-color: #212121;
+}
