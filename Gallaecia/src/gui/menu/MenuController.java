@@ -53,7 +53,7 @@ public class MenuController implements Initializable {
     }
 
 	public void switchToAdmin() {
-		SceneManager.getSceneManager().switchScene("./admin/Admin.fxml");
+		SceneManager.getSceneManager().switchScene("./admin/user/AdminUser.fxml");
 	}
 
 	public void refresh() {

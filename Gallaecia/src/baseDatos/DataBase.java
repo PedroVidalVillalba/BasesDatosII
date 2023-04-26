@@ -170,4 +170,6 @@ public class DataBase {
 		reservasDAO.borrarReserva(reserva);
 	}
 
+	public void deleteUser(String username) { userDAO.deleteUserByUsername(username);}
+
 }
