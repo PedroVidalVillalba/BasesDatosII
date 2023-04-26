@@ -1,31 +1,27 @@
-package gui.reserva;
+package gui.reservaIr;
 
 import baseDatos.DataBase;
 import gui.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import modelo.Hostalaria;
-import modelo.Reserva;
+import modelo.ReservaIrAtraccion;
+import modelo.ReservaXantar;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import static gui.restaurant.RestaurantController.restauranteElegido;
+import static gui.ride.RideController.atraccionElegida;
 
 public class ReservaController implements Initializable {
 
@@ -58,7 +54,7 @@ public class ReservaController implements Initializable {
     public void nuevaReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getUsername();
-            String restaurant = restauranteElegido.getNomeEstablecemento();
+            String restaurant = atraccionElegida.getNome();
             LocalDate date = dateDatePicker.getValue();
             LocalDate today = LocalDate.now();
             if (!date.isAfter(today) && !date.isEqual(today)) {
@@ -67,12 +63,13 @@ public class ReservaController implements Initializable {
                 Time horaInicio = horaComboBox.getValue();
                 Date date2 = Date.valueOf(date); // Magic happens here!
 
-                Reserva reserva = new Reserva(nombre, restaurant, horaInicio, date2);
+                ReservaIrAtraccion reserva = new ReservaIrAtraccion(nombre, restaurant, horaInicio, date2);
                 try {
-                    DataBase.getCurrentDB().insertarReserva(reserva);
-                    SceneManager.getSceneManager().switchScene("./ReservaExito/ReservaExito.fxml");
+                    DataBase.getCurrentDB().insertarReservaIr(reserva);
+                    SceneManager.getSceneManager().switchScene("./reservaExitoIr/ReservaExito.fxml");
                 } catch (SQLException e){
                     errorText.setVisible(true);
+                    System.out.println(e.getMessage());
                 }
             }
         }

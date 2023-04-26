@@ -4,13 +4,13 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.Objects;
 
-public class Reserva {
+public class ReservaXantar {
     private String nombre;
     private String hostalaria;
     private Time horaInicio;
     private Date fecha;
 
-    public Reserva(String nombre, String hostalaria, Time horaInicio, Date fecha) {
+    public ReservaXantar(String nombre, String hostalaria, Time horaInicio, Date fecha) {
         this.nombre = nombre;
         this.hostalaria = hostalaria;
         this.horaInicio = horaInicio;
@@ -53,7 +53,7 @@ public class Reserva {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Reserva reserva = (Reserva) o;
+        ReservaXantar reserva = (ReservaXantar) o;
         return Objects.equals(nombre, reserva.nombre) && Objects.equals(hostalaria, reserva.hostalaria) && Objects.equals(horaInicio, reserva.horaInicio) && Objects.equals(fecha, reserva.fecha);
     }
 

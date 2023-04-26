@@ -1,8 +1,9 @@
-package gui.admin;
+package gui.admin.user;
 
 import baseDatos.DataBase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -11,10 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.User;
 
 import java.net.URL;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class AdminUserController implements Initializable {
 	@FXML
 	TableView<User> userTable;
 
@@ -27,6 +28,8 @@ public class AdminController implements Initializable {
 	@FXML
 	TableColumn<User, Boolean> isAdminColumn;
 
+	private ObservableList<User> userList;
+
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		dniColumn.setCellValueFactory(new PropertyValueFactory<>("dni"));
@@ -34,8 +37,27 @@ public class AdminController implements Initializable {
 		usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 		isAdminColumn.setCellValueFactory(new PropertyValueFactory<>("isAdmin"));
 
-		ObservableList<User> userList = FXCollections.observableList(DataBase.getCurrentDB().getAllUsers());
+		userList = FXCollections.observableList(DataBase.getCurrentDB().getAllUsers());
 
 		userTable.setItems(userList);
 	}
+
+	/**
+	 * Removes the selected user from the database and the observable list.
+	 * This method is triggered when the "Eliminar usuario" button is clicked.
+	 */
+	public void deleteUser(ActionEvent event) throws SQLException {
+		// Get the selected user from the table view
+		User selectedUser = userTable.getSelectionModel().getSelectedItem();
+
+		// Only delete the user if one is selected
+		if (selectedUser != null) {
+			// Remove the user from the database
+			DataBase.getCurrentDB().deleteUser(selectedUser.getUsername());
+
+			// Remove the user from the observable list
+			userList.remove(selectedUser);
+		}
+	}
+
 }
