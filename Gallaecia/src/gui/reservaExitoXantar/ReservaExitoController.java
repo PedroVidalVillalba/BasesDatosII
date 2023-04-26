@@ -1,13 +1,7 @@
-package gui.ReservaExito;
+package gui.reservaExitoXantar;
 
 import gui.SceneManager;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 

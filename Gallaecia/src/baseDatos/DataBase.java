@@ -22,7 +22,9 @@ public class DataBase {
 	private RestaurantDAO restaurantDAO;
 	private EspectaculoDAO espectaculoDAO;
 	private UserDAO userDAO;
-	private ReservasDAO reservasDAO;
+	private ReservasXantarDAO reservasDAO;
+
+	private ReservasIrDAO reservasIrDA0;
 	private RatingDAO ratingDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
@@ -40,10 +42,12 @@ public class DataBase {
 		this.DAOList.add(restaurantDAO);
 		this.espectaculoDAO = new EspectaculoDAO();
 		this.DAOList.add(espectaculoDAO);
-		this.reservasDAO = new ReservasDAO();
+		this.reservasDAO = new ReservasXantarDAO();
 		this.DAOList.add(reservasDAO);
 		this.ratingDAO = new RatingDAO();
 		this.DAOList.add(ratingDAO);
+		this.reservasIrDA0 = new ReservasIrDAO();
+		this.DAOList.add(reservasIrDA0);
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -167,16 +171,28 @@ public class DataBase {
 
 	public void newRating(String descricion, int puntuacion){ ratingDAO.newRating(descricion, puntuacion); }
 
-	public List<Reserva> getAllReservas() {
+	public List<ReservaXantar> getAllReservas() {
 		return reservasDAO.getAllReservas();
 	}
 
-	public void insertarReserva(Reserva reserva) throws SQLException{
-		restaurantDAO.insertarReserva(reserva);
+	public void insertarReservaXantar(ReservaXantar reserva) throws SQLException{
+		reservasDAO.insertarReservaXantar(reserva);
 	}
 
-	public void borrarReserva(Reserva reserva) {
-		reservasDAO.borrarReserva(reserva);
+	public void borrarReservaXantar(ReservaXantar reserva) {
+		reservasDAO.borrarReservaXantar(reserva);
+	}
+
+	public List<ReservaIrAtraccion> getAllReservasIr() {
+		return reservasIrDA0.getAllReservas();
+	}
+
+	public void insertarReservaIr(ReservaIrAtraccion reserva) throws SQLException{
+		reservasIrDA0.insertarReservaIr(reserva);
+	}
+
+	public void borrarReservaIr(ReservaIrAtraccion reserva) {
+		reservasIrDA0.borrarReservaIr(reserva);
 	}
 
 	public void deleteUser(String username) { userDAO.deleteUserByUsername(username);}

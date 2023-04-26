@@ -1,15 +1,12 @@
 package baseDatos;
 
-import javafx.collections.ObservableList;
 import modelo.Zona;
 import modelo.Hostalaria;
-import modelo.Reserva;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Interfaz de acceso a los datos relacionados con las atracciones, encapsula la lógica de acceso a los datos para que
@@ -69,19 +66,6 @@ public class RestaurantDAO extends AbstractDAO{
 
 
 		return resultado;
-
-	}
-
-	public void insertarReserva(Reserva reserva) throws SQLException{
-		Connection con = this.getConexion();
-		PreparedStatement stmLibro=null;
-			stmLibro=con.prepareStatement("insert into reservashostalaria values (?,?,?,?)");
-			stmLibro.setString(1, reserva.getNombre());
-			stmLibro.setString(2, reserva.getHostalaria());
-			stmLibro.setTime(3, reserva.getHoraInicio());
-			stmLibro.setDate(4,reserva.getFecha());
-			stmLibro.executeUpdate();
-
 
 	}
 }

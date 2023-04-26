@@ -1,9 +1,6 @@
 package baseDatos;
 
-import javafx.collections.ObservableList;
-import modelo.Hostalaria;
-import modelo.Reserva;
-import modelo.Zona;
+import modelo.ReservaXantar;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,14 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ReservasDAO extends AbstractDAO{
-    public ReservasDAO() {}
-    public ReservasDAO (Connection conexion){
+public class ReservasXantarDAO extends AbstractDAO{
+    public ReservasXantarDAO() {}
+    public ReservasXantarDAO(Connection conexion){
         super.setConexion(conexion);
     }
-    public List<Reserva> getAllReservas() {
-        java.util.List<Reserva> resultado = new java.util.ArrayList<Reserva>();
-        Reserva atraccionactual;
+    public List<ReservaXantar> getAllReservas() {
+        java.util.List<ReservaXantar> resultado = new java.util.ArrayList<ReservaXantar>();
+        ReservaXantar atraccionactual;
         Connection con;
 
         PreparedStatement stm = null;
@@ -26,7 +23,7 @@ public class ReservasDAO extends AbstractDAO{
 
         con = this.getConexion();
 
-        String consulta = "SELECT * FROM reservashostalaria a ";
+        String consulta = "SELECT * FROM xantar a ";
 
         try{
 
@@ -34,7 +31,7 @@ public class ReservasDAO extends AbstractDAO{
             rs = stm.executeQuery();
 
             while (rs.next()){
-                atraccionactual = new Reserva(
+                atraccionactual = new ReservaXantar(
                         rs.getString("nombrePersona"),
                         rs.getString("hostalaria"),
                         rs.getTime("horaInicio"),
@@ -49,18 +46,31 @@ public class ReservasDAO extends AbstractDAO{
         return resultado;
     }
 
+    public void insertarReservaXantar(ReservaXantar reserva) throws SQLException{
+        Connection con = this.getConexion();
+        PreparedStatement stmLibro=null;
+        stmLibro=con.prepareStatement("insert into xantar values (?,?,?,?)");
+        stmLibro.setString(1, reserva.getNombre());
+        stmLibro.setString(2, reserva.getHostalaria());
+        stmLibro.setTime(3, reserva.getHoraInicio());
+        stmLibro.setDate(4,reserva.getFecha());
+        stmLibro.executeUpdate();
+
+
+    }
+
     public Connection getConnection() {
         return this.getConexion();
     }
 
-    public void borrarReserva(Reserva reserva){
+    public void borrarReservaXantar(ReservaXantar reserva){
         Connection con;
         PreparedStatement stmLibro=null;
 
         con=super.getConexion();
 
         try {
-            stmLibro=con.prepareStatement("delete from reservashostalaria where nombrePersona = ? AND hostalaria = ? AND fecha = ? AND horaInicio = ?;");
+            stmLibro=con.prepareStatement("delete from xantar where nombrePersona = ? AND hostalaria = ? AND fecha = ? AND horaInicio = ?;");
             stmLibro.setString(1, reserva.getNombre());
             stmLibro.setString(2, reserva.getHostalaria());
             stmLibro.setDate(3, reserva.getFecha());
