@@ -32,7 +32,10 @@ public class ChatController implements Initializable{
     @FXML
     private Text texto;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {texto.setVisible(false);}//mensaje de error
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        texto.setVisible(false);
+        myTextArea.setWrapText(true);
+        }//mensaje de error
 
     public void consultaCHAT() throws Exception {
         // Configura la clave de API de OpenAI
@@ -60,9 +63,11 @@ public class ChatController implements Initializable{
         }
 
         resultado2=resultado.toString().substring(36);//Cortamos cosas innecesarias
-        resultado2+="\b\b";
+
         System.out.println(resultado2);
         myTextArea.setText(resultado2);
+
+        texto.setVisible(false);
 
     }
 }

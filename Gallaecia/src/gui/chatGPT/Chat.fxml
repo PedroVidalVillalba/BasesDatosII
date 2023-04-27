@@ -12,6 +12,6 @@
       <Button fx:id="myButton" layoutX="473.0" layoutY="39.0" mnemonicParsing="false" onAction="#consultaCHAT" text="consulta" />
       <TextArea fx:id="myTextArea" layoutX="91.0" layoutY="115.0" prefHeight="200.0" prefWidth="431.0" />
       <Text fx:id="texto" layoutX="91.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Streaming chat completion..." />
-      <Text layoutX="14.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En la consulta se debe especificar el número de palabras de la respuesta y este debe ser inferior a 40" wrappingWidth="712.6259765625" />
+      <Text layoutX="48.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En la consulta se debe especificar el número de palabras de la respuesta y este debe ser inferior a 40" textAlignment="CENTER" wrappingWidth="504.6259765625" />
    </children>
 </AnchorPane>
