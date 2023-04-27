@@ -52,7 +52,7 @@ public class ReservasAsistirDAO extends AbstractDAO{
         PreparedStatement stmLibro=null;
         stmLibro=con.prepareStatement("insert into asistir values (?,?,?,?)");
         stmLibro.setString(1, reserva.getNombre());
-        stmLibro.setString(2, reserva.getspectaculo());
+        stmLibro.setString(2, reserva.getEspectaculo());
         stmLibro.setTime(3, reserva.getHoraInicio());
         stmLibro.setDate(4,reserva.getFecha());
         stmLibro.executeUpdate();
@@ -73,7 +73,7 @@ public class ReservasAsistirDAO extends AbstractDAO{
         try {
             stmLibro=con.prepareStatement("delete from asistir where visitante = ? AND espectaculo = ? AND fecha = ? AND horaInicio = ?;");
             stmLibro.setString(1, reserva.getNombre());
-            stmLibro.setString(2, reserva.getspectaculo());
+            stmLibro.setString(2, reserva.getEspectaculo());
             stmLibro.setDate(3, reserva.getFecha());
             stmLibro.setTime(4, reserva.getHoraInicio());
             stmLibro.executeUpdate();

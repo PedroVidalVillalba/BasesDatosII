@@ -14,7 +14,7 @@
       <TableView fx:id="tablaReservas" layoutX="23.0" layoutY="91.0" prefHeight="289.0" prefWidth="557.0">
         <columns>
           <TableColumn fx:id="visitanteColumn" prefWidth="75.0" text="DNI" />
-          <TableColumn fx:id="atraccionColumn" prefWidth="75.0" text="Establecimiento" />
+          <TableColumn fx:id="atraccionColumn" prefWidth="75.0" text="Atraccion" />
             <TableColumn fx:id="fechaColumn" prefWidth="75.0" text="Fecha" />
             <TableColumn fx:id="horaInicioColumn" prefWidth="75.0" text="Hora inicio" />
         </columns>

@@ -25,7 +25,7 @@ public class ReservaAsistir {
         this.nombre = nombre;
     }
 
-    public String getspectaculo() {
+    public String getEspectaculo() {
         return espectaculo;
     }
 
