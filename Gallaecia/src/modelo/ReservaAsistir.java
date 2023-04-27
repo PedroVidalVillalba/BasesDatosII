@@ -4,15 +4,15 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.Objects;
 
-public class Reserva {
+public class ReservaAsistir {
     private String nombre;
-    private String hostalaria;
+    private String espectaculo;
     private Time horaInicio;
     private Date fecha;
 
-    public Reserva(String nombre, String hostalaria, Time horaInicio, Date fecha) {
+    public ReservaAsistir(String nombre, String espectaculo, Time horaInicio, Date fecha) {
         this.nombre = nombre;
-        this.hostalaria = hostalaria;
+        this.espectaculo = espectaculo;
         this.horaInicio = horaInicio;
         this.fecha=fecha;
     }
@@ -25,12 +25,12 @@ public class Reserva {
         this.nombre = nombre;
     }
 
-    public String getHostalaria() {
-        return hostalaria;
+    public String getEspectaculo() {
+        return espectaculo;
     }
 
-    public void setHostalaria(String hostalaria) {
-        this.hostalaria = hostalaria;
+    public void setEspectaculo(String espectaculo) {
+        this.espectaculo = espectaculo;
     }
 
     public Time getHoraInicio() {
@@ -53,12 +53,12 @@ public class Reserva {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Reserva reserva = (Reserva) o;
-        return Objects.equals(nombre, reserva.nombre) && Objects.equals(hostalaria, reserva.hostalaria) && Objects.equals(horaInicio, reserva.horaInicio) && Objects.equals(fecha, reserva.fecha);
+        ReservaAsistir reserva = (ReservaAsistir) o;
+        return Objects.equals(nombre, reserva.nombre) && Objects.equals(espectaculo, reserva.espectaculo) && Objects.equals(horaInicio, reserva.horaInicio) && Objects.equals(fecha, reserva.fecha);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, hostalaria, horaInicio, fecha);
+        return Objects.hash(nombre, espectaculo, horaInicio, fecha);
     }
 }

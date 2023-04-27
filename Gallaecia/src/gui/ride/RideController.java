@@ -1,21 +1,28 @@
 package gui.ride;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
+import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Atraccion;
+import modelo.Hostalaria;
 
 public class RideController implements Initializable {
+
+	public static Atraccion atraccionElegida;
 
 	@FXML
 	private ListView<Atraccion> myListView;
@@ -23,6 +30,11 @@ public class RideController implements Initializable {
 	private Label myLabel;
 
 	private java.util.List<Atraccion> atraccions;
+
+	@FXML
+	private Text errorMensaje;
+	@FXML
+	private Text errorNull;
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,5 +76,27 @@ public class RideController implements Initializable {
 			}
 
 		});
+	}
+
+	public void switchToNuevaReserva(ActionEvent event) throws IOException {
+		if (DataBase.getCurrentDB().getUser()!=null) {
+			if (myListView.getSelectionModel().getSelectedItem()!=null) {
+				atraccionElegida = myListView.getSelectionModel().getSelectedItem();
+				SceneManager.getSceneManager().switchScene("./reservaIr/Reserva.fxml");
+			} else {
+				errorNull.setVisible(true);
+			}
+		} else {
+			errorMensaje.setVisible(true);
+		}
+	}
+
+	public void switchToEliminarReserva(ActionEvent event) throws IOException {
+		if (DataBase.getCurrentDB().getUser()!=null) {
+			SceneManager.getSceneManager().switchScene("./gestionReservaIr/GestionReserva.fxml");
+		} else {
+			errorMensaje.setVisible(true);
+		}
+
 	}
 }

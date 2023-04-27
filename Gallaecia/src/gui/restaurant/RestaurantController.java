@@ -3,44 +3,23 @@ package gui.restaurant;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
-import baseDatos.UserType;
 import gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import baseDatos.DataBase;
-import gui.SceneManager;
-import gui.reserva.ReservaController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Hostalaria;
-import modelo.Reserva;
 
 
 public class RestaurantController implements Initializable {
@@ -49,6 +28,8 @@ public class RestaurantController implements Initializable {
 
 	@FXML
 	private Text errorMensaje;
+	@FXML
+	private Text errorNull;
 
 	@FXML
 	private ListView<Hostalaria> myListView;
@@ -110,8 +91,10 @@ public class RestaurantController implements Initializable {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
 				restauranteElegido = myListView.getSelectionModel().getSelectedItem();
+				SceneManager.getSceneManager().switchScene("./reservaXantar/Reserva.fxml");
+			} else {
+				errorNull.setVisible(true);
 			}
-			SceneManager.getSceneManager().switchScene("./reserva/Reserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}
@@ -119,7 +102,7 @@ public class RestaurantController implements Initializable {
 
 	public void switchToEliminarReserva(ActionEvent event) throws IOException {
 		if (DataBase.getCurrentDB().getUser()!=null) {
-			SceneManager.getSceneManager().switchScene("./gestionReserva/gestionReserva.fxml");
+			SceneManager.getSceneManager().switchScene("./gestionReservaXantar/GestionReserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

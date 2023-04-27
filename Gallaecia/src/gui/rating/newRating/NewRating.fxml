@@ -5,10 +5,13 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.newRating.NewRatingController">
-    <Text layoutX="70.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Describe aquí tu experiencia" />
-    <TextArea fx:id="descriptionField" layoutX="70.0" layoutY="141.0" prefHeight="174.0" prefWidth="460.0" promptText="Descripción" />
+    <Text layoutX="70.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Describe aquí tu experiencia">
+      <font>
+         <Font size="14.0" />
+      </font></Text>
+    <TextArea fx:id="descriptionField" layoutX="70.0" layoutY="141.0" prefHeight="174.0" prefWidth="460.0" promptText="Descripción" wrapText="true" />
     <Button layoutX="221.0" layoutY="348.0" mnemonicParsing="false" onAction="#newRating" text="Aceptar" />
     <Button layoutX="309.0" layoutY="348.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar" />
-   <Slider id="slider" blockIncrement="1.0" layoutX="220.0" layoutY="93.0" max="5.0" min="1.0" prefHeight="32.0" prefWidth="139.0" value="1.0" />
+   <Slider fx:id="scoreField" blockIncrement="1.0" layoutX="220.0" layoutY="93.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" prefHeight="32.0" prefWidth="139.0" showTickLabels="true" />
    <Text layoutX="70.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación" />
 </AnchorPane>

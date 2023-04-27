@@ -121,10 +121,11 @@ create table visitantes(
 
 
 create table ir(
-  dataVisita date,
   visitante character(9),
   atraccion character varying(30),
-  constraint irpk primary key(dataVisita,visitante,atraccion),
+  horaInicio time,
+  fecha date,
+  constraint irpk primary key(visitante, atraccion, horaInicio, fecha),
   constraint irfk1 foreign key (visitante)
   references public.visitantes(dni)
   on update cascade on delete cascade,
@@ -133,24 +134,13 @@ create table ir(
   on update cascade on delete cascade
 );
 
-create table xantar(
-  data date,
-  visitante character(9),
-  establecemento character varying(30),
-  constraint xantarpk primary key(data,visitante,establecemento),
-  constraint xantarfk1 foreign key (visitante)
-  references public.visitantes(dni)
-  on update cascade on delete cascade,
-  constraint xantarfk2 foreign key (establecemento)
-  references public.hostalaria(nomeEstablecemento)
-  on update cascade on delete cascade
-);
 
 create table asistir(
-  data date,
   visitante character(9),
   espectaculo character varying(30),
-  constraint asistirpk primary key(data,visitante,espectaculo),
+  horaInicio time,
+  fecha date,
+  constraint asistirpk primary key(visitante,espectaculo,horaInicio,fecha),
   constraint asistirfk1 foreign key (visitante)
   references public.visitantes(dni)
   on update cascade on delete cascade,
@@ -213,7 +203,7 @@ create table DJ(
 );
 
 create table valoracions(
-  identificador character (5),
+  identificador serial,
   data date,
   descricion character varying(200),
   puntuacion integer not null,
@@ -246,14 +236,16 @@ create table Users (
 
 
 
-create table ReservasHostalaria (
-    nombrePersona varchar(30),
+create table Xantar (
+    visitante char(9),
     hostalaria character varying(30),
-    horaInicio varchar(10),
-    horaFin varchar(10),
+    horaInicio time,
     fecha date,
-    check (horaFin >= horaInicio),
-    PRIMARY KEY (nombrePersona, hostalaria, fecha, horaInicio),
-    constraint reservasfk1 foreign key (hostalaria) references public.hostalaria(nomeEstablecemento)
- 	on update cascade on delete set null
+    PRIMARY KEY (visitante, hostalaria, fecha, horaInicio),
+    constraint xantarfk1 foreign key (hostalaria) references 		
+    public.hostalaria(nomeEstablecemento)
+ 	on update cascade on delete set null,
+    constraint xantarfk2 foreign key (visitante) references 
+    public.visitantes(dni)
+    	on update cascade on delete set null
 );

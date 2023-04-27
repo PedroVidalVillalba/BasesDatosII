@@ -7,7 +7,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ride.RideController">
 	<children>
 		<ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
-		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="128.0" prefHeight="200.0" prefWidth="277.0" text="Atracciones disponibles" textAlignment="JUSTIFY" wrapText="true">
+		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="90.0" prefHeight="187.0" prefWidth="277.0" text="Atracciones disponibles" textAlignment="JUSTIFY" wrapText="true">
 			<font>
 				<Font size="16.0" />
 			</font>
@@ -17,5 +17,9 @@
 				<Font size="14.0" />
 			</font>
 		</Label>
+		<Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
+		<Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
+		<Text fx:id="errorMensaje" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" visible="false" />
+		<Text fx:id="errorNull" visible="false" fill="RED" layoutX="77.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: elija una opción de la lista" />
 	</children>
 </AnchorPane>
