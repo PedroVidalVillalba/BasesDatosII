@@ -32,7 +32,7 @@ public class ReservasXantarDAO extends AbstractDAO{
 
             while (rs.next()){
                 atraccionactual = new ReservaXantar(
-                        rs.getString("nombrePersona"),
+                        rs.getString("visitante"),
                         rs.getString("hostalaria"),
                         rs.getTime("horaInicio"),
                         rs.getDate("fecha")
@@ -70,7 +70,7 @@ public class ReservasXantarDAO extends AbstractDAO{
         con=super.getConexion();
 
         try {
-            stmLibro=con.prepareStatement("delete from xantar where nombrePersona = ? AND hostalaria = ? AND fecha = ? AND horaInicio = ?;");
+            stmLibro=con.prepareStatement("delete from xantar where visitante = ? AND hostalaria = ? AND fecha = ? AND horaInicio = ?;");
             stmLibro.setString(1, reserva.getNombre());
             stmLibro.setString(2, reserva.getHostalaria());
             stmLibro.setDate(3, reserva.getFecha());

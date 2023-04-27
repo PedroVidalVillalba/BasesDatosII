@@ -33,6 +33,8 @@ public class RideController implements Initializable {
 
 	@FXML
 	private Text errorMensaje;
+	@FXML
+	private Text errorNull;
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -80,8 +82,10 @@ public class RideController implements Initializable {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
 				atraccionElegida = myListView.getSelectionModel().getSelectedItem();
+				SceneManager.getSceneManager().switchScene("./reservaIr/Reserva.fxml");
+			} else {
+				errorNull.setVisible(true);
 			}
-			SceneManager.getSceneManager().switchScene("./reservaIr/Reserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

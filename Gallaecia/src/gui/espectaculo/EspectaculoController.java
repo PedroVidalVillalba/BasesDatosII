@@ -1,6 +1,6 @@
 package gui.espectaculo;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,6 +8,7 @@ import baseDatos.DataBase;
 import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,10 +16,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Espectaculo;
 
 public class EspectaculoController implements Initializable {
+
+    public static Espectaculo espectaculoElegido;
 
     @FXML
     private ListView<Espectaculo> myListView;
@@ -26,6 +30,10 @@ public class EspectaculoController implements Initializable {
     private Label myLabel;
     @FXML
     private Button nuevoEspectaculo;
+    @FXML
+    private Text errorMensaje;
+    @FXML
+    private Text errorNull;
 
     private java.util.List<Espectaculo> espectaculos;
 
@@ -74,6 +82,28 @@ public class EspectaculoController implements Initializable {
 
     public void nuevoEspectaculo(){
         SceneManager.getSceneManager().switchScene("./nuevoEspectaculo/NuevoEspectaculo.fxml");
+    }
+
+    public void switchToNuevaReserva(javafx.event.ActionEvent event) throws IOException {
+        if (DataBase.getCurrentDB().getUser()!=null) {
+            if (myListView.getSelectionModel().getSelectedItem()!=null) {
+                espectaculoElegido = myListView.getSelectionModel().getSelectedItem();
+                SceneManager.getSceneManager().switchScene("./reservaAsistir/Reserva.fxml");
+            } else {
+                errorNull.setVisible(true);
+            }
+        } else {
+            errorMensaje.setVisible(true);
+        }
+    }
+
+    public void switchToEliminarReserva(ActionEvent event) throws IOException {
+        if (DataBase.getCurrentDB().getUser()!=null) {
+            SceneManager.getSceneManager().switchScene("./gestionReservaAsistir/GestionReserva.fxml");
+        } else {
+            errorMensaje.setVisible(true);
+        }
+
     }
 
 

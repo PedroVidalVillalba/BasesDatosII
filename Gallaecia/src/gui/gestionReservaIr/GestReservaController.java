@@ -23,7 +23,7 @@ public class GestReservaController implements Initializable {
     @FXML
     private TableView<ReservaIrAtraccion> tablaReservas;
     @FXML
-    private TableColumn<ReservaIrAtraccion, String> personaColumn;
+    private TableColumn<ReservaIrAtraccion, String> visitanteColumn;
     @FXML
     private TableColumn<ReservaIrAtraccion, String> atraccionColumn;
     @FXML
@@ -35,14 +35,14 @@ public class GestReservaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        personaColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         atraccionColumn.setCellValueFactory(new PropertyValueFactory<>("atraccion"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
         List<ReservaIrAtraccion> reservas = DataBase.getCurrentDB().getAllReservasIr();
         for (ReservaIrAtraccion r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getUsername())) {
+            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
                 reservas.remove(r);
             }
         }

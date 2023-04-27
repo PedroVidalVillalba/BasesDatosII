@@ -1,4 +1,4 @@
-package gui.reservaXantar;
+package gui.reservaAsistir;
 
 import baseDatos.DataBase;
 import gui.SceneManager;
@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.text.Text;
+import modelo.ReservaAsistir;
 import modelo.ReservaXantar;
 
 import java.io.IOException;
@@ -16,8 +17,10 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import static gui.espectaculo.EspectaculoController.espectaculoElegido;
 import static gui.restaurant.RestaurantController.restauranteElegido;
 
 public class ReservaController implements Initializable {
@@ -51,7 +54,7 @@ public class ReservaController implements Initializable {
     public void nuevaReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getDni();
-            String restaurant = restauranteElegido.getNomeEstablecemento();
+            String espectaculo = espectaculoElegido.getNome();
             LocalDate date = dateDatePicker.getValue();
             LocalDate today = LocalDate.now();
             if (!date.isAfter(today) && !date.isEqual(today)) {
@@ -60,10 +63,10 @@ public class ReservaController implements Initializable {
                 Time horaInicio = horaComboBox.getValue();
                 Date date2 = Date.valueOf(date); // Magic happens here!
 
-                ReservaXantar reserva = new ReservaXantar(nombre, restaurant, horaInicio, date2);
+                ReservaAsistir reserva = new ReservaAsistir(nombre, espectaculo, horaInicio, date2);
                 try {
-                    DataBase.getCurrentDB().insertarReservaXantar(reserva);
-                    SceneManager.getSceneManager().switchScene("./reservaExitoXantar/ReservaExito.fxml");
+                    DataBase.getCurrentDB().insertarReservaAsistir(reserva);
+                    SceneManager.getSceneManager().switchScene("./reservaExitoAsistir/ReservaExito.fxml");
                 } catch (SQLException e){
                     errorText.setVisible(true);
                 }

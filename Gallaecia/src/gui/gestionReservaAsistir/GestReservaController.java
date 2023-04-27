@@ -1,15 +1,15 @@
-package gui.gestionReservaXantar;
+package gui.gestionReservaAsistir;
 
 import baseDatos.DataBase;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.ReservaAsistir;
 import modelo.ReservaXantar;
-import javafx.collections.FXCollections;
-
 
 import java.net.URL;
 import java.sql.Date;
@@ -20,38 +20,38 @@ import java.util.ResourceBundle;
 public class GestReservaController implements Initializable {
 
     @FXML
-    private TableView<ReservaXantar> tablaReservas;
+    private TableView<ReservaAsistir> tablaReservas;
     @FXML
-    private TableColumn<ReservaXantar, String> visitanteColumn;
+    private TableColumn<ReservaAsistir, String> visitanteColumn;
     @FXML
-    private TableColumn<ReservaXantar, String> hostalariaColumn;
+    private TableColumn<ReservaAsistir, String> espectaculoColumn;
     @FXML
-    private TableColumn<ReservaXantar, Date> fechaColumn;
+    private TableColumn<ReservaAsistir, Date> fechaColumn;
     @FXML
-    private TableColumn<ReservaXantar, Time> horaInicioColumn;
+    private TableColumn<ReservaAsistir, Time> horaInicioColumn;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        hostalariaColumn.setCellValueFactory(new PropertyValueFactory<>("hostalaria"));
+        espectaculoColumn.setCellValueFactory(new PropertyValueFactory<>("espectaculo"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
-        List<ReservaXantar> reservas = DataBase.getCurrentDB().getAllReservas();
-        for (ReservaXantar r : reservas) {
+        List<ReservaAsistir> reservas = DataBase.getCurrentDB().getAllReservasAsistir();
+        for (ReservaAsistir r : reservas) {
             if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
                 reservas.remove(r);
             }
         }
-        ObservableList<ReservaXantar> listaReservas = FXCollections.observableList(reservas);
+        ObservableList<ReservaAsistir> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
     }
 
     public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
-            ReservaXantar selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
+            ReservaAsistir selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
@@ -60,7 +60,7 @@ public class GestReservaController implements Initializable {
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
-                DataBase.getCurrentDB().borrarReservaXantar(selectedItem);
+                DataBase.getCurrentDB().borrarReservaAsistir(selectedItem);
             }
 
     }

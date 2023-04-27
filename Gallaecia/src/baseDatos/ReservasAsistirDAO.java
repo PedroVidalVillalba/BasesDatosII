@@ -1,6 +1,7 @@
 package baseDatos;
 
-import modelo.ReservaIrAtraccion;
+import modelo.ReservaAsistir;
+import modelo.ReservaXantar;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,14 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ReservasIrDAO extends AbstractDAO{
-    public ReservasIrDAO() {}
-    public ReservasIrDAO(Connection conexion){
+public class ReservasAsistirDAO extends AbstractDAO{
+    public ReservasAsistirDAO() {}
+    public ReservasAsistirDAO(Connection conexion){
         super.setConexion(conexion);
     }
-    public List<ReservaIrAtraccion> getAllReservas() {
-        List<ReservaIrAtraccion> resultado = new java.util.ArrayList<ReservaIrAtraccion>();
-        ReservaIrAtraccion atraccionactual;
+    public List<ReservaAsistir> getAllReservas() {
+        List<ReservaAsistir> resultado = new java.util.ArrayList<ReservaAsistir>();
+        ReservaAsistir atraccionactual;
         Connection con;
 
         PreparedStatement stm = null;
@@ -23,7 +24,7 @@ public class ReservasIrDAO extends AbstractDAO{
 
         con = this.getConexion();
 
-        String consulta = "SELECT * FROM ir a ";
+        String consulta = "SELECT * FROM asistir a ";
 
         try{
 
@@ -31,9 +32,9 @@ public class ReservasIrDAO extends AbstractDAO{
             rs = stm.executeQuery();
 
             while (rs.next()){
-                atraccionactual = new ReservaIrAtraccion(
+                atraccionactual = new ReservaAsistir(
                         rs.getString("visitante"),
-                        rs.getString("atraccion"),
+                        rs.getString("espectaculo"),
                         rs.getTime("horaInicio"),
                         rs.getDate("fecha")
                 );
@@ -46,12 +47,12 @@ public class ReservasIrDAO extends AbstractDAO{
         return resultado;
     }
 
-    public void insertarReservaIr(ReservaIrAtraccion reserva) throws SQLException{
+    public void insertarReservaAsistir(ReservaAsistir reserva) throws SQLException{
         Connection con = this.getConexion();
         PreparedStatement stmLibro=null;
-        stmLibro=con.prepareStatement("insert into ir values (?,?,?,?)");
+        stmLibro=con.prepareStatement("insert into asistir values (?,?,?,?)");
         stmLibro.setString(1, reserva.getNombre());
-        stmLibro.setString(2, reserva.getAtraccion());
+        stmLibro.setString(2, reserva.getspectaculo());
         stmLibro.setTime(3, reserva.getHoraInicio());
         stmLibro.setDate(4,reserva.getFecha());
         stmLibro.executeUpdate();
@@ -63,16 +64,16 @@ public class ReservasIrDAO extends AbstractDAO{
         return this.getConexion();
     }
 
-    public void borrarReservaIr(ReservaIrAtraccion reserva){
+    public void borrarReservaAsistir(ReservaAsistir reserva){
         Connection con;
         PreparedStatement stmLibro=null;
 
         con=super.getConexion();
 
         try {
-            stmLibro=con.prepareStatement("delete from ir where visitante = ? AND atraccion = ? AND fecha = ? AND horaInicio = ?;");
+            stmLibro=con.prepareStatement("delete from asistir where visitante = ? AND espectaculo = ? AND fecha = ? AND horaInicio = ?;");
             stmLibro.setString(1, reserva.getNombre());
-            stmLibro.setString(2, reserva.getAtraccion());
+            stmLibro.setString(2, reserva.getspectaculo());
             stmLibro.setDate(3, reserva.getFecha());
             stmLibro.setTime(4, reserva.getHoraInicio());
             stmLibro.executeUpdate();

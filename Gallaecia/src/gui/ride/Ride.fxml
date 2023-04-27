@@ -20,5 +20,6 @@
 		<Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
 		<Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
 		<Text fx:id="errorMensaje" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" visible="false" />
+		<Text fx:id="errorNull" visible="false" fill="RED" layoutX="77.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: elija una opción de la lista" />
 	</children>
 </AnchorPane>

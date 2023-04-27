@@ -53,7 +53,7 @@ public class ReservaController implements Initializable {
 
     public void nuevaReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
-            String nombre = DataBase.getCurrentDB().getUser().getUsername();
+            String nombre = DataBase.getCurrentDB().getUser().getDni();
             String restaurant = atraccionElegida.getNome();
             LocalDate date = dateDatePicker.getValue();
             LocalDate today = LocalDate.now();
