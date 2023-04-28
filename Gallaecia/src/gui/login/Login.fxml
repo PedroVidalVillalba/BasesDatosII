@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController">
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController"
+		  alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
+	<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="246.0" halignment="CENTER"/>
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="354.0" halignment="LEFT"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" valignment="CENTER" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" valignment="CENTER" />
+	</rowConstraints>
 	<children>
-<!--      <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" opacity="0.17" />-->
-		<TextField fx:id="usernameField" layoutX="262.0" layoutY="132.0" />
-		<Text layoutX="198.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
-		<PasswordField fx:id="passwordField" layoutX="262.0" layoutY="176.0" />
-		<Text layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
-		<Button fx:id="loginButton" layoutX="248.0" layoutY="267.0" mnemonicParsing="false" onAction="#login" text="Iniciar sesión" />
-		<Button fx:id="signUpButton" layoutX="309.0" layoutY="334.0" mnemonicParsing="false" onAction="#signUp" text="Regístrate" />
-		<Text fx:id="resultText" fill="red" layoutX="248.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fallo en el inicio de sesión" visible="false" />
-		<Text layoutX="173.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta?" />
-		<Text layoutX="36.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce tus credenciales para acceder a tu información." />
+		<Label text="Introduce tus credenciales para acceder a tu información." GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+		<Label text="Usuario:" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="RIGHT"/>
+		<TextField fx:id="usernameField" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+		<Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.halignment="RIGHT"/>
+		<PasswordField fx:id="passwordField" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+		<Button onAction="#login" text="Iniciar sesión" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2" />
+		<Label fx:id="errorLabel" text="Fallo en el inicio de sesión" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" visible="false" />
+		<Label text="¿No tienes cuenta?" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+		<Button onAction="#signUp" text="Regístrate" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
 	</children>
-</AnchorPane>
+	<stylesheets>
+		<URL value="@Login.css"/>
+	</stylesheets>
+</GridPane>

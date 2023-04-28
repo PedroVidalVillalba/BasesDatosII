@@ -110,7 +110,7 @@ public class SignUpController implements Initializable {
 		boolean success = DataBase.getCurrentDB().signUp(visitante, user);
 		if (success) {
 			DataBase.getCurrentDB().login(username, password);
-			SceneManager.getSceneManager().switchScene("./login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().switchScene("./login/Logout.fxml");
 			SceneManager.getSceneManager().refreshMenu();
 		}
 		else {

@@ -32,7 +32,7 @@ public class MenuController implements Initializable {
 		if (DataBase.getCurrentDB().getUser() == null) {
 			SceneManager.getSceneManager().switchScene("./login/Login.fxml");
 		} else {
-			SceneManager.getSceneManager().switchScene("./login/LoginSuccessful.fxml");
+			SceneManager.getSceneManager().switchScene("./login/Logout.fxml");
 		}
 	}
 
@@ -52,7 +52,7 @@ public class MenuController implements Initializable {
 
 		//if(DataBase.getCurrentDB().getUser() != null){
 			//User users = DataBase.getCurrentDB().getUser();
-			if (DataBase.getCurrentDB().getUserType().equals(Admin)) {
+			if (DataBase.getCurrentDB(). getUserType() == Admin) {
 				SceneManager.getSceneManager().switchScene("./espectaculo/EspectaculoAdmin.fxml");
 			} else {
 				SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");

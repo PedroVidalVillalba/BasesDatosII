@@ -5,8 +5,10 @@ import gui.SceneManager;
 import javafx.application.Application;
 import baseDatos.DataBase;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import modelo.Atraccion;
@@ -28,6 +30,7 @@ public class Principal extends Application {
 		Parent menu = FXMLLoader.load(getClass().getResource("../menu/Menu.fxml"));
 
 		VBox root = new VBox(menu, content);
+		VBox.setVgrow(content, Priority.ALWAYS);	// Hacer que el contenido ocupe el espacio vertical disponible
 
 		SceneManager.getSceneManager().setRoot(root);
 

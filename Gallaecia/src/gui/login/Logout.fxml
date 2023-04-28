@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController"
+		  alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" >
+	<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="415.0" halignment="CENTER"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" valignment="CENTER"/>
+	</rowConstraints>
+	<children>
+		<Label fx:id="greetingsLabel" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		<Label wrapText="true" text="Puede cerrar sesión en cualquier momento pulsando el botón de abajo." GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		<Button text="Cerrar sesión" onAction="#logout" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+		<Label fx:id="logoutLabel" text="Su sesión se ha cerrado con éxito" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+	</children>
+	<stylesheets>
+		<URL value="@Logout.css"/>
+	</stylesheets>
+</GridPane>

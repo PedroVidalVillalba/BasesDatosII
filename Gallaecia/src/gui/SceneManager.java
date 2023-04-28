@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class SceneManager {
 	public void switchScene(String FXMLFileName) {
 		try {
 			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
+			VBox.setVgrow(content, Priority.ALWAYS);
 			this.root.getChildren().set(1, content);
 		} catch (IOException exception) {
 			exception.printStackTrace();
