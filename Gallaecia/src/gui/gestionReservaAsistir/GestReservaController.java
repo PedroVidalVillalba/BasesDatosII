@@ -39,12 +39,12 @@ public class GestReservaController implements Initializable {
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
-        List<ReservaAsistir> reservas = DataBase.getCurrentDB().getAllReservasAsistir();
-        for (ReservaAsistir r : reservas) {
+        List<ReservaAsistir> reservas = DataBase.getCurrentDB().getAllReservasAsistirDNI(DataBase.getCurrentDB().getUser());
+        /*for (ReservaAsistir r : reservas) {
             if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
                 reservas.remove(r);
             }
-        }
+        }*/
         ObservableList<ReservaAsistir> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);

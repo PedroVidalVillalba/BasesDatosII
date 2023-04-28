@@ -182,6 +182,10 @@ public class DataBase {
 		return reservasDAO.getAllReservas();
 	}
 
+	public List<ReservaXantar> getAllReservasDNI(User user) throws SQLException {
+		return reservasDAO.getAllReservasDNI(user);
+	}
+
 	public void insertarReservaXantar(ReservaXantar reserva) throws SQLException{
 		reservasDAO.insertarReservaXantar(reserva);
 	}
@@ -194,6 +198,10 @@ public class DataBase {
 		return reservasAsistirDAO.getAllReservas();
 	}
 
+	public List<ReservaAsistir> getAllReservasAsistirDNI(User user) {
+		return reservasAsistirDAO.getAllReservasDNI(user);
+	}
+
 	public void insertarReservaAsistir(ReservaAsistir reserva) throws SQLException{
 		reservasAsistirDAO.insertarReservaAsistir(reserva);
 	}
@@ -204,6 +212,10 @@ public class DataBase {
 
 	public List<ReservaIrAtraccion> getAllReservasIr() {
 		return reservasIrDA0.getAllReservas();
+	}
+
+	public List<ReservaIrAtraccion> getAllReservasIrDNI(User user) throws SQLException {
+		return reservasIrDA0.getAllReservasDNI(user);
 	}
 
 	public void insertarReservaIr(ReservaIrAtraccion reserva) throws SQLException{

@@ -1,6 +1,7 @@
 package baseDatos;
 
 import modelo.ReservaXantar;
+import modelo.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +30,40 @@ public class ReservasXantarDAO extends AbstractDAO{
 
             stm = con.prepareStatement(consulta);
             rs = stm.executeQuery();
+
+            while (rs.next()){
+                atraccionactual = new ReservaXantar(
+                        rs.getString("visitante"),
+                        rs.getString("hostalaria"),
+                        rs.getTime("horaInicio"),
+                        rs.getDate("fecha")
+                );
+                resultado.add(atraccionactual);
+            }
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+
+        return resultado;
+    }
+
+    public List<ReservaXantar> getAllReservasDNI(User user) throws SQLException {
+        java.util.List<ReservaXantar> resultado = new java.util.ArrayList<ReservaXantar>();
+        ReservaXantar atraccionactual;
+        Connection con;
+
+        PreparedStatement stm = null;
+        ResultSet rs;
+
+        con = this.getConexion();
+
+        PreparedStatement stmRes=null;
+        stmRes=con.prepareStatement("SELECT * FROM xantar a WHERE visitante=?");
+        stmRes.setString(1, user.getDni());
+
+        try{
+
+            rs = stmRes.executeQuery();
 
             while (rs.next()){
                 atraccionactual = new ReservaXantar(

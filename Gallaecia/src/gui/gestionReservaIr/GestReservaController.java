@@ -14,6 +14,7 @@ import modelo.ReservaXantar;
 
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,12 +41,17 @@ public class GestReservaController implements Initializable {
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
-        List<ReservaIrAtraccion> reservas = DataBase.getCurrentDB().getAllReservasIr();
-        for (ReservaIrAtraccion r : reservas) {
+        List<ReservaIrAtraccion> reservas = null;
+        try {
+            reservas = DataBase.getCurrentDB().getAllReservasIrDNI(DataBase.getCurrentDB().getUser());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        /*for (ReservaIrAtraccion r : reservas) {
             if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
                 reservas.remove(r);
             }
-        }
+        }*/
         ObservableList<ReservaIrAtraccion> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);

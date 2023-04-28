@@ -2,6 +2,7 @@ package baseDatos;
 
 import modelo.ReservaAsistir;
 import modelo.ReservaXantar;
+import modelo.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +30,40 @@ public class ReservasAsistirDAO extends AbstractDAO{
         try{
 
             stm = con.prepareStatement(consulta);
+            rs = stm.executeQuery();
+
+            while (rs.next()){
+                atraccionactual = new ReservaAsistir(
+                        rs.getString("visitante"),
+                        rs.getString("espectaculo"),
+                        rs.getTime("horaInicio"),
+                        rs.getDate("fecha")
+                );
+                resultado.add(atraccionactual);
+            }
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+
+        return resultado;
+    }
+
+    public List<ReservaAsistir> getAllReservasDNI(User user) {
+        List<ReservaAsistir> resultado = new java.util.ArrayList<ReservaAsistir>();
+        ReservaAsistir atraccionactual;
+        Connection con;
+
+        PreparedStatement stm = null;
+        ResultSet rs;
+
+        con = this.getConexion();
+
+        String consulta = "SELECT * FROM asistir a where visitante = ?";
+
+        try{
+
+            stm = con.prepareStatement(consulta);
+            stm.setString(1, user.getDni());
             rs = stm.executeQuery();
 
             while (rs.next()){
