@@ -51,7 +51,7 @@ public class MenuController implements Initializable {
 	public void switchToEspectaculo() {
 
 		//if(DataBase.getCurrentDB().getUser() != null){
-			//User user = DataBase.getCurrentDB().getUser();
+			//User users = DataBase.getCurrentDB().getUser();
 			if (DataBase.getCurrentDB().getUserType().equals(Admin)) {
 				SceneManager.getSceneManager().switchScene("./espectaculo/EspectaculoAdmin.fxml");
 			} else {
@@ -69,7 +69,7 @@ public class MenuController implements Initializable {
     }
 
 	public void switchToAdmin() {
-		SceneManager.getSceneManager().switchScene("./admin/user/AdminUser.fxml");
+		SceneManager.getSceneManager().switchScene("./admin/Admin.fxml");
 	}
 
 	public void refresh() {

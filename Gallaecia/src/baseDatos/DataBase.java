@@ -24,7 +24,6 @@ public class DataBase {
 	private UserDAO userDAO;
 	private ReservasXantarDAO reservasDAO;
 	private ZonaDAO zonaDAO;
-	private ReservasXantarDAO reservasDAO;
 
 	private ReservasIrDAO reservasIrDA0;
 	private RatingDAO ratingDAO;

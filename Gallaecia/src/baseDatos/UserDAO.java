@@ -122,9 +122,9 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	/**
-	 * Deletes a user from the database by their username.
+	 * Deletes a users from the database by their username.
 	 *
-	 * @param username the username of the user to be deleted.
+	 * @param username the username of the users to be deleted.
 	 */
 	public void deleteUserByUsername(String username) {
 		Connection con = this.getConexion();

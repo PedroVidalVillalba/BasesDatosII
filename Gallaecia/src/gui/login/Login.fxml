@@ -8,10 +8,10 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController">
 	<children>
 <!--      <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="800.0" opacity="0.17" />-->
-		<PasswordField fx:id="passwordField" layoutX="262.0" layoutY="176.0" />
-		<Text layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
 		<TextField fx:id="usernameField" layoutX="262.0" layoutY="132.0" />
 		<Text layoutX="198.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+		<PasswordField fx:id="passwordField" layoutX="262.0" layoutY="176.0" />
+		<Text layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
 		<Button fx:id="loginButton" layoutX="248.0" layoutY="267.0" mnemonicParsing="false" onAction="#login" text="Iniciar sesión" />
 		<Button fx:id="signUpButton" layoutX="309.0" layoutY="334.0" mnemonicParsing="false" onAction="#signUp" text="Regístrate" />
 		<Text fx:id="resultText" fill="red" layoutX="248.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fallo en el inicio de sesión" visible="false" />

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 
-<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.AdminController">
+<HBox fx:id="hBox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.AdminController">
 	<VBox prefHeight="432.0" prefWidth="160.0">
 		<Button fx:id="asistirButton" onAction="#adminAsistir" text="Asistir" prefWidth="160.0"/>
 		<Button fx:id="atraccionsButton" onAction="#adminAtraccions" text="Atraccions" prefWidth="160.0"/>
@@ -25,7 +25,8 @@
 		<Button fx:id="xantarButton" onAction="#adminXantar" text="Xantar" prefWidth="160.0"/>
 		<Button fx:id="zonasButton" onAction="#adminZonas" text="Zonas" prefWidth="160.0"/>
 	</VBox>
+	<Region/>
 	<stylesheets>
 		<URL value="@Admin.css"/>
 	</stylesheets>
-</AnchorPane>
+</HBox>

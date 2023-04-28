@@ -3,24 +3,14 @@ package gui.admin;
 import gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class AdminController {
 	@FXML
-	private AnchorPane pane;
-
-	@Override
-	public void initialize(URL url, ResourceBundle resourceBundle) {
-		VBox root = SceneManager.getSceneManager().getRoot();
-		HBox content = new HBox(pane, new Pane());
-		root.getChildren().set(1, content);
-	}
+	private HBox hBox;
 
 	public void adminAsistir() {
 		SceneManager.getSceneManager().switchAdminTable("./admin/asistir/AdminAsistir.fxml");
