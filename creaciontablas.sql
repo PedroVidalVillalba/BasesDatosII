@@ -119,7 +119,6 @@ create table visitantes(
   on update cascade on delete set null
 );
 
-
 create table ir(
   visitante character(9),
   atraccion character varying(30),
@@ -133,7 +132,6 @@ create table ir(
   references public.atraccions(nome)
   on update cascade on delete cascade
 );
-
 
 create table asistir(
   visitante character(9),
@@ -149,6 +147,20 @@ create table asistir(
   on update cascade on delete cascade
 );
 
+create table xantar(
+    visitante char(9),
+    hostalaria character varying(30),
+    horaInicio time,
+    fecha date,
+    PRIMARY KEY (visitante, hostalaria, fecha, horaInicio),
+    constraint xantarfk1 foreign key (hostalaria) references 		
+    public.hostalaria(nomeEstablecemento)
+ 	on update cascade on delete set null,
+    constraint xantarfk2 foreign key (visitante) references 
+    public.visitantes(dni)
+    	on update cascade on delete set null
+);
+
 create table musica(
   codigoCancion character (9),
   nome character varying (30) not null,
@@ -158,7 +170,6 @@ create table musica(
   album character varying(30),
   constraint musicapk primary key (codigoCancion)
 );
-
 
 create table sistemasDeAudio(
   identificador character (5),
@@ -234,18 +245,3 @@ create table Users (
     constraint user_exists check (check_person_exists(dni, nome))
 );
 
-
-
-create table Xantar (
-    visitante char(9),
-    hostalaria character varying(30),
-    horaInicio time,
-    fecha date,
-    PRIMARY KEY (visitante, hostalaria, fecha, horaInicio),
-    constraint xantarfk1 foreign key (hostalaria) references 		
-    public.hostalaria(nomeEstablecemento)
- 	on update cascade on delete set null,
-    constraint xantarfk2 foreign key (visitante) references 
-    public.visitantes(dni)
-    	on update cascade on delete set null
-);
