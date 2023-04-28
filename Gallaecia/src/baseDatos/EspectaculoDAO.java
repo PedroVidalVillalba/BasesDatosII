@@ -1,6 +1,5 @@
 package baseDatos;
 import modelo.Espectaculo;
-//import modelo.Reserva;
 import modelo.Zona;
 import modelo.Atraccion;
 

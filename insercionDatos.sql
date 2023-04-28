@@ -186,7 +186,7 @@ INSERT INTO visitantes VALUES
 ('789012345', 'Alejandro Castro', 'España', '789012345', '1996-03-20', 185, 'Barco1');
 
 -- Inserciones valoraciones
-INSERT INTO valoracions VALUES 
-('00000', '2023-04-20', 'La experiencia en las atracciones fue increíble, lo pasé genial.', 5, '345678901'),
-('00001', '2023-04-22', 'Las atracciones y espectáculos me encantaron, así como el trato de todos los trabajadores. Repetiría sin dudarlo', 5, '456789012'),
-('00002', '2023-04-25', 'El espectáculo nocturno fue impresionante, sin embargo las colas para las atracciones eran muy largas.', 4, '789012345');
+INSERT INTO valoracions(data, descricion, puntuacion, visitante) VALUES 
+('2023-04-20', 'La experiencia en las atracciones fue increíble, lo pasé genial.', 5, '345678901'),
+('2023-04-22', 'Las atracciones y espectáculos me encantaron, así como el trato de todos los trabajadores. Repetiría sin dudarlo', 5, '456789012'),
+('2023-04-25', 'El espectáculo nocturno fue impresionante, sin embargo las colas para las atracciones eran muy largas.', 4, '789012345');

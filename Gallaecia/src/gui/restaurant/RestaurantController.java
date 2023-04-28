@@ -28,6 +28,8 @@ public class RestaurantController implements Initializable {
 
 	@FXML
 	private Text errorMensaje;
+	@FXML
+	private Text errorNull;
 
 	@FXML
 	private ListView<Hostalaria> myListView;
@@ -89,8 +91,10 @@ public class RestaurantController implements Initializable {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
 				restauranteElegido = myListView.getSelectionModel().getSelectedItem();
+				SceneManager.getSceneManager().switchScene("./reservaXantar/Reserva.fxml");
+			} else {
+				errorNull.setVisible(true);
 			}
-			SceneManager.getSceneManager().switchScene("./reservaXantar/Reserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

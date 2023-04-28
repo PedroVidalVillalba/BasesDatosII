@@ -119,45 +119,46 @@ create table visitantes(
   on update cascade on delete set null
 );
 
-
 create table ir(
-  nombrePersona character varying (60) not null,
+  visitante character(9),
   atraccion character varying(30),
   horaInicio time,
   fecha date,
-  constraint irpk primary key(nombrePersona, atraccion, horaInicio, fecha),
-  constraint irfk1 foreign key (nombrePersona)
-  references public.visitantes(nome)
+  constraint irpk primary key(visitante, atraccion, horaInicio, fecha),
+  constraint irfk1 foreign key (visitante)
+  references public.visitantes(dni)
   on update cascade on delete cascade,
   constraint irfk2 foreign key (atraccion)
   references public.atraccions(nome)
   on update cascade on delete cascade
 );
 
-create table xantar(
-  data date,
-  visitante character(9),
-  establecemento character varying(30),
-  constraint xantarpk primary key(data,visitante,establecemento),
-  constraint xantarfk1 foreign key (visitante)
-  references public.visitantes(dni)
-  on update cascade on delete cascade,
-  constraint xantarfk2 foreign key (establecemento)
-  references public.hostalaria(nomeEstablecemento)
-  on update cascade on delete cascade
-);
-
 create table asistir(
-  data date,
   visitante character(9),
   espectaculo character varying(30),
-  constraint asistirpk primary key(data,visitante,espectaculo),
+  horaInicio time,
+  fecha date,
+  constraint asistirpk primary key(visitante,espectaculo,horaInicio,fecha),
   constraint asistirfk1 foreign key (visitante)
   references public.visitantes(dni)
   on update cascade on delete cascade,
   constraint asistirfk2 foreign key (espectaculo)
   references public.espectaculos(nome)
   on update cascade on delete cascade
+);
+
+create table xantar(
+    visitante char(9),
+    hostalaria character varying(30),
+    horaInicio time,
+    fecha date,
+    PRIMARY KEY (visitante, hostalaria, fecha, horaInicio),
+    constraint xantarfk1 foreign key (hostalaria) references 		
+    public.hostalaria(nomeEstablecemento)
+ 	on update cascade on delete set null,
+    constraint xantarfk2 foreign key (visitante) references 
+    public.visitantes(dni)
+    	on update cascade on delete set null
 );
 
 create table musica(
@@ -169,7 +170,6 @@ create table musica(
   album character varying(30),
   constraint musicapk primary key (codigoCancion)
 );
-
 
 create table sistemasDeAudio(
   identificador character (5),
@@ -214,7 +214,7 @@ create table DJ(
 );
 
 create table valoracions(
-  identificador character (5),
+  identificador serial,
   data date,
   descricion character varying(200),
   puntuacion integer not null,
@@ -245,15 +245,3 @@ create table Users (
     constraint user_exists check (check_person_exists(dni, nome))
 );
 
-
-
-create table Xantar (
-    nombrePersona varchar(30),
-    hostalaria character varying(30),
-    horaInicio time,
-    fecha date,
-    check (horaFin >= horaInicio),
-    PRIMARY KEY (nombrePersona, hostalaria, fecha, horaInicio),
-    constraint reservasfk1 foreign key (hostalaria) references public.hostalaria(nomeEstablecemento)
- 	on update cascade on delete set null
-);

@@ -34,8 +34,9 @@ public class RatingDAO extends AbstractDAO {
         String consulta = "SELECT v.identificador, v.data, v.descricion, v.puntuacion, vis.dni, vis.nome, " +
                 "vis.nacionalidade, vis. telefono, vis.dataNacemento, vis.altura, m.nomeMedio, " +
                 "m.tipo, m.prezo, m.capacidade, m.velocidade " +
-                "FROM valoracions v, visitantes vis, medios m " +
-                "where v.visitante = vis.dni and vis.medioTransporte = m.nomeMedio";
+                "FROM valoracions v, visitantes vis " +
+                "LEFT JOIN medios m ON vis.medioTransporte = m.nomeMedio " +
+                "where v.visitante = vis.dni;";
 
         try{
 
@@ -78,14 +79,14 @@ public class RatingDAO extends AbstractDAO {
         Connection connection = this.getConexion();
 
 
-        String query = "INSERT INTO valoracions(identificador, data, descricion, puntuacion, visitante) " +
-                "VALUES(?,?,?,?,?);";
+        String query = "INSERT INTO valoracions(data, descricion, puntuacion, visitante) " +
+                "VALUES(?,?,?,?);";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, rateId());
-            preparedStatement.setDate(2, Date.valueOf(LocalDate.now()));
-            preparedStatement.setString(3, descricion);
-            preparedStatement.setInt(4, puntuacion);
-            preparedStatement.setString(5, DataBase.getCurrentDB().getUser().getDni());
+            //preparedStatement.setString(1, rateId());
+            preparedStatement.setDate(1, Date.valueOf(LocalDate.now()));
+            preparedStatement.setString(2, descricion);
+            preparedStatement.setInt(3, puntuacion);
+            preparedStatement.setString(4, DataBase.getCurrentDB().getUser().getDni());
 
             preparedStatement.executeUpdate();
         } catch (SQLException exception) {
@@ -94,7 +95,7 @@ public class RatingDAO extends AbstractDAO {
 
     }
 
-    public String rateId(){
+/*    public String rateId(){
         Connection connection = this.getConexion();
         PreparedStatement stm = null;
         ResultSet rs;
@@ -115,8 +116,8 @@ public class RatingDAO extends AbstractDAO {
             System.out.println(e.getMessage());
         }
 
-        if(resultado != null) Integer.toString( Integer.parseInt(resultado) + 1 );
+        if(resultado != null) return Integer.toString( Integer.parseInt(resultado) + 1 );
         return "00000";
-    }
+    }*/
 
 }

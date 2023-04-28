@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,7 +23,7 @@ public class GestReservaController implements Initializable {
     @FXML
     private TableView<ReservaXantar> tablaReservas;
     @FXML
-    private TableColumn<ReservaXantar, String> personaColumn;
+    private TableColumn<ReservaXantar, String> visitanteColumn;
     @FXML
     private TableColumn<ReservaXantar, String> hostalariaColumn;
     @FXML
@@ -34,17 +35,22 @@ public class GestReservaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        personaColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         hostalariaColumn.setCellValueFactory(new PropertyValueFactory<>("hostalaria"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
-        List<ReservaXantar> reservas = DataBase.getCurrentDB().getAllReservas();
-        for (ReservaXantar r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getUsername())) {
+        List<ReservaXantar> reservas = null;
+        try {
+            reservas = DataBase.getCurrentDB().getAllReservasDNI(DataBase.getCurrentDB().getUser());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        /*for (ReservaXantar r : reservas) {
+            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
                 reservas.remove(r);
             }
-        }
+        }*/
         ObservableList<ReservaXantar> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);

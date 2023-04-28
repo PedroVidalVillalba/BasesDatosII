@@ -1,6 +1,7 @@
 package baseDatos;
 
 import modelo.ReservaIrAtraccion;
+import modelo.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +33,42 @@ public class ReservasIrDAO extends AbstractDAO{
 
             while (rs.next()){
                 atraccionactual = new ReservaIrAtraccion(
-                        rs.getString("nombrePersona"),
+                        rs.getString("visitante"),
+                        rs.getString("atraccion"),
+                        rs.getTime("horaInicio"),
+                        rs.getDate("fecha")
+                );
+                resultado.add(atraccionactual);
+            }
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+
+        return resultado;
+    }
+
+    public List<ReservaIrAtraccion> getAllReservasDNI(User user) throws SQLException {
+        List<ReservaIrAtraccion> resultado = new java.util.ArrayList<ReservaIrAtraccion>();
+        ReservaIrAtraccion atraccionactual;
+        Connection con;
+
+        PreparedStatement stm = null;
+        ResultSet rs;
+
+        con = this.getConexion();
+
+        PreparedStatement stmRes=null;
+        stmRes = con.prepareStatement("SELECT * FROM ir a where visitante = ?");
+        stmRes.setString(1, user.getDni());
+
+
+        try{
+
+            rs = stmRes.executeQuery();
+
+            while (rs.next()){
+                atraccionactual = new ReservaIrAtraccion(
+                        rs.getString("visitante"),
                         rs.getString("atraccion"),
                         rs.getTime("horaInicio"),
                         rs.getDate("fecha")
@@ -70,7 +106,7 @@ public class ReservasIrDAO extends AbstractDAO{
         con=super.getConexion();
 
         try {
-            stmLibro=con.prepareStatement("delete from ir where nombrePersona = ? AND atraccion = ? AND fecha = ? AND horaInicio = ?;");
+            stmLibro=con.prepareStatement("delete from ir where visitante = ? AND atraccion = ? AND fecha = ? AND horaInicio = ?;");
             stmLibro.setString(1, reserva.getNombre());
             stmLibro.setString(2, reserva.getAtraccion());
             stmLibro.setDate(3, reserva.getFecha());
