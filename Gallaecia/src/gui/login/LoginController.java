@@ -44,8 +44,8 @@ public class LoginController implements Initializable {
 		}
 		else {
 			errorLabel.setVisible(true);
-			usernameField.setStyle("-fx-border-color: #FF6B6B;");
-			passwordField.setStyle("-fx-border-color: #FF6B6B;");
+			usernameField.getStyleClass().add("error-text-field");
+			passwordField.getStyleClass().add("error-text-field");
 		}
 	}
 

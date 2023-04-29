@@ -1,0 +1,244 @@
+.grid-pane {
+    -fx-background-color: #393E46;
+    -fx-font-size: 16;
+}
+
+.label {
+    -fx-text-fill: #EEEEEE;
+}
+
+.text-field {
+    -fx-background-radius: 3;
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+}
+.text-field:focused {
+    -fx-border-color: #32E0C4;
+    -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 3;
+
+}
+.error-text-field {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+    -fx-border-color: #FF6B6B;
+    -fx-border-radius: 3;
+}
+.error-text-field:focused {
+    -fx-border-color: #FF6B6B;
+    -fx-border-radius: 3;
+    -fx-border-width: 3;
+}
+
+.button {
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-color: #556B87;
+    -fx-text-fill: #EEEEEE;
+}
+
+.button:hover, .button:focused {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+    -fx-cursor: hand;
+}
+
+#errorLabel {
+    -fx-text-fill: #FF6B6B;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+    -fx-border-radius: 5;
+}
+
+.combo-box:hover, .combo-box:focused {
+    -fx-border-color: #32E0C4;
+}
+
+.combo-box:focused .list-cell:filled:selected {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+}
+
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+}
+
+.combo-box .list-view {
+    -fx-background-color: #393E46;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view .corner {
+    -fx-background-color: transparent;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #696E76;
+    -fx-padding: 3 0 2 7;
+    -fx-text-fill: #EEEEEE;
+}
+
+.combo-box .list-cell:hover, .combo-box .list-cell:focused {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+}
+
+.combo-box .scroll-bar {
+    -fx-background-color: #393E46;
+}
+
+.combo-box .scroll-bar .thumb {
+    -fx-background-color: #32E0C4;
+}
+.combo-box .scroll-bar .track {
+    -fx-background-color: #393E46;
+}
+
+.combo-box .scroll-pane .corner, .combo-box .scroll-pane .filler {
+   -fx-background-color: transparent;
+}
+
+
+.combo-box .scroll-bar .increment-button {
+    -fx-background-color: #696E76;
+    -fx-background-insets: 0;
+}
+
+.combo-box .scroll-bar .increment-button:hover,
+.combo-box .scroll-bar .increment-button:focused {
+    -fx-background-color: #32E0C4;
+    -fx-background-insets: 0;
+}
+
+.combo-box .scroll-bar .decrement-button {
+    -fx-background-color: #696E76;
+    -fx-background-insets: 0;
+}
+
+.combo-box .scroll-bar .decrement-button:hover,
+.combo-box .scroll-bar .decrement-button:focused {
+    -fx-background-color: #32E0C4;
+    -fx-background-insets: 0;
+}
+
+.combo-box .scroll-bar .increment-arrow,
+.combo-box .scroll-bar .decrement-arrow {
+    -fx-background-color: #EEEEEE;
+}
+
+.combo-box .scroll-bar .increment-button:hover .increment-arrow,
+.combo-box .scroll-bar .decrement-button:hover .decrement-arrow,
+.combo-box .scroll-bar .increment-button:focused .increment-arrow,
+.combo-box .scroll-bar .decrement-button:focused .decrement-arrow {
+    -fx-background-color: #222831;
+}
+
+
+/* DatePicker */
+.date-picker {
+    -fx-background-color: transparent;
+}
+
+/* Icono del calendario */
+.date-picker .arrow-button {
+    -fx-background-color: #393E46;
+    -fx-background-radius: 0;
+    -fx-border-color: #32E0C4;
+    -fx-border-radius: 3;
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #EEEEEE;
+}
+.date-picker .arrow-button:hover {
+    -fx-background-color: #32E0C4;
+    -fx-background-radius: 3;
+    -fx-border-color: transparent;
+}
+
+/* Campo de texto */
+.date-picker .text-field {
+    -fx-background-color: #696E76;
+}
+.date-picker .text-field:focused {
+    -fx-border-color: #32E0C4;
+    -fx-border-width: 3;
+    -fx-border-radius: 3;
+}
+
+
+/* Celdas con los días dentro del desplegable */
+.date-picker .cell {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+    -fx-border-color: #EEEEEE;
+}
+.date-picker .cell:hover, .date-picker .cell:focused {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+    -fx-cursor: hand;
+}
+
+/* Día seleccionado en el calendario desplegable */
+.date-picker .selected, .date-picker .selected:focused {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+}
+
+/* Calendario desplegable */
+.date-picker-popup {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+/* Barra con mes y año */
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #222831;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #EEEEEE;
+}
+/* Flechas */
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: #EEEEEE;
+}
+.date-picker-popup .spinner .button {
+    -fx-background-color: #222831;
+}
+
+/* Lateral con la semana */
+.date-picker-popup .week-number-cell, .date-picker-popup .week-number-cell:hover {
+    -fx-background-color: #222831;
+    -fx-text-fill: #EEEEEE;
+    -fx-cursor: default;
+}
+
+/* Nombres de los días de la semana */
+.date-picker-popup .day-name-cell, .date-picker-popup .day-name-cell:hover {
+    -fx-background-color: #222831;
+    -fx-border-color: #EEEEEE;
+    -fx-border-width: 1;
+    -fx-text-fill: #EEEEEE;
+    -fx-cursor: default;
+}
+
+/* Fondo de la línea con los nombres de los días */
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #222831;
+}
+
+/* Oscurecer las celdas que no son de este mes */
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-background-color: #393E46;
+}
+
