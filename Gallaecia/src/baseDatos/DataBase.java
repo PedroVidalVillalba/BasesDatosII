@@ -169,7 +169,7 @@ public class DataBase {
 		return restaurantDAO.getAllRestaurants();
 	}
 
-	public void updateRetaurant (Hostalaria hostalaria) { restaurantDAO.updateRestaurant(hostalaria);}
+	public void updateRestaurant (Hostalaria hostalaria) { restaurantDAO.updateRestaurant(hostalaria);}
 
 	public List<Espectaculo> getAllEspectaculos(){
 		return espectaculoDAO.getAllEspectaculos();
