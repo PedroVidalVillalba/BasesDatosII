@@ -162,7 +162,9 @@ public class DataBase {
 	public List<Atraccion> getAllRides(){
 		return rideDAO.getAllRides();
 	}
-
+	public void borrarAtraccion(Atraccion atraccion) throws SQLException {
+		rideDAO.deleteRide(atraccion.getNome());
+	}
 	public List<Hostalaria> getAllRestaurants() throws SQLException {
 		return restaurantDAO.getAllRestaurants();
 	}
@@ -171,6 +173,9 @@ public class DataBase {
 		return espectaculoDAO.getAllEspectaculos();
 	}
 
+	public void borrarEspectaculo(Espectaculo espectaculo) {
+		espectaculoDAO.borrarEspectaculo(espectaculo);
+	}
 	public List<Valoracion> getAllRatings(){
 		return ratingDAO.getAllRatings();
 	}

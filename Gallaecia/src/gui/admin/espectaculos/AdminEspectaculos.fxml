@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.espectaculos.AdminEspectaculosController">
+    <TableView fx:id="espectaculoTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="nomeColumn" text="Nombre" />
+            <TableColumn fx:id="horaInicioColumn" text="Hora inicio" />
+            <TableColumn fx:id="horaFinColumn" text="Hora fin" />
+            <TableColumn fx:id="tematicaColumn" text="Temática" />
+            <TableColumn fx:id="descricionColumn" text="Descripción" />
+            <TableColumn fx:id="zonaColumn" text="Zona" />
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteEspectaculo" text="Borrar espectáculo" />
+        </children></HBox>
+
+</AnchorPane>

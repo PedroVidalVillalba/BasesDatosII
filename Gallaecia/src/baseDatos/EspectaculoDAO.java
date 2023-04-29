@@ -90,4 +90,17 @@ public class EspectaculoDAO extends AbstractDAO{
             }
 
     }
+    public void borrarEspectaculo(Espectaculo espectaculo){
+        Connection con = this.getConexion();
+        PreparedStatement stm = null;
+        String consulta = "DELETE FROM espectaculos WHERE nome = ?;";
+
+        try {
+            stm = con.prepareStatement(consulta);
+            stm.setString(1, espectaculo.getNome());
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
