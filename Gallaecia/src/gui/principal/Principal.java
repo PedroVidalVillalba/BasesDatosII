@@ -41,6 +41,7 @@ public class Principal extends Application {
 
 		stage.setScene(scene);//Seteamos la escena jjj
 		stage.setTitle("Gallaecia");
+		stage.setMaximized(true);
 		stage.show();//Mostramos el escenario
 	}
 }

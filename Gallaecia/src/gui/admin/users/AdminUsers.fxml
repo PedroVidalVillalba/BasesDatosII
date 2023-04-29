@@ -9,7 +9,7 @@
 			<TableColumn fx:id="dniColumn" text="DNI" />
 			<TableColumn fx:id="nomeColumn" text="Nombre" />
 			<TableColumn fx:id="usernameColumn" text="Nombre de usuario" />
-			<TableColumn fx:id="isAdminColumn" text="Permisos de administrador" />
+			<TableColumn fx:id="isAdminColumn" text="Permisos de administrador"/>
 		</columns>
 	</TableView>
    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">

@@ -9,7 +9,7 @@
 	<children>
       <ImageView fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../principal/restaurante.jpg" />
+            <Image url="@../images/restaurante.jpg" />
          </image></ImageView>
 		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="165.0" prefWidth="224.0" />
 		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">

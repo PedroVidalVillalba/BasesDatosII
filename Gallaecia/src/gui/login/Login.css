@@ -10,10 +10,22 @@
 .text-field {
     -fx-background-color: #696E76;
     -fx-text-fill: #EEEEEE;
+    -fx-background-radius: 3;
 }
 .text-field:focused {
     -fx-border-color: #32E0C4;
     -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 3;
+}
+.error-text-field {
+    -fx-background-color: #696E76;
+    -fx-text-fill: #EEEEEE;
+    -fx-border-color: #FF6B6B;
+    -fx-border-radius: 3;
+}
+.error-text-field:focused {
+    -fx-border-color: #FF6B6B;
+    -fx-border-radius: 3;
     -fx-border-width: 3;
 }
 

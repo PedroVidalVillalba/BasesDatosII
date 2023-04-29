@@ -68,4 +68,25 @@ public class RestaurantDAO extends AbstractDAO{
 		return resultado;
 
 	}
+
+	public void updateRestaurant(Hostalaria hostalaria) {
+
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "UPDATE hostalaria SET aforo = ?, horainicio = ?, horafin = ?, zona = ? WHERE nomeestablecemento = ?;";
+
+		try {
+
+			stm = con.prepareStatement(consulta);
+			stm.setInt(1, hostalaria.getAforo());
+			stm.setTime(2, hostalaria.getHoraInicio());
+			stm.setTime(3, hostalaria.getHoraFin());
+			stm.setString(4, hostalaria.getZona().getNome());
+			stm.setString(5, hostalaria.getNomeEstablecemento());
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

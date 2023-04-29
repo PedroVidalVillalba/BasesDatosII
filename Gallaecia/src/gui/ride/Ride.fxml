@@ -3,23 +3,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ride.RideController">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ride.RideController"
+		  alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
+	<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+	<columnConstraints>
+		<ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+		<ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="350" minHeight="60" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+	</rowConstraints>
 	<children>
-		<ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
-		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="90.0" prefHeight="187.0" prefWidth="277.0" text="Atracciones disponibles" textAlignment="JUSTIFY" wrapText="true">
-			<font>
-				<Font size="16.0" />
-			</font>
-		</Label>
-		<Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="Gallaecia te ofrece un sinfín de atracciones donde disfrutarás al máximo de cada instante." textAlignment="CENTER" wrapText="true">
-			<font>
-				<Font size="14.0" />
-			</font>
-		</Label>
-		<Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
-		<Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
-		<Text fx:id="errorMensaje" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" visible="false" />
-		<Text fx:id="errorNull" visible="false" fill="RED" layoutX="77.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: elija una opción de la lista" />
+		<Label text="Atracciones" style="-fx-font-size: 25;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+		<Label text="Gallaecia te ofrece un sinfín de atracciones donde disfrutarás al máximo de cada instante." wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+		<Label fx:id="myLabel" text="Atracciones disponibles" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+		<ListView fx:id="myListView" editable="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+		<Label fx:id="errorMensaje" text="Error: tiene que registrarse" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+		<Label fx:id="errorNull" text="Error: elija una opción de la lista" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+		<Button text="Hacer una reserva" mnemonicParsing="false" onAction="#switchToNuevaReserva" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.halignment="RIGHT"/>
+		<Button text="Eliminar una reserva" mnemonicParsing="false" onAction="#switchToEliminarReserva" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.halignment="LEFT"/>
 	</children>
-</AnchorPane>
+	<stylesheets>
+		<URL value="@Ride.css"/>
+	</stylesheets>
+</GridPane>
