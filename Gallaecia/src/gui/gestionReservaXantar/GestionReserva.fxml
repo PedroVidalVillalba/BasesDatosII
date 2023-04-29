@@ -10,7 +10,7 @@
    <children>
        <ImageView fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
            <image>
-               <Image url="@../principal/restaurante.jpg" />
+               <Image url="@../images/restaurante.jpg" />
            </image></ImageView>
       <TableView fx:id="tablaReservas" layoutX="23.0" layoutY="91.0" prefHeight="289.0" prefWidth="557.0">
         <columns>

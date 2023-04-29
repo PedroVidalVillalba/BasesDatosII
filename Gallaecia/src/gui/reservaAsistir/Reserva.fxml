@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../principal/restaurante.jpg" />
+            <Image url="@../images/restaurante.jpg" />
          </image></ImageView>
       <DatePicker fx:id="dateDatePicker" layoutX="51.0" layoutY="160.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige día" />
       <Button layoutX="259.0" layoutY="322.0" mnemonicParsing="false" onAction="#nuevaReserva" text="Confirmar" />

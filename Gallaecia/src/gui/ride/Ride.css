@@ -1,0 +1,92 @@
+.grid-pane {
+    -fx-background-color: #393E46;
+    -fx-font-size: 16;
+}
+
+.label {
+    -fx-text-fill: #EEEEEE;
+}
+
+.button {
+    -fx-border-radius: 5;
+    -fx-background-color: #556B87;
+    -fx-text-fill: #EEEEEE;
+}
+
+.button:hover, .button:focused {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+    -fx-cursor: hand;
+}
+
+#errorMensaje, #errorNull {
+    -fx-text-fill: #FF6B6B;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #222831;
+}
+.list-view .corner {
+    -fx-background-color: transparent;
+}
+
+.list-cell {
+    -fx-text-fill: #EEEEEE;
+}
+
+.list-cell:odd {
+    -fx-background-color: #393E46;
+}
+
+.list-cell:even {
+    -fx-background-color: #556B87;
+}
+
+.list-cell:hover, .list-cell:selected {
+    -fx-background-color: #32E0C4;
+    -fx-text-fill: #222831;
+    -fx-cursor: hand;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: #393E46;
+}
+
+.list-view .scroll-bar .thumb {
+    -fx-background-color: #32E0C4;
+}
+.list-view .scroll-bar .track {
+    -fx-background-color: #393E46;
+}
+
+.list-view .scroll-pane .corner, .list-view .scroll-pane .filler {
+    -fx-background-color: transparent;
+}
+
+
+.list-view .scroll-bar .increment-button,
+.list-view .scroll-bar .decrement-button {
+    -fx-background-color: #393E46;
+    -fx-background-insets: 0;
+}
+
+.list-view .scroll-bar .increment-button:hover,
+.list-view .scroll-bar .increment-button:focused,
+.list-view .scroll-bar .decrement-button:hover,
+.list-view .scroll-bar .decrement-button:focused {
+    -fx-background-color: #32E0C4;
+    -fx-background-insets: 0;
+}
+
+.list-view .scroll-bar .increment-arrow,
+.list-view .scroll-bar .decrement-arrow {
+    -fx-background-color: #EEEEEE;
+}
+
+.list-view .scroll-bar .increment-button:hover .increment-arrow,
+.list-view .scroll-bar .decrement-button:hover .decrement-arrow,
+.list-view .scroll-bar .increment-button:focused .increment-arrow,
+.list-view .scroll-bar .decrement-button:focused .decrement-arrow {
+    -fx-background-color: #222831;
+}

@@ -1,6 +1,5 @@
 package gui.ride;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,7 +7,6 @@ import baseDatos.DataBase;
 import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -18,7 +16,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Atraccion;
-import modelo.Hostalaria;
 
 public class RideController implements Initializable {
 
@@ -29,24 +26,22 @@ public class RideController implements Initializable {
 	@FXML
 	private Label myLabel;
 
-	private java.util.List<Atraccion> atraccions;
-
 	@FXML
-	private Text errorMensaje;
+	private Label errorMensaje;
 	@FXML
-	private Text errorNull;
+	private Label errorNull;
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 
-		atraccions = DataBase.getCurrentDB().getAllRides();
+		java.util.List<Atraccion> atraccions = DataBase.getCurrentDB().getAllRides();
 
 		for (Atraccion atraccion : atraccions) {
 			myListView.getItems().add(atraccion);
 		}
 
 		// Para mostrar el nombre de cada atracción en la ListView.
-		myListView.setCellFactory(new Callback<ListView<Atraccion>, ListCell<Atraccion>>() {
+		myListView.setCellFactory(new Callback<>() {
 			@Override
 			public ListCell<Atraccion> call(ListView<Atraccion> atraccionListView) {
 				return new ListCell<Atraccion>() {
@@ -78,7 +73,7 @@ public class RideController implements Initializable {
 		});
 	}
 
-	public void switchToNuevaReserva(ActionEvent event) throws IOException {
+	public void switchToNuevaReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
 				atraccionElegida = myListView.getSelectionModel().getSelectedItem();
@@ -91,7 +86,7 @@ public class RideController implements Initializable {
 		}
 	}
 
-	public void switchToEliminarReserva(ActionEvent event) throws IOException {
+	public void switchToEliminarReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			SceneManager.getSceneManager().switchScene("./gestionReservaIr/GestionReserva.fxml");
 		} else {
