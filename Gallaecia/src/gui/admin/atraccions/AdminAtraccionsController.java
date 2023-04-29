@@ -30,8 +30,6 @@ public class AdminAtraccionsController implements Initializable {
     TableColumn<Atraccion, Float> custoMantamentoColumn;
     @FXML
     TableColumn<Atraccion, String> descricionColumn;
-    @FXML
-    TableColumn<Atraccion, Zona> zonaColumn;
 
     private ObservableList<Atraccion> atraccionsList;
 
@@ -42,7 +40,6 @@ public class AdminAtraccionsController implements Initializable {
         alturaMinColumn.setCellValueFactory(new PropertyValueFactory<>("alturaMin"));
         custoMantamentoColumn.setCellValueFactory(new PropertyValueFactory<>("custoMantemento"));
         descricionColumn.setCellValueFactory(new PropertyValueFactory<>("descricion"));
-        zonaColumn.setCellValueFactory(new PropertyValueFactory<>("zona"));
         atraccionsList = FXCollections.observableList(DataBase.getCurrentDB().getAllRides());
 
         atraccionsTable.setItems(atraccionsList);

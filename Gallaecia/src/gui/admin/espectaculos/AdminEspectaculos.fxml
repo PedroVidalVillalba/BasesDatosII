@@ -11,7 +11,7 @@
             <TableColumn fx:id="horaFinColumn" text="Hora fin" />
             <TableColumn fx:id="tematicaColumn" text="Temática" />
             <TableColumn fx:id="descricionColumn" text="Descripción" />
-            <TableColumn fx:id="zonaColumn" text="Zona" />
+
         </columns>
     </TableView>
     <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">

@@ -32,8 +32,6 @@ public class AdminEspectaculosController implements Initializable {
     TableColumn<Espectaculo, String> tematicaColumn;
     @FXML
     TableColumn<Espectaculo, String> descricionColumn;
-    @FXML
-    TableColumn<Espectaculo, Zona> zonaColumn;
 
     private ObservableList<Espectaculo> espectaculoList;
 
@@ -44,7 +42,6 @@ public class AdminEspectaculosController implements Initializable {
         horaFinColumn.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
         tematicaColumn.setCellValueFactory(new PropertyValueFactory<>("tematica"));
         descricionColumn.setCellValueFactory(new PropertyValueFactory<>("descricion"));
-        zonaColumn.setCellValueFactory(new PropertyValueFactory<>("zona"));
         espectaculoList = FXCollections.observableList(DataBase.getCurrentDB().getAllEspectaculos());
 
         espectaculoTable.setItems(espectaculoList);

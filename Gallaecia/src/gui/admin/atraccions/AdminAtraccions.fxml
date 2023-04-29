@@ -11,7 +11,7 @@
             <TableColumn fx:id="alturaMinColumn" text="Altura" />
             <TableColumn fx:id="custoMantamentoColumn" text="Coste mantenimiento" />
             <TableColumn fx:id="descricionColumn" text="Descripción" />
-            <TableColumn fx:id="zonaColumn" text="Zona" />
+
         </columns>
     </TableView>
     <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">

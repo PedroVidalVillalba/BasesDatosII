@@ -28,6 +28,7 @@ public class DataBase {
 	private ReservasIrDAO reservasIrDA0;
 	private ReservasAsistirDAO reservasAsistirDAO;
 	private RatingDAO ratingDAO;
+	private VisitantesDAO visitantesDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -54,6 +55,8 @@ public class DataBase {
 		this.DAOList.add(reservasIrDA0);
 		this.reservasAsistirDAO = new ReservasAsistirDAO();
 		this.DAOList.add(reservasAsistirDAO);
+		this.visitantesDAO = new VisitantesDAO();
+		this.DAOList.add(visitantesDAO);
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -241,6 +244,11 @@ public class DataBase {
 
 
 	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
+
+	public List<Visitante> getAllVisitantes(){return visitantesDAO.getAllVisitantes();}
+	public void borrarVisitante(Visitante visitante) throws SQLException {
+		visitantesDAO.borrarVisitante(visitante);
+	}
 }
 
 
