@@ -53,7 +53,7 @@ public class AdminHostalariaController implements Initializable {
             public void handle(TableColumn.CellEditEvent<Hostalaria, Integer> hostalariaIntegerCellEditEvent) {
                 Hostalaria hostalaria  = hostalariaIntegerCellEditEvent.getRowValue();
                 hostalaria.setAforo(hostalariaIntegerCellEditEvent.getNewValue());
-                DataBase.getCurrentDB().updateRetaurant(hostalaria);
+                DataBase.getCurrentDB().updateRestaurant(hostalaria);
             }
         });
 
