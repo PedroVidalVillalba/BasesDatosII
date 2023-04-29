@@ -40,11 +40,15 @@
 	<ComboBox fx:id="nationalityComboBox" promptText="Nacionalidad" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 	<DatePicker fx:id="birthDatePicker" promptText="Fecha de nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-	<Label fx:id="errorLabel" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="8" visible="false"/>
+	<Label fx:id="errorLabel" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="8"/>
 
 	<Button onAction="#signUp" text="Registrarse" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="9" />
 
 	<stylesheets>
-		<URL value="@SignUp.css" />
+		<URL value="@../styles/basic.css" />
+		<URL value="@../styles/button.css" />
+		<URL value="@../styles/text-field.css" />
+		<URL value="@../styles/combo-box.css" />
+		<URL value="@../styles/date-picker.css" />
 	</stylesheets>
 </GridPane>

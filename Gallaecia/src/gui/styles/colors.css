@@ -1,0 +1,9 @@
+* {
+    -fx--highlight: #32E0C4;
+    -fx--white: #EEEEEE;
+    -fx--black: #222831;
+    -fx--dark-gray: #393E46;
+    -fx--light-gray: #696E76;
+    -fx--dark-blue: #556B87;
+    -fx--error-color: #FF6B6B;
+}

@@ -15,6 +15,6 @@
       </ImageView>
    </children>
    <stylesheets>
-      <URL value="@Principal.css" /> <!-- Ruta al archivo CSS -->
+      <URL value="@../styles/basic.css" /> <!-- Ruta al archivo CSS -->
    </stylesheets>
 </GridPane>

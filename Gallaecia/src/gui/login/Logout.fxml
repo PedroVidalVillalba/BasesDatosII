@@ -25,6 +25,7 @@
 		<Label fx:id="logoutLabel" text="Su sesión se ha cerrado con éxito" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 	</children>
 	<stylesheets>
-		<URL value="@Logout.css"/>
+		<URL value="@../styles/basic.css"/>
+		<URL value="@../styles/button.css"/>
 	</stylesheets>
 </GridPane>

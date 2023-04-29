@@ -27,11 +27,13 @@
 		<Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.halignment="RIGHT"/>
 		<PasswordField fx:id="passwordField" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 		<Button onAction="#login" text="Iniciar sesión" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2" />
-		<Label fx:id="errorLabel" text="Fallo en el inicio de sesión" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" visible="false" />
+		<Label fx:id="errorLabel" text="Fallo en el inicio de sesión" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" />
 		<Label text="¿No tienes cuenta?" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"/>
 		<Button onAction="#signUp" text="Regístrate" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
 	</children>
 	<stylesheets>
-		<URL value="@Login.css"/>
+		<URL value="@../styles/basic.css"/>
+		<URL value="@../styles/text-field.css"/>
+		<URL value="@../styles/button.css"/>
 	</stylesheets>
 </GridPane>

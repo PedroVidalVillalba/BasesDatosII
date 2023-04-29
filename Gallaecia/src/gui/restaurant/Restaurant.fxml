@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
 	<children>
@@ -12,20 +12,17 @@
             <Image url="@../images/restaurante.jpg" />
          </image></ImageView>
 		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="165.0" prefWidth="224.0" />
-		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true">
-			<font>
-				<Font size="16.0" />
-			</font>
-		</Label>
-		<Label layoutX="34.0" layoutY="6.0" prefHeight="86.0" prefWidth="537.0" text="En Gallaecia disfrutaras de todo: hasta de tus descansos para comer. El parque cuenta con restaurantes con especialidades de gustos variados: italianos, asiaticos, americanos... ¡Tenemos para todos!" textAlignment="CENTER" wrapText="true">
-			<font>
-				<Font size="14.0" />
-			</font>
-		</Label>
-		<Text layoutX="48.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pincha para ver informacion. Debe estar registrado para reservar." textAlignment="CENTER" wrappingWidth="233.31396484375" />
-      <Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
-      <Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
-		<Text fx:id="errorMensaje" visible="false" fill="RED" layoutX="77.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" />
-		<Text fx:id="errorNull" visible="false" fill="RED" layoutX="77.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: elija una opción de la lista" />
+		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true"/>
+		<Label layoutX="34.0" layoutY="6.0" prefHeight="86.0" prefWidth="537.0" text="En Gallaecia disfrutaras de todo: hasta de tus descansos para comer. El parque cuenta con restaurantes con especialidades de gustos variados: italianos, asiaticos, americanos... ¡Tenemos para todos!" textAlignment="CENTER" wrapText="true"/>
+		<Label layoutX="48.0" layoutY="116.0" text="Pincha para ver informacion. Debe estar registrado para reservar." textAlignment="CENTER" />
+		<Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
+		<Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
+		<Label fx:id="errorMensaje" visible="false" styleClass="error-label" layoutX="77.0" layoutY="340.0" text="Error: tiene que registrarse" />
+		<Label fx:id="errorNull" visible="false" styleClass="error-label" layoutX="77.0" layoutY="360.0" text="Error: elija una opción de la lista" />
 	</children>
+	<stylesheets>
+		<URL value="@../styles/basic.css" />
+		<URL value="@../styles/button.css" />
+		<URL value="@../styles/list-view.css" />
+	</stylesheets>
 </AnchorPane>

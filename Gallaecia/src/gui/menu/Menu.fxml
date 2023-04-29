@@ -45,6 +45,6 @@
         </Menu>
     </MenuBar>
     <stylesheets>
-        <URL value="@Menu.css" /> <!-- Ruta al archivo CSS -->
+        <URL value="@../styles/menu.css" /> <!-- Ruta al archivo CSS -->
     </stylesheets>
 </HBox>

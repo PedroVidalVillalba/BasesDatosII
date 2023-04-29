@@ -1,0 +1,18 @@
+@import url("colors.css");
+
+.grid-pane {
+    -fx-background-color: -fx--dark-gray;
+    -fx-font-size: 16;
+}
+
+.label {
+    -fx-text-fill: -fx--white;
+}
+
+.title-label {
+    -fx-font-size: 25;
+}
+
+.error-label {
+    -fx-text-fill: -fx--error-color;
+}

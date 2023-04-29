@@ -31,9 +31,9 @@ public class EspectaculoController implements Initializable {
     @FXML
     private Button nuevoEspectaculo;
     @FXML
-    private Text errorMensaje;
+    private Label errorMensaje;
     @FXML
-    private Text errorNull;
+    private Label errorNull;
 
     private java.util.List<Espectaculo> espectaculos;
 

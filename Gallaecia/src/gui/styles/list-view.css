@@ -1,63 +1,40 @@
-.grid-pane {
-    -fx-background-color: #393E46;
-    -fx-font-size: 16;
-}
-
-.label {
-    -fx-text-fill: #EEEEEE;
-}
-
-.button {
-    -fx-border-radius: 5;
-    -fx-background-color: #556B87;
-    -fx-text-fill: #EEEEEE;
-}
-
-.button:hover, .button:focused {
-    -fx-background-color: #32E0C4;
-    -fx-text-fill: #222831;
-    -fx-cursor: hand;
-}
-
-#errorMensaje, #errorNull {
-    -fx-text-fill: #FF6B6B;
-}
+@import url("colors.css");
 
 .list-view {
     -fx-background-color: transparent;
-    -fx-border-color: #222831;
+    -fx-border-color: -fx--black;
 }
 .list-view .corner {
     -fx-background-color: transparent;
 }
 
 .list-cell {
-    -fx-text-fill: #EEEEEE;
+    -fx-text-fill: -fx--white;
 }
 
 .list-cell:odd {
-    -fx-background-color: #393E46;
+    -fx-background-color: -fx--dark-gray;
 }
 
 .list-cell:even {
-    -fx-background-color: #556B87;
+    -fx-background-color: -fx--dark-blue;
 }
 
 .list-cell:hover, .list-cell:selected {
-    -fx-background-color: #32E0C4;
-    -fx-text-fill: #222831;
+    -fx-background-color: -fx--highlight;
+    -fx-text-fill: -fx--black;
     -fx-cursor: hand;
 }
 
 .list-view .scroll-bar {
-    -fx-background-color: #393E46;
+    -fx-background-color: -fx--dark-gray;
 }
 
 .list-view .scroll-bar .thumb {
-    -fx-background-color: #32E0C4;
+    -fx-background-color: -fx--highlight;
 }
 .list-view .scroll-bar .track {
-    -fx-background-color: #393E46;
+    -fx-background-color: -fx--dark-gray;
 }
 
 .list-view .scroll-pane .corner, .list-view .scroll-pane .filler {
@@ -67,7 +44,7 @@
 
 .list-view .scroll-bar .increment-button,
 .list-view .scroll-bar .decrement-button {
-    -fx-background-color: #393E46;
+    -fx-background-color: -fx--dark-gray;
     -fx-background-insets: 0;
 }
 
@@ -75,18 +52,18 @@
 .list-view .scroll-bar .increment-button:focused,
 .list-view .scroll-bar .decrement-button:hover,
 .list-view .scroll-bar .decrement-button:focused {
-    -fx-background-color: #32E0C4;
+    -fx-background-color: -fx--highlight;
     -fx-background-insets: 0;
 }
 
 .list-view .scroll-bar .increment-arrow,
 .list-view .scroll-bar .decrement-arrow {
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: -fx--white;
 }
 
 .list-view .scroll-bar .increment-button:hover .increment-arrow,
 .list-view .scroll-bar .decrement-button:hover .decrement-arrow,
 .list-view .scroll-bar .increment-button:focused .increment-arrow,
 .list-view .scroll-bar .decrement-button:focused .decrement-arrow {
-    -fx-background-color: #222831;
+    -fx-background-color: -fx--black;
 }

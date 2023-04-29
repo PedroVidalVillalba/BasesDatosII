@@ -27,9 +27,9 @@ public class RestaurantController implements Initializable {
 	public static Hostalaria restauranteElegido;
 
 	@FXML
-	private Text errorMensaje;
+	private Label errorMensaje;
 	@FXML
-	private Text errorNull;
+	private Label errorNull;
 
 	@FXML
 	private ListView<Hostalaria> myListView;
