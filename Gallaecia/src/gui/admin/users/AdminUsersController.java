@@ -36,7 +36,6 @@ public class AdminUsersController implements Initializable {
 		nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 		isAdminColumn.setCellValueFactory(new PropertyValueFactory<>("isAdmin"));
-
 		userList = FXCollections.observableList(DataBase.getCurrentDB().getAllUsers());
 
 		userTable.setItems(userList);
@@ -59,5 +58,4 @@ public class AdminUsersController implements Initializable {
 			userList.remove(selectedUser);
 		}
 	}
-
 }
