@@ -75,9 +75,9 @@ public class RideController implements Initializable {
 
 	public void switchToNuevaReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
-			if (myListView.getSelectionModel().getSelectedItem()!=null) {
+			if (myListView.getSelectionModel().getSelectedItem() != null) {
 				atraccionElegida = myListView.getSelectionModel().getSelectedItem();
-				SceneManager.getSceneManager().switchScene("./reservaIr/Reserva.fxml");
+				SceneManager.getSceneManager().switchScene("./ride/reserva/Reserva.fxml");
 			} else {
 				errorNull.setVisible(true);
 			}
@@ -87,8 +87,8 @@ public class RideController implements Initializable {
 	}
 
 	public void switchToEliminarReserva() {
-		if (DataBase.getCurrentDB().getUser()!=null) {
-			SceneManager.getSceneManager().switchScene("./gestionReservaIr/GestionReserva.fxml");
+		if (DataBase.getCurrentDB().getUser() != null) {
+			SceneManager.getSceneManager().switchScene("./ride/gestionReserva/GestionReserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

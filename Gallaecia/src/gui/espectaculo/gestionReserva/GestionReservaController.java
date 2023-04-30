@@ -1,4 +1,4 @@
-package gui.gestionReservaAsistir;
+package gui.espectaculo.gestionReserva;
 
 import baseDatos.DataBase;
 import javafx.collections.FXCollections;
@@ -9,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.ReservaAsistir;
-import modelo.ReservaXantar;
 
 import java.net.URL;
 import java.sql.Date;
@@ -17,7 +16,7 @@ import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GestReservaController implements Initializable {
+public class GestionReservaController implements Initializable {
 
     @FXML
     private TableView<ReservaAsistir> tablaReservas;

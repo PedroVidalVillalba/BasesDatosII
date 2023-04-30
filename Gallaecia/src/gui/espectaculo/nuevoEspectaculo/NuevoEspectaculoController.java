@@ -1,4 +1,4 @@
-package gui.nuevoEspectaculo;
+package gui.espectaculo.nuevoEspectaculo;
 
 import baseDatos.DataBase;
 import gui.SceneManager;

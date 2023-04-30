@@ -7,6 +7,7 @@
 
 .label {
     -fx-text-fill: -fx--white;
+    -fx-text-alignment: center;
 }
 
 .title-label {

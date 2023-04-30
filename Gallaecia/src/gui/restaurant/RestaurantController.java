@@ -36,13 +36,12 @@ public class RestaurantController implements Initializable {
 	@FXML
 	private Label myLabel;
 
-	private java.util.List<Hostalaria> hostalarias;
-
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 
 		restauranteElegido = null;
 
+		java.util.List<Hostalaria> hostalarias;
 		try {
 			hostalarias = DataBase.getCurrentDB().getAllRestaurants();
 		} catch (SQLException e) {
@@ -87,11 +86,11 @@ public class RestaurantController implements Initializable {
 	}
 
 
-	public void switchToNuevaReserva(ActionEvent event) throws IOException {
+	public void switchToNuevaReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
 				restauranteElegido = myListView.getSelectionModel().getSelectedItem();
-				SceneManager.getSceneManager().switchScene("./reservaXantar/Reserva.fxml");
+				SceneManager.getSceneManager().switchScene("./restaurant/reserva/Reserva.fxml");
 			} else {
 				errorNull.setVisible(true);
 			}
@@ -100,9 +99,9 @@ public class RestaurantController implements Initializable {
 		}
 	}
 
-	public void switchToEliminarReserva(ActionEvent event) throws IOException {
+	public void switchToEliminarReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
-			SceneManager.getSceneManager().switchScene("./gestionReservaXantar/GestionReserva.fxml");
+			SceneManager.getSceneManager().switchScene("./restaurant/gestionReserva/GestionReserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

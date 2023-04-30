@@ -23,6 +23,8 @@
 /* Campo de texto */
 .date-picker .text-field {
     -fx-background-color: -fx--light-gray;
+    -fx-text-fill: -fx--white;
+    -fx-background-radius: 3;
 }
 .date-picker .text-field:focused {
     -fx-border-color: -fx--highlight;

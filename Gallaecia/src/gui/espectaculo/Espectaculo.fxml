@@ -2,31 +2,39 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.espectaculo.EspectaculoController"
-            styleClass="grid-pane">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.espectaculo.EspectaculoController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" >
+   <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+      <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="350" minHeight="60" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="45" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+   </rowConstraints>
    <children>
-      <ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="250.0" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutX="319.0" layoutY="91.0" prefHeight="189.0" prefWidth="260.0" text="Espectáculos disponibles" textAlignment="JUSTIFY" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="Gallaecia presenta una amplia gama de espectáculos realizados por personal altamente cualificado." textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
-      <Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
-      <Label fx:id="errorMensaje" styleClass="error-label" layoutX="77.0" layoutY="340.0" text="Error: tiene que registrarse" visible="false" />
-      <Label fx:id="errorNull" styleClass="error-label" visible="false" layoutX="77.0" layoutY="360.0" text="Error: elija una opción de la lista" />
+      <Label text="Espectáculos" styleClass="title-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+      <Label text="Gallaecia presenta una amplia gama de espectáculos realizados por personal altamente cualificado." wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <Label text="Selecciona un espectáculo para ver su información. Debe estar registrado para reservar." wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <Label fx:id="myLabel" text="Espectáculos disponibles" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <ListView fx:id="myListView" editable="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+      <Label fx:id="errorMensaje" text="Error: tiene que registrarse" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Label fx:id="errorNull" text="Error: elija una opción de la lista" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Button text="Hacer una reserva" onAction="#switchToNuevaReserva" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
+      <Button text="Eliminar una reserva" onAction="#switchToEliminarReserva" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="LEFT"/>
+      <Button fx:id="nuevoButton" text="Nuevo" onAction="#nuevoEspectaculo" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5" translateY="40" />
    </children>
    <stylesheets>
       <URL value="@../styles/basic.css" />
       <URL value="@../styles/button.css" />
       <URL value="@../styles/list-view.css" />
    </stylesheets>
-</AnchorPane>
+</GridPane>

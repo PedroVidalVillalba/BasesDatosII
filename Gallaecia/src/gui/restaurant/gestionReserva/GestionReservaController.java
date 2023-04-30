@@ -1,4 +1,4 @@
-package gui.gestionReservaXantar;
+package gui.restaurant.gestionReserva;
 
 import baseDatos.DataBase;
 import javafx.collections.ObservableList;
@@ -18,7 +18,7 @@ import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GestReservaController implements Initializable {
+public class GestionReservaController implements Initializable {
 
     @FXML
     private TableView<ReservaXantar> tablaReservas;

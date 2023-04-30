@@ -1,7 +1,6 @@
-package gui.gestionReservaIr;
+package gui.ride.gestionReserva;
 
 import baseDatos.DataBase;
-import baseDatos.ReservasIrDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.ReservaIrAtraccion;
-import modelo.ReservaXantar;
 
 import java.net.URL;
 import java.sql.Date;
@@ -19,7 +17,7 @@ import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GestReservaController implements Initializable {
+public class GestionReservaController implements Initializable {
 
     @FXML
     private TableView<ReservaIrAtraccion> tablaReservas;
