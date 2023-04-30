@@ -2,6 +2,10 @@ package modelo;
 
 import java.util.Objects;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla Medios
+ */
 public class Medio {
 	private String nomeMedio;
 	private String tipo;

@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Interfaz de acceso a los datos relacionados con los espectáculos, encapsula la lógica de acceso a los datos para que
  * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
  */
 
 public class EspectaculoDAO extends AbstractDAO{
@@ -22,8 +23,8 @@ public class EspectaculoDAO extends AbstractDAO{
     }
 
     /**
-     * Método para obtener todas las atracciones.
-     * @return
+     * Método para obtener todos los espectáculos.
+     * @return Lista con todos los espectáculos.
      * @throws SQLException
      */
     public java.util.List<Espectaculo> getAllEspectaculos() {
@@ -69,6 +70,12 @@ public class EspectaculoDAO extends AbstractDAO{
 
         return resultado;
     }
+
+    /**
+     * Método para insertar un espectáculo por un administrador
+     * @param espectaculo Espectáculo a insertar
+     * @throws SQLException
+     */
     public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException {
 
             Connection con = this.getConexion();
@@ -90,6 +97,12 @@ public class EspectaculoDAO extends AbstractDAO{
             }
 
     }
+
+    /**
+     * Método para eliminar un espectáculo por un administrador
+     * @param espectaculo Espectáculo a eliminar
+     * @throws SQLException
+     */
     public void borrarEspectaculo(Espectaculo espectaculo){
         Connection con = this.getConexion();
         PreparedStatement stm = null;

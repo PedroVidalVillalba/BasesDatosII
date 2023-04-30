@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.RatingController">
     <children>
         <ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
-        <Label fx:id="myLabel" alignment="TOP_CENTER" layoutX="273.0" layoutY="130.0" prefHeight="158.0" prefWidth="307.0" text="" textAlignment="JUSTIFY" wrapText="true">
+        <Label fx:id="myLabel" alignment="TOP_LEFT" layoutX="273.0" layoutY="130.0" prefHeight="158.0" prefWidth="307.0" text="" textAlignment="JUSTIFY" wrapText="true">
             <font>
                 <Font size="16.0" />
             </font>n

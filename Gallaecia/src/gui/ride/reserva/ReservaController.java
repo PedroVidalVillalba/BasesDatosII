@@ -20,6 +20,10 @@ import java.util.ResourceBundle;
 
 import static gui.ride.RideController.atraccionElegida;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de reservas de atracciones
+ */
 public class ReservaController implements Initializable {
 
     @FXML
@@ -29,7 +33,7 @@ public class ReservaController implements Initializable {
     @FXML
     private Label errorLabel;
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (horaComboBox != null) {
@@ -41,7 +45,10 @@ public class ReservaController implements Initializable {
             horaComboBox.getItems().setAll(FXCollections.observableList(tiempos));
         }
     }
-
+    /**
+     * Recoge los datos escritos por el usuario e intenta crear una nueva reserva
+     * En caso de éxito, cambia a la escena de Reserva con éxito
+     */
     public void nuevaReserva() {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getDni();

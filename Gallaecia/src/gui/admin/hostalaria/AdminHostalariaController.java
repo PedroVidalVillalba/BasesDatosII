@@ -19,6 +19,10 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de administración de la hostelería
+ */
 public class AdminHostalariaController implements Initializable {
     @FXML
     TableView<Hostalaria> restaurantTable;
@@ -36,6 +40,7 @@ public class AdminHostalariaController implements Initializable {
 
     private ObservableList<Hostalaria> restaurantList;
 
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nomeEstablecemento"));

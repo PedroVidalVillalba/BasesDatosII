@@ -17,6 +17,10 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de administración de espectáculos
+ */
 public class AdminEspectaculosController implements Initializable {
 
     @FXML
@@ -35,6 +39,7 @@ public class AdminEspectaculosController implements Initializable {
 
     private ObservableList<Espectaculo> espectaculoList;
 
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));

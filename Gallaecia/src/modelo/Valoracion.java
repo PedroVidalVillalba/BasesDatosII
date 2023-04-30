@@ -3,6 +3,10 @@ package modelo;
 import java.util.Objects;
 import java.sql.Date;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla Valoracions
+ */
 public class Valoracion {
     private String identificador;
     private Date data;

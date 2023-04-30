@@ -15,6 +15,11 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de nuevos espectáculos
+ */
 public class NuevoEspectaculoController implements Initializable {
 
     @FXML
@@ -32,6 +37,7 @@ public class NuevoEspectaculoController implements Initializable {
     @FXML
     private Label errorLabel;
 
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Indexar tiempos
@@ -66,6 +72,10 @@ public class NuevoEspectaculoController implements Initializable {
             }
         });
     }
+
+    /**
+     * Método que intenta añadir un nuevo espectáculo a la base de datos
+     */
     public void anhadirEspectaculo() {
         if (nombre.getText().isBlank()) {
             nombre.getStyleClass().add("error-text-field");

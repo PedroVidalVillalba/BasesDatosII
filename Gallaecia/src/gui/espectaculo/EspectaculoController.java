@@ -21,6 +21,10 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Espectaculo;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociadas dos vistas, una para invitados y otra para administración
+ * Controla la vista de administración de atracciones
+ */
 public class EspectaculoController implements Initializable {
 
     public static Espectaculo espectaculoElegido;
@@ -82,6 +86,9 @@ public class EspectaculoController implements Initializable {
         });
     }
 
+    /**
+     * Cambio a la vista de añadir espectáculos (solo para administradores)
+     */
     public void nuevoEspectaculo(){
         SceneManager.getSceneManager().switchScene("./espectaculo/nuevoEspectaculo/NuevoEspectaculo.fxml");
     }

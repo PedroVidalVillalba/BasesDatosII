@@ -19,6 +19,10 @@ import java.util.*;
 
 import static gui.restaurant.RestaurantController.restauranteElegido;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de reservas de restaurantes
+ */
 public class ReservaController implements Initializable {
 
     @FXML
@@ -28,7 +32,7 @@ public class ReservaController implements Initializable {
     @FXML
     private Label errorLabel;
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (horaComboBox != null) {
@@ -41,6 +45,10 @@ public class ReservaController implements Initializable {
         }
     }
 
+    /**
+     * Recoge los datos escritos por el usuario e intenta crear una nueva reserva
+     * En caso de éxito, cambia a la escena de Reserva con éxito
+     */
     public void nuevaReserva() {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getDni();

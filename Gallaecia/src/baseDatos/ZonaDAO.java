@@ -9,6 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Interfaz de acceso a los datos relacionados con las zonas del parque, encapsula la lógica de acceso a los datos para que
+ * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
+ */
 public class ZonaDAO extends AbstractDAO{
     public ZonaDAO() {}
     public ZonaDAO (Connection conexion){
@@ -17,7 +22,7 @@ public class ZonaDAO extends AbstractDAO{
 
     /**
      * Método para obtener todas las zonas.
-     * @return
+     * @return Lista con todas las zonas.
      * @throws SQLException
      */
     public java.util.List<Zona> getAllZones(){

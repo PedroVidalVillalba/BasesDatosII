@@ -16,6 +16,10 @@ import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de gestión de reservas de espectáculos
+ */
 public class GestionReservaController implements Initializable {
 
     @FXML
@@ -30,7 +34,7 @@ public class GestionReservaController implements Initializable {
     private TableColumn<ReservaAsistir, Time> horaInicioColumn;
 
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -44,6 +48,10 @@ public class GestionReservaController implements Initializable {
         tablaReservas.setItems(listaReservas);
     }
 
+    /**
+     * Eliminación de una reserva seleccionada
+     * @param actionEvent Click en el botón "Eliminar"
+     */
     public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
             ReservaAsistir selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 

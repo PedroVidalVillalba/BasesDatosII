@@ -3,6 +3,10 @@ package modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla DJ
+ */
 public class DJ {
 	private String dni;
 	private String nome;

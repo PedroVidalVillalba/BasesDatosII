@@ -12,6 +12,10 @@ import modelo.User;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociadas dos vistas, una para el inicio de sesión y otra para el cierre de sesión
+ * Controla la vista de inicio de sesión
+ */
 public class LoginController implements Initializable {
 	@FXML
 	private PasswordField passwordField;
@@ -24,6 +28,7 @@ public class LoginController implements Initializable {
 	@FXML
 	private Label logoutLabel;
 
+	/** Inicialización de la vista */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		User user = DataBase.getCurrentDB().getUser();
@@ -32,6 +37,9 @@ public class LoginController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método que recoge los datos de usuario y contraseña escritos por el usuario y gestiona el inicio de sesión
+	 */
 	public void login() {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
@@ -49,12 +57,18 @@ public class LoginController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método que permite cerrar la sesión iniciada por un usuario
+	 */
 	public void logout() {
 		DataBase.getCurrentDB().logout();
 		SceneManager.getSceneManager().refreshMenu();
 		logoutLabel.setVisible(true);
 	}
 
+	/**
+	 * Método que permite el registro de nuevos usuarios. Cambia a la escena de Registrarse
+	 */
 	public void signUp() {
 		SceneManager.getSceneManager().switchScene("./signUp/SignUp.fxml");
 	}

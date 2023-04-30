@@ -13,12 +13,16 @@ import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import modelo.Atraccion;
 
+/**
+ * Clase principal de la aplicación. Crea el "escenario" sobre el que se muestran las diferentes "escenas" del programa
+ */
 public class Principal extends Application {
 	/**
 	 * Es necesario crear un constructor vacío para que funcionen los métodos de Application
 	 */
 	public Principal() {}
 
+	/** Inicialización de la aplicación */
 	public Principal(String[] args) {
 		launch(args);
 	}

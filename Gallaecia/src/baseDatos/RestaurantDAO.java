@@ -9,8 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Interfaz de acceso a los datos relacionados con las atracciones, encapsula la lógica de acceso a los datos para que
+ * Interfaz de acceso a los datos relacionados con los restaurantes, encapsula la lógica de acceso a los datos para que
  * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
  */
 public class RestaurantDAO extends AbstractDAO{
 	public RestaurantDAO() {}
@@ -19,8 +20,8 @@ public class RestaurantDAO extends AbstractDAO{
 	}
 
 	/**
-	 * Método para obtener todas las atracciones.
-	 * @return
+	 * Método para obtener todos los restaurantes.
+	 * @return Lista con todos los restaurantes.
 	 * @throws SQLException
 	 */
 	public java.util.List<Hostalaria> getAllRestaurants() throws SQLException {
@@ -69,6 +70,10 @@ public class RestaurantDAO extends AbstractDAO{
 
 	}
 
+	/**
+	 * Método para actualizar los datos de un determinado restaurante por un administrador
+	 * @param hostalaria Restaurante a modificar
+	 */
 	public void updateRestaurant(Hostalaria hostalaria) {
 
 		Connection con = this.getConexion();

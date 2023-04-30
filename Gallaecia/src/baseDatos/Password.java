@@ -1,5 +1,8 @@
 package baseDatos;
 
+/**
+ * Clase que encripta y guarda la contraseña introducida por el usuario
+ */
 public class Password {
     private Integer256 value;
 
@@ -8,6 +11,11 @@ public class Password {
         this.value.cipher(user);
     }
 
+    /**
+     * Método que compara si dos contraseñas son iguales
+     * @param savedPassword Contraseña encriptada guardada
+     * @return true si son iguales y false en caso contrario
+     */
     public boolean compareToSaved(String savedPassword) {
         return this.toString().equals(savedPassword);
     }
@@ -36,7 +44,9 @@ public class Password {
         return value.toString();
     }
 
-
+    /**
+     * Clase creada para almacenar el valor de la contraseña encriptada
+     */
     private class Integer256 {
         private final long[] number = new long[4];
 
@@ -53,7 +63,10 @@ public class Password {
             }
         }
 
-        /* Based on "Chacha Cipher - Computerphile" video*/
+        /**
+         * Método que encripta la contraseña. Para más información sobre cómo lo hace, consulta la memoria
+         * Basado en el vídeo "Chacha Cipher - Computerphile"
+         */
         public void cipher(String seed) {
             /* Include the seed */
             byte[] bytes = seed.getBytes();

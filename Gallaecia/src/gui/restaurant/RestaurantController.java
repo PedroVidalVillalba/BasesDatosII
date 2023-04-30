@@ -21,7 +21,10 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Hostalaria;
 
-
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de restaurantes
+ */
 public class RestaurantController implements Initializable {
 
 	public static Hostalaria restauranteElegido;
@@ -36,6 +39,7 @@ public class RestaurantController implements Initializable {
 	@FXML
 	private Label myLabel;
 
+	/** Inicialización de la vista */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -85,7 +89,9 @@ public class RestaurantController implements Initializable {
 		});
 	}
 
-
+	/**
+	 * Cambio de escena a Nueva reserva (solo para usuarios registrados)
+	 */
 	public void switchToNuevaReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			if (myListView.getSelectionModel().getSelectedItem()!=null) {
@@ -99,6 +105,9 @@ public class RestaurantController implements Initializable {
 		}
 	}
 
+	/**
+	 * Cambio de escena a Eliminar reserva (solo para usuarios registrados)
+	 */
 	public void switchToEliminarReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
 			SceneManager.getSceneManager().switchScene("./restaurant/gestionReserva/GestionReserva.fxml");
