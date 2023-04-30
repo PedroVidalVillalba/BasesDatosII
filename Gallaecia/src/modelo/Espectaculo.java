@@ -4,6 +4,10 @@ import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla Espectaculos
+ */
 public class Espectaculo {
 	private String nome;
 	private Time horaInicio;

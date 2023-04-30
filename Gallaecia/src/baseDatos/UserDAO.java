@@ -7,12 +7,23 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interfaz de acceso a los datos relacionados con los usuarios, encapsula la lógica de acceso a los datos para que
+ * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
+ */
 public class UserDAO extends AbstractDAO {
 	public UserDAO() {}
 	public UserDAO(Connection connection) {
 		super.setConexion(connection);
 	}
 
+	/**
+	 * Método que permite iniciar sesión a un usuario
+	 * @param username Nombre de usuario
+	 * @param password Contraseña del usuario
+	 * @return
+	 */
 	public User login(String username, String password) {
 		List<User> result = new ArrayList<>();
 		User user = null;
@@ -49,6 +60,12 @@ public class UserDAO extends AbstractDAO {
 		return user;
 	}
 
+	/**
+	 * Método que permite el registro de nuevos usuarios en la aplicación
+	 * @param visitante Datos generales del usuario
+	 * @param user Datos de uso interno del usuario
+	 * @return
+	 */
 	public boolean signUp(Visitante visitante, User user) {
 		boolean success;
 		Connection connection = this.getConexion();
@@ -95,6 +112,10 @@ public class UserDAO extends AbstractDAO {
 		return success;
 	}
 
+	/**
+	 * Método para obtener todos los usuarios registrados por un administrador
+	 * @return Lista con todos los usuarios registrados
+	 */
 	public List<User> getAllUsers() {
 		List<User> result = new ArrayList<>();
 		User user = null;
@@ -122,9 +143,8 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	/**
-	 * Deletes a users from the database by their username.
-	 *
-	 * @param username the username of the users to be deleted.
+	 * Método para eliminar a un usuario registrado por un administrador
+	 * @param username Nombre de usuario a eliminar
 	 */
 	public void deleteUserByUsername(String username) {
 		Connection con = this.getConexion();

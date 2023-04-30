@@ -18,6 +18,11 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de nuevos espectáculos
+ */
 public class NuevoEspectaculoController implements Initializable {
 
     @FXML
@@ -39,7 +44,7 @@ public class NuevoEspectaculoController implements Initializable {
 
 
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //mensaje de error
@@ -78,6 +83,12 @@ public class NuevoEspectaculoController implements Initializable {
 
 
     }
+
+    /**
+     * Método que intenta añadir un nuevo espectáculo a la base de datos
+     * @param event Click en "Añadir"
+     * @throws IOException
+     */
     public void anhadirEspectaculo(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
                 Espectaculo espectaculo = new Espectaculo(nombre.getText(), horaInicio.getValue(), horaFin.getValue(), descripcion.getText(),tematica.getText() ,listaZonas.getSelectionModel().getSelectedItem());

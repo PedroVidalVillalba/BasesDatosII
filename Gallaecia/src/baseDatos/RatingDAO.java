@@ -8,6 +8,7 @@ import java.time.LocalDate;
 /**
  * Interfaz de acceso a los datos relacionados con las valoraciones, encapsula la lógica de acceso a los datos para que
  * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
  */
 public class RatingDAO extends AbstractDAO {
     public RatingDAO() {}
@@ -17,7 +18,7 @@ public class RatingDAO extends AbstractDAO {
 
     /**
      * Método para obtener todas las valoraciones.
-     * @return
+     * @return Lista con todas las valoraciones.
      * @throws SQLException
      */
     public java.util.List<Valoracion> getAllRatings(){
@@ -75,6 +76,11 @@ public class RatingDAO extends AbstractDAO {
 
     }
 
+    /**
+     * Método para añadir una valoración por un usuario registrado
+     * @param descricion Descripción de la valoración
+     * @param puntuacion Puntuación de la valoración
+     */
     public void newRating(String descricion, int puntuacion){
         Connection connection = this.getConexion();
 

@@ -13,7 +13,7 @@ import java.util.Properties;
 
 /**
  * Clase fachada para interactuar con la base de datos.
- * Sigue el patrón singleton
+ * Sigue el patrón Singleton y Facade
  */
 public class DataBase {
 	private static DataBase currentDB;
@@ -62,6 +62,10 @@ public class DataBase {
 		this.establishConnection(UserType.Guest);
 	}
 
+	/**
+	 * Establece la conexión con la base de datos mediante el driver JDBC
+	 * @param userType Tipo de usuario. Puede tomar el valor Admin (administrador) o Guest (invitado)
+	 */
 	public void establishConnection(UserType userType) {
 		Properties configuration = new Properties();
 		FileInputStream configurationFile;
@@ -107,6 +111,10 @@ public class DataBase {
 		}
 	}
 
+	/**
+	 * Crea la base de datos en caso de que no esté creada ya y se devuelve a sí misma. Es parte del patrón Singleton
+	 * @return La propia base de datos
+	 */
 	public static DataBase getCurrentDB() {
 		if (DataBase.currentDB == null) {
 			DataBase.currentDB = new DataBase(UserType.Guest);
@@ -114,6 +122,9 @@ public class DataBase {
 		return DataBase.currentDB;
 	}
 
+	/**
+	 * Cierra la conexión con la base de datos
+	 */
 	public static void closeCurrentDB() {
 		try {
 			if (currentDB != null && currentDB.connection != null) {
@@ -132,6 +143,13 @@ public class DataBase {
 		return this.user;
 	}
 
+
+	/**
+	 * Comprueba si el usuario ha iniciado sesión correctamente y que los privilegios de la conexión coinciden con los del usuario
+	 * @param username Nombre de usuario
+	 * @param password Contraseña del usuario
+	 * @return true si el usuario ha podido iniciar sesión y false en caso contrario
+	 */
 	public boolean login(String username, String password) {
 		this.user = userDAO.login(username, password);
 		if (user == null) {
@@ -143,6 +161,7 @@ public class DataBase {
 		}
 		return true;
 	}
+
 
 	/** Métodos de UserDAO */
 	public void logout() {
@@ -158,35 +177,49 @@ public class DataBase {
 		return userDAO.getAllUsers();
 	}
 
-	/**
-	 * Método de RideDAO.
-	 * @return
-	 */
+	public void deleteUser(String username) { userDAO.deleteUserByUsername(username);}
+
+
+	/** Métodos de RideDAO */
 	public List<Atraccion> getAllRides(){
 		return rideDAO.getAllRides();
 	}
 	public void borrarAtraccion(Atraccion atraccion) throws SQLException {
 		rideDAO.deleteRide(atraccion.getNome());
 	}
+
+
+	/** Métodos de RestaurantDAO */
 	public List<Hostalaria> getAllRestaurants() throws SQLException {
 		return restaurantDAO.getAllRestaurants();
 	}
 
 	public void updateRestaurant (Hostalaria hostalaria) { restaurantDAO.updateRestaurant(hostalaria);}
 
+
+	/** Métodos de EspectaculoDAO */
 	public List<Espectaculo> getAllEspectaculos(){
 		return espectaculoDAO.getAllEspectaculos();
+	}
+
+	public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException{
+		espectaculoDAO.insertarEspectaculo(espectaculo);
 	}
 
 	public void borrarEspectaculo(Espectaculo espectaculo) {
 		espectaculoDAO.borrarEspectaculo(espectaculo);
 	}
+
+
+	/** Métodos de RatingDAO */
 	public List<Valoracion> getAllRatings(){
 		return ratingDAO.getAllRatings();
 	}
 
 	public void newRating(String descricion, int puntuacion){ ratingDAO.newRating(descricion, puntuacion); }
 
+
+	/** Métodos de ReservasXantarDAO */
 	public List<ReservaXantar> getAllReservas() {
 		return reservasDAO.getAllReservas();
 	}
@@ -203,6 +236,8 @@ public class DataBase {
 		reservasDAO.borrarReservaXantar(reserva);
 	}
 
+
+	/** Métodos de ReservasAsistirDAO */
 	public List<ReservaAsistir> getAllReservasAsistir() {
 		return reservasAsistirDAO.getAllReservas();
 	}
@@ -219,6 +254,8 @@ public class DataBase {
 		reservasAsistirDAO.borrarReservaAsistir(reserva);
 	}
 
+
+	/** Métodos de ReservasIrDAO */
 	public List<ReservaIrAtraccion> getAllReservasIr() {
 		return reservasIrDA0.getAllReservas();
 	}
@@ -235,16 +272,12 @@ public class DataBase {
 		reservasIrDA0.borrarReservaIr(reserva);
 	}
 
-	public void insertarEspectaculo(Espectaculo espectaculo) throws SQLException{
-		espectaculoDAO.insertarEspectaculo(espectaculo);
-	}
 
-	public void deleteUser(String username) { userDAO.deleteUserByUsername(username);}
-
-
-
+	/** Métodos de ZonaDAO */
 	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
 
+
+	/** Métodos de VisitantesDAO */
 	public List<Visitante> getAllVisitantes(){return visitantesDAO.getAllVisitantes();}
 	public void borrarVisitante(Visitante visitante) throws SQLException {
 		visitantesDAO.borrarVisitante(visitante);

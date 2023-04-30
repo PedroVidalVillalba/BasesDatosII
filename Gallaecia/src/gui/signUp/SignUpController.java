@@ -17,6 +17,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.sql.Date;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de registrarse
+ */
 public class SignUpController implements Initializable {
 	@FXML
 	private TextField userField;
@@ -39,6 +43,7 @@ public class SignUpController implements Initializable {
 	@FXML
 	private Label errorLabel;
 
+	/** Inicialización de la vista */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		String[] countries = Locale.getISOCountries();
@@ -51,6 +56,9 @@ public class SignUpController implements Initializable {
 		nationalityComboBox.getItems().setAll(countryList);
 	}
 
+	/**
+	 * Método que recoge todos los datos introducidos por el usuario e intenta registrar a un nuevo usuario en la base de datos
+	 */
 	public void signUp() {
 		String nome = nameField.getText();
 		String dni = dniField.getText();

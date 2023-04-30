@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de Valoraciones
+ */
 public class RatingController implements Initializable {
     @FXML
     private ListView<Valoracion> myListView;
@@ -31,6 +35,7 @@ public class RatingController implements Initializable {
 
     private java.util.List<Valoracion> valoracions;
 
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -73,6 +78,11 @@ public class RatingController implements Initializable {
         //starIcon.isVisible();
     }
 
+    /**
+     * Cambio a la escena de Escribir una reseña (solo para usuarios registrados)
+     * @param event Click en "Escribir una reseña"
+     * @throws IOException
+     */
     public void switchToNewRating(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             SceneManager.getSceneManager().switchScene("./rating/newRating/NewRating.fxml");

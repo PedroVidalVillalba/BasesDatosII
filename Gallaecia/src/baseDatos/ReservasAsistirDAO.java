@@ -10,11 +10,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Interfaz de acceso a los datos relacionados con las reservas de espectáculos, encapsula la lógica de acceso a los datos para que
+ * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
+ */
 public class ReservasAsistirDAO extends AbstractDAO{
     public ReservasAsistirDAO() {}
     public ReservasAsistirDAO(Connection conexion){
         super.setConexion(conexion);
     }
+
+    /**
+     * Método para obtener todas las reservas de espectáculos.
+     * @return Lista con todas las reservas de espectáculos.
+     * @throws SQLException
+     */
     public List<ReservaAsistir> getAllReservas() {
         List<ReservaAsistir> resultado = new java.util.ArrayList<ReservaAsistir>();
         ReservaAsistir atraccionactual;
@@ -48,6 +59,12 @@ public class ReservasAsistirDAO extends AbstractDAO{
         return resultado;
     }
 
+    /**
+     * Método para obtener todas las reservas de espectáculos de un usuario concreto.
+     * @param user Usuario concreto
+     * @return Lista con todas las reservas de espectáculos del usuario
+     * @throws SQLException
+     */
     public List<ReservaAsistir> getAllReservasDNI(User user) {
         List<ReservaAsistir> resultado = new java.util.ArrayList<ReservaAsistir>();
         ReservaAsistir atraccionactual;
@@ -82,6 +99,11 @@ public class ReservasAsistirDAO extends AbstractDAO{
         return resultado;
     }
 
+    /**
+     * Método para añadir una reserva de espectáculo por un usuario registrado
+     * @param reserva Reserva de espectáculo concreta
+     * @throws SQLException
+     */
     public void insertarReservaAsistir(ReservaAsistir reserva) throws SQLException{
         Connection con = this.getConexion();
         PreparedStatement stmLibro=null;
@@ -99,6 +121,11 @@ public class ReservasAsistirDAO extends AbstractDAO{
         return this.getConexion();
     }
 
+    /**
+     * Método para eliminar una reserva de espectáculo por un usuario registrado
+     * @param reserva Reserva de espectáculo concreta
+     * @throws SQLException
+     */
     public void borrarReservaAsistir(ReservaAsistir reserva){
         Connection con;
         PreparedStatement stmLibro=null;

@@ -4,6 +4,10 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.Objects;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla Asistir
+ */
 public class ReservaAsistir {
     private String nombre;
     private String espectaculo;

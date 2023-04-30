@@ -23,7 +23,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de consulta a ChatGPT utilizando una API
+ */
 public class ChatController implements Initializable{
     @FXML
     private TextField myTextField;
@@ -37,6 +40,10 @@ public class ChatController implements Initializable{
         myTextArea.setWrapText(true);
         }//mensaje de error
 
+    /**
+     * Utilizando la API de OpenAI, escribe una consulta a chatGPT y muestra su respuesta con un límite de 75 tokens
+     * @throws Exception
+     */
     public void consultaCHAT() throws Exception {
         // Configura la clave de API de OpenAI
         String token = "";

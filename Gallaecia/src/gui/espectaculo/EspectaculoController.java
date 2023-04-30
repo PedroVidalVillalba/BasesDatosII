@@ -20,6 +20,10 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Espectaculo;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociadas dos vistas, una para invitados y otra para administración
+ * Controla la vista de administración de atracciones
+ */
 public class EspectaculoController implements Initializable {
 
     public static Espectaculo espectaculoElegido;
@@ -37,6 +41,7 @@ public class EspectaculoController implements Initializable {
 
     private java.util.List<Espectaculo> espectaculos;
 
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -80,10 +85,18 @@ public class EspectaculoController implements Initializable {
         });
     }
 
+    /**
+     * Cambio a la vista de añadir espectáculos (solo para administradores)
+     */
     public void nuevoEspectaculo(){
         SceneManager.getSceneManager().switchScene("./nuevoEspectaculo/NuevoEspectaculo.fxml");
     }
 
+    /**
+     * Cambio a la escena de hacer una nueva reserva (solo para usuarios registrados)
+     * @param event Click en el botón "Hacer una reserva"
+     * @throws IOException
+     */
     public void switchToNuevaReserva(javafx.event.ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             if (myListView.getSelectionModel().getSelectedItem()!=null) {
@@ -97,6 +110,11 @@ public class EspectaculoController implements Initializable {
         }
     }
 
+    /**
+     * Cambio a la escena de Eliminar reserva (solo para usuarios registrados)
+     * @param event Click en el botón "Eliminar una reserva"
+     * @throws IOException
+     */
     public void switchToEliminarReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             SceneManager.getSceneManager().switchScene("./gestionReservaAsistir/GestionReserva.fxml");

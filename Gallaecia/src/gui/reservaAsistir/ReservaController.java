@@ -23,6 +23,10 @@ import java.util.ResourceBundle;
 import static gui.espectaculo.EspectaculoController.espectaculoElegido;
 import static gui.restaurant.RestaurantController.restauranteElegido;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de reservas de espectáculos
+ */
 public class ReservaController implements Initializable {
 
     @FXML
@@ -32,7 +36,7 @@ public class ReservaController implements Initializable {
     @FXML
     private Text errorText;
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Time> tiempos = new ArrayList<>();
@@ -51,6 +55,12 @@ public class ReservaController implements Initializable {
 
     }
 
+    /**
+     * Recoge los datos escritos por el usuario e intenta crear una nueva reserva
+     * En caso de éxito, cambia a la escena de Reserva con éxito
+     * @param event Click en "Confirmar"
+     * @throws IOException
+     */
     public void nuevaReserva(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             String nombre = DataBase.getCurrentDB().getUser().getDni();
