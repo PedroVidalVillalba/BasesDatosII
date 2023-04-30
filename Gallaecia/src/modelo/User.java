@@ -3,6 +3,10 @@ package modelo;
 import baseDatos.Password;
 import baseDatos.UserType;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla Users
+ */
 public class User {
 	private String dni;
 	private String nome;

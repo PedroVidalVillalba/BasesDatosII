@@ -2,6 +2,10 @@ package modelo;
 
 import java.util.Objects;
 
+/**
+* Clase modelo del patrón Modelo-Vista-Controlador
+* Representa a la tabla Atracciones
+*/
 public class Atraccion {
 	private String nome;
 	private Integer aforo;

@@ -1,7 +1,6 @@
-package gui.gestionReservaIr;
+package gui.ride.gestionReserva;
 
 import baseDatos.DataBase;
-import baseDatos.ReservasIrDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.ReservaIrAtraccion;
-import modelo.ReservaXantar;
 
 import java.net.URL;
 import java.sql.Date;
@@ -19,7 +17,11 @@ import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GestReservaController implements Initializable {
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de gestión de reservas de atracciones
+ */
+public class GestionReservaController implements Initializable {
 
     @FXML
     private TableView<ReservaIrAtraccion> tablaReservas;
@@ -33,7 +35,7 @@ public class GestReservaController implements Initializable {
     private TableColumn<ReservaIrAtraccion, Time> horaInicioColumn;
 
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -43,32 +45,28 @@ public class GestReservaController implements Initializable {
 
         List<ReservaIrAtraccion> reservas = null;
         try {
-            reservas = DataBase.getCurrentDB().getAllReservasIrDNI(DataBase.getCurrentDB().getUser());
+            reservas = DataBase.getCurrentDB().getAllReservasIr(DataBase.getCurrentDB().getUser());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        /*for (ReservaIrAtraccion r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
-                reservas.remove(r);
-            }
-        }*/
         ObservableList<ReservaIrAtraccion> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
     }
 
-    public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
+    /**
+     * Eliminación de una reserva seleccionada
+     */
+    public void eliminarReserva() {
             ReservaIrAtraccion selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
                 tablaReservas.getItems().remove(selectedItem);
-                //DataBase.getCurrentDB().borrarReserva();
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
                 DataBase.getCurrentDB().borrarReservaIr(selectedItem);
             }
-
     }
 }

@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de Valoraciones
+ */
 public class RatingController implements Initializable {
     @FXML
     private ListView<Valoracion> myListView;
@@ -29,12 +33,10 @@ public class RatingController implements Initializable {
     @FXML
     private ImageView starIcon;
 
-    private java.util.List<Valoracion> valoracions;
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        valoracions = DataBase.getCurrentDB().getAllRatings();
+        java.util.List<Valoracion> valoracions = DataBase.getCurrentDB().getAllRatings();
 
         for (Valoracion valoracion : valoracions) {
             myListView.getItems().add(valoracion);
@@ -61,7 +63,7 @@ public class RatingController implements Initializable {
             public void changed(ObservableValue<? extends Valoracion> observableValue, Valoracion s, Valoracion t1) {
 
                 String descripcion = "Fecha: " + t1.getData() + "\n" +
-                        "Puntuación: " + t1.getPuntuacion() + "\n" +
+                        "Puntuación: " + t1.getPuntuacion() + "\u2B50\n" +
                         "Descripción: " + t1.getDescricion();
                 myLabel.setText(descripcion);
                 if(!starIcon.isVisible()) starIcon.setVisible(true);
@@ -73,6 +75,11 @@ public class RatingController implements Initializable {
         //starIcon.isVisible();
     }
 
+    /**
+     * Cambio a la escena de Escribir una reseña (solo para usuarios registrados)
+     * @param event Click en "Escribir una reseña"
+     * @throws IOException
+     */
     public void switchToNewRating(ActionEvent event) throws IOException {
         if (DataBase.getCurrentDB().getUser()!=null) {
             SceneManager.getSceneManager().switchScene("./rating/newRating/NewRating.fxml");

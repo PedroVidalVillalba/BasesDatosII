@@ -4,25 +4,37 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.restaurant.RestaurantController"
+		  alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
+	<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+	<columnConstraints>
+		<ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+		<ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="350" minHeight="60" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="45" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+		<RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+	</rowConstraints>
 	<children>
-      <ImageView fitHeight="650.0" fitWidth="800.0" layoutX="-200.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/restaurante.jpg" />
-         </image></ImageView>
-		<ListView fx:id="myListView" editable="true" layoutX="53.0" layoutY="147.0" prefHeight="165.0" prefWidth="224.0" />
-		<Label fx:id="myLabel" alignment="CENTER" layoutX="294.0" layoutY="94.0" prefHeight="191.0" prefWidth="277.0" text="Restaurantes disponibles" textAlignment="JUSTIFY" wrapText="true"/>
-		<Label layoutX="34.0" layoutY="6.0" prefHeight="86.0" prefWidth="537.0" text="En Gallaecia disfrutaras de todo: hasta de tus descansos para comer. El parque cuenta con restaurantes con especialidades de gustos variados: italianos, asiaticos, americanos... ¡Tenemos para todos!" textAlignment="CENTER" wrapText="true"/>
-		<Label layoutX="48.0" layoutY="116.0" text="Pincha para ver informacion. Debe estar registrado para reservar." textAlignment="CENTER" />
-		<Button layoutX="363.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToNuevaReserva" text="Hacer una reserva" />
-		<Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToEliminarReserva" text="Eliminar una reserva" />
-		<Label fx:id="errorMensaje" visible="false" styleClass="error-label" layoutX="77.0" layoutY="340.0" text="Error: tiene que registrarse" />
-		<Label fx:id="errorNull" visible="false" styleClass="error-label" layoutX="77.0" layoutY="360.0" text="Error: elija una opción de la lista" />
+		<Label text="Restaurantes" styleClass="title-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+		<Label text="En Gallaecia disfrutaras de todo: hasta de tus descansos para comer. El parque cuenta con restaurantes con especialidades de gustos variados: italianos, asiáticos, americanos... ¡Tenemos para todos!" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+		<Label text="Selecciona un restaurante para ver su información. Debe estar registrado para reservar." wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+		<Label fx:id="myLabel" text="Restaurantes disponibles" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+		<ListView fx:id="myListView" editable="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+		<Label fx:id="errorMensaje" text="Error: tiene que registrarse" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+		<Label fx:id="errorNull" text="Error: elija una opción de la lista" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+		<Button text="Hacer una reserva" onAction="#switchToNuevaReserva" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
+		<Button text="Eliminar una reserva" onAction="#switchToEliminarReserva" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="LEFT"/>
 	</children>
 	<stylesheets>
 		<URL value="@../styles/basic.css" />
 		<URL value="@../styles/button.css" />
 		<URL value="@../styles/list-view.css" />
 	</stylesheets>
-</AnchorPane>
+</GridPane>

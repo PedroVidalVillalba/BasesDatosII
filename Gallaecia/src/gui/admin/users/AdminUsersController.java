@@ -15,6 +15,10 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de administración de usuarios
+ */
 public class AdminUsersController implements Initializable {
 	@FXML
 	TableView<User> userTable;
@@ -30,6 +34,7 @@ public class AdminUsersController implements Initializable {
 
 	private ObservableList<User> userList;
 
+	/** Inicialización de la vista */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		dniColumn.setCellValueFactory(new PropertyValueFactory<>("dni"));

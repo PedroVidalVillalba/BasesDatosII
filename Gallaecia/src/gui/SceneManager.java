@@ -11,6 +11,10 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * Controlador de escenas. Permite, entre otras cosas, el cambio de escenas y que haya un menú principal
+ * Sigue el patrón Mediator
+ */
 public class SceneManager {
 	private static SceneManager sceneManager;
 
@@ -36,6 +40,10 @@ public class SceneManager {
 		return this.root;
 	}
 
+	/**
+	 * Método que cambia de una escena a otra
+	 * @param FXMLFileName Ubicación del archivo FXML de la escena a la que se cambia
+	 */
 	public void switchScene(String FXMLFileName) {
 		try {
 			Parent content = FXMLLoader.load(getClass().getResource(FXMLFileName));
@@ -46,6 +54,10 @@ public class SceneManager {
 		}
 	}
 
+	/**
+	 * Método que cambia de una escena a otra de administración
+	 * @param FXMLFileName Ubicación del archivo FXML de la escena a la que se cambia
+	 */
 	public void switchAdminTable(String FXMLFileName) {
 		try {
 			Parent tableView = FXMLLoader.load(getClass().getResource(FXMLFileName));
@@ -55,6 +67,10 @@ public class SceneManager {
 			exception.printStackTrace();
 		}
 	}
+
+	/**
+	 * Método que permite refrescar el menú principal
+	 */
 	public void refreshMenu() {
 		menuController.refresh();
 	}

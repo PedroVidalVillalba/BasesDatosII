@@ -1,5 +1,6 @@
 package gui.ride;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,6 +18,10 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Atraccion;
 
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de atracciones
+ */
 public class RideController implements Initializable {
 
 	public static Atraccion atraccionElegida;
@@ -31,6 +36,7 @@ public class RideController implements Initializable {
 	@FXML
 	private Label errorNull;
 
+	/** Inicialización de la vista */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -73,11 +79,14 @@ public class RideController implements Initializable {
 		});
 	}
 
+	/**
+	 * Cambio de escena a Nueva reserva (solo para usuarios registrados)
+	 */
 	public void switchToNuevaReserva() {
 		if (DataBase.getCurrentDB().getUser()!=null) {
-			if (myListView.getSelectionModel().getSelectedItem()!=null) {
+			if (myListView.getSelectionModel().getSelectedItem() != null) {
 				atraccionElegida = myListView.getSelectionModel().getSelectedItem();
-				SceneManager.getSceneManager().switchScene("./reservaIr/Reserva.fxml");
+				SceneManager.getSceneManager().switchScene("./ride/reserva/Reserva.fxml");
 			} else {
 				errorNull.setVisible(true);
 			}
@@ -86,9 +95,12 @@ public class RideController implements Initializable {
 		}
 	}
 
+	/**
+	 * Cambio de escena a Eliminar reserva (solo para usuarios registrados)
+	 */
 	public void switchToEliminarReserva() {
-		if (DataBase.getCurrentDB().getUser()!=null) {
-			SceneManager.getSceneManager().switchScene("./gestionReservaIr/GestionReserva.fxml");
+		if (DataBase.getCurrentDB().getUser() != null) {
+			SceneManager.getSceneManager().switchScene("./ride/gestionReserva/GestionReserva.fxml");
 		} else {
 			errorMensaje.setVisible(true);
 		}

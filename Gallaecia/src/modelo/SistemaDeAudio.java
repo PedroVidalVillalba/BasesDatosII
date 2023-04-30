@@ -2,6 +2,10 @@ package modelo;
 
 import java.util.Objects;
 
+/**
+ * Clase modelo del patrón Modelo-Vista-Controlador
+ * Representa a la tabla SistemasDeAudio
+ */
 public class SistemaDeAudio {
 	private String identificador;
 	private String funcion;

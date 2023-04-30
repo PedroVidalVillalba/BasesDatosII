@@ -1,4 +1,4 @@
-package gui.gestionReservaXantar;
+package gui.restaurant.gestionReserva;
 
 import baseDatos.DataBase;
 import javafx.collections.ObservableList;
@@ -10,15 +10,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.ReservaXantar;
 import javafx.collections.FXCollections;
 
-
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
-
-public class GestReservaController implements Initializable {
+/**
+ * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
+ * Controla la vista de gestión de reservas de restaurantes
+ */
+public class GestionReservaController implements Initializable {
 
     @FXML
     private TableView<ReservaXantar> tablaReservas;
@@ -32,7 +34,7 @@ public class GestReservaController implements Initializable {
     private TableColumn<ReservaXantar, Time> horaInicioColumn;
 
 
-
+    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         visitanteColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -46,28 +48,24 @@ public class GestReservaController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        /*for (ReservaXantar r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
-                reservas.remove(r);
-            }
-        }*/
         ObservableList<ReservaXantar> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
     }
 
-    public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
+    /**
+     * Eliminación de una reserva seleccionada
+     */
+    public void eliminarReserva() {
             ReservaXantar selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
                 tablaReservas.getItems().remove(selectedItem);
-                //DataBase.getCurrentDB().borrarReserva();
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
                 DataBase.getCurrentDB().borrarReservaXantar(selectedItem);
             }
-
     }
 }

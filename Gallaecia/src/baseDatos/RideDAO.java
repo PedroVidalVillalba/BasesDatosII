@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Interfaz de acceso a los datos relacionados con las atracciones, encapsula la lógica de acceso a los datos para que
  * las capas superiores de la aplicación puedan interactuar con ellos de manera más sencilla y segura.
+ * Extiende a la clase AbstractDAO
  */
 public class RideDAO extends AbstractDAO{
 	public RideDAO() {}
@@ -21,7 +22,7 @@ public class RideDAO extends AbstractDAO{
 
 	/**
 	 * Método para obtener todas las atracciones.
-	 * @return
+	 * @return Lista con todas las atracciones.
 	 * @throws SQLException
 	 */
 	public java.util.List<Atraccion> getAllRides(){
@@ -69,6 +70,11 @@ public class RideDAO extends AbstractDAO{
 
 	}
 
+	/**
+	 * Método para añadir una atracción por un administrador
+	 * @param atraccion Atracción a insertar
+	 * @throws SQLException
+	 */
 	public void insertRide(Atraccion atraccion) throws SQLException {
 
 		Connection con = this.getConexion();
@@ -91,6 +97,11 @@ public class RideDAO extends AbstractDAO{
 		}
 	}
 
+	/**
+	 * Método para actualizar los datos de una atracción por un administrador
+	 * @param atraccion Atracción a modificar
+	 * @throws SQLException
+	 */
 	public void updateRide(Atraccion atraccion) throws SQLException {
 
 		Connection con = this.getConexion();
@@ -113,6 +124,11 @@ public class RideDAO extends AbstractDAO{
 		}
 	}
 
+	/**
+	 * Método para eliminar una atracción por un administrador
+	 * @param nombre Nombre de la atracción a eliminar
+	 * @throws SQLException
+	 */
 	public void deleteRide(String nombre) throws SQLException {
 
 		Connection con = this.getConexion();
