@@ -2,16 +2,13 @@ package gui.espectaculo.nuevoEspectaculo;
 
 import baseDatos.DataBase;
 import gui.SceneManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Espectaculo;
 import modelo.Zona;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -29,21 +26,14 @@ public class NuevoEspectaculoController implements Initializable {
     @FXML
     private TextField nombre;
     @FXML
-    private TextField descripcion;
+    private TextArea descripcion;
     @FXML
     private TextField tematica;
     @FXML
-    private Button myButton;
-    @FXML
-    private Text errorText;
-
-
-
+    private Label errorLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //mensaje de error
-        errorText.setVisible(false);
         //Indexar tiempos
         ArrayList<Time> tiempos = new ArrayList<>();
         for (int i=0; i<11; i++) {
@@ -61,7 +51,7 @@ public class NuevoEspectaculoController implements Initializable {
         }
 
         //Para mostrar el nombre de las zonas
-        listaZonas.setCellFactory(new Callback<ListView<Zona>, ListCell<Zona>>() {
+        listaZonas.setCellFactory(new Callback<>() {
             @Override
             public ListCell<Zona> call(ListView<Zona> zonaListView) {
                 return new ListCell<Zona>() {
@@ -75,21 +65,22 @@ public class NuevoEspectaculoController implements Initializable {
                 };
             }
         });
-
-
     }
-    public void anhadirEspectaculo(ActionEvent event) throws IOException {
+    public void anhadirEspectaculo() {
+        if (nombre.getText().isBlank()) {
+            nombre.getStyleClass().add("error-text-field");
+            errorLabel.setVisible(true);
+            return;
+        }
+        nombre.getStyleClass().remove("error-text-field");
         if (DataBase.getCurrentDB().getUser()!=null) {
                 Espectaculo espectaculo = new Espectaculo(nombre.getText(), horaInicio.getValue(), horaFin.getValue(), descripcion.getText(),tematica.getText() ,listaZonas.getSelectionModel().getSelectedItem());
                 try {
                     DataBase.getCurrentDB().insertarEspectaculo(espectaculo);
-                    SceneManager.getSceneManager().switchScene("./reservaExitoIr/ReservaExito.fxml");
+                    SceneManager.getSceneManager().switchScene("./espectaculo/reserva/ReservaExito.fxml");
                 } catch (SQLException e){
-                    errorText.setVisible(true);
+                    errorLabel.setVisible(true);
                 }
-
         }
-
-
     }
 }

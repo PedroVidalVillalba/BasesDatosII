@@ -47,7 +47,7 @@ public class ReservasIrDAO extends AbstractDAO{
         return resultado;
     }
 
-    public List<ReservaIrAtraccion> getAllReservasDNI(User user) throws SQLException {
+    public List<ReservaIrAtraccion> getAllReservas(User user) throws SQLException {
         List<ReservaIrAtraccion> resultado = new java.util.ArrayList<ReservaIrAtraccion>();
         ReservaIrAtraccion atraccionactual;
         Connection con;

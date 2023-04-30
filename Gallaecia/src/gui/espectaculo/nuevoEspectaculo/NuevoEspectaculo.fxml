@@ -2,21 +2,42 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.espectaculo.nuevoEspectaculo.NuevoEspectaculoController">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.espectaculo.nuevoEspectaculo.NuevoEspectaculoController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" >
+   <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="350" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+      <ColumnConstraints maxWidth="350" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <TextField fx:id="nombre" layoutX="147.0" layoutY="43.0" />
-      <TextField fx:id="descripcion" layoutX="147.0" layoutY="84.0" prefHeight="69.0" prefWidth="352.0" />
-      <Text layoutX="37.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-      <Text layoutX="37.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
-      <Button fx:id="myButton" layoutX="44.0" layoutY="352.0" mnemonicParsing="false" onAction="#anhadirEspectaculo" text="submit" />
-      <Text fx:id="errorText" fill="#dd3838" layoutX="147.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error!" />
-      <ComboBox fx:id="horaInicio" layoutX="51.0" layoutY="252.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige hora inicio" />
-      <ComboBox fx:id="horaFin" layoutX="51.0" layoutY="283.0" prefHeight="24.0" prefWidth="249.0" promptText="Elige hora fin" />
-      <ListView fx:id="listaZonas" layoutX="354.0" layoutY="186.0" prefHeight="180.0" prefWidth="200.0" />
-      <Text layoutX="37.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temática" />
-      <TextField fx:id="tematica" layoutX="147.0" layoutY="174.0" />
-
+      <Label text="Nuevo Espectáculo" styleClass="title-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+      <TextField fx:id="nombre" promptText="Nombre" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <TextArea fx:id="descripcion" promptText="Descripción" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+      <TextField fx:id="tematica" promptText="Temática" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+      <ComboBox fx:id="horaInicio" promptText="Elige hora de inicio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ComboBox fx:id="horaFin" promptText="Elige hora de fin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ListView fx:id="listaZonas" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2"/>
+      <Label fx:id="errorLabel" text="Error!" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5"/>
+      <Button onAction="#anhadirEspectaculo" text="Añadir" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
    </children>
-</AnchorPane>
+   <stylesheets>
+      <URL value="@../../styles/basic.css"/>
+      <URL value="@../../styles/button.css" />
+      <URL value="@../../styles/text-field.css" />
+      <URL value="@../../styles/text-area.css"/>
+      <URL value="@../../styles/combo-box.css" />
+      <URL value="@../../styles/list-view.css" />
+   </stylesheets>
+</GridPane>

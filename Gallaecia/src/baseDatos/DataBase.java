@@ -223,8 +223,8 @@ public class DataBase {
 		return reservasIrDA0.getAllReservas();
 	}
 
-	public List<ReservaIrAtraccion> getAllReservasIrDNI(User user) throws SQLException {
-		return reservasIrDA0.getAllReservasDNI(user);
+	public List<ReservaIrAtraccion> getAllReservasIr(User user) throws SQLException {
+		return reservasIrDA0.getAllReservas(user);
 	}
 
 	public void insertarReservaIr(ReservaIrAtraccion reserva) throws SQLException{
