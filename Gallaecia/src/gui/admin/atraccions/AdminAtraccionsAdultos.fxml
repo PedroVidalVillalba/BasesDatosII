@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.atraccions.AdminAtraccionsSoAdultosController">
+    <TableView fx:id="atraccionSoAdultosTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="nomeColumn" text="Nombre" />
+            <TableColumn fx:id="idadeMinColumn" text="Edad mínima" />
+
+
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteAtraccionSoAdultos" text="Borrar atracción adultos" />
+        </children></HBox>
+
+</AnchorPane>

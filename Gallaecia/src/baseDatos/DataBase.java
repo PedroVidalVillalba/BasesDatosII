@@ -29,6 +29,10 @@ public class DataBase {
 	private ReservasAsistirDAO reservasAsistirDAO;
 	private RatingDAO ratingDAO;
 	private VisitantesDAO visitantesDAO;
+	private AsistirDAO asistirDAO;
+	private AtraccionsFamiliaresDAO atraccionsFamiliaresDAO;
+	private AtraccionSoAdultosDAO atraccionSoAdultosDAO;
+	private DjDAO djDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -57,6 +61,15 @@ public class DataBase {
 		this.DAOList.add(reservasAsistirDAO);
 		this.visitantesDAO = new VisitantesDAO();
 		this.DAOList.add(visitantesDAO);
+		this.asistirDAO = new AsistirDAO();
+		this.DAOList.add(asistirDAO);
+		this.atraccionsFamiliaresDAO = new AtraccionsFamiliaresDAO();
+		this.DAOList.add(atraccionsFamiliaresDAO);
+		this.atraccionSoAdultosDAO = new AtraccionSoAdultosDAO();
+		this.DAOList.add(atraccionSoAdultosDAO);
+		this.djDAO = new DjDAO();
+		this.DAOList.add(djDAO);
+
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -248,6 +261,24 @@ public class DataBase {
 	public List<Visitante> getAllVisitantes(){return visitantesDAO.getAllVisitantes();}
 	public void borrarVisitante(Visitante visitante) throws SQLException {
 		visitantesDAO.borrarVisitante(visitante);
+	}
+
+	public List<Asistir> getAllAsistir(){return asistirDAO.getAllAsistir();}
+	public void borrarAsistir(Asistir asistir) throws SQLException {
+		asistirDAO.borrarAsistir(asistir);
+	}
+	public List<AtraccionFamiliar> getAllAtraccionsFamiliares(){return atraccionsFamiliaresDAO.getAllAtraccionsFamiliares();}
+	public void borrarAtraccionsFamiliares(AtraccionFamiliar atraccion) throws SQLException {
+		atraccionsFamiliaresDAO.borrarAtraccionFamiliar(atraccion);
+	}
+
+	public List<AtraccionSoAdultos> getAllAtraccionSoAdultos(){return atraccionSoAdultosDAO.getAllAtraccionSoAdultos();}
+	public void borrarAtraccionSoAdultos(AtraccionSoAdultos atraccion) throws SQLException {
+		atraccionSoAdultosDAO.borrarAtraccionSoAdultos(atraccion);
+	}
+	public List<DJ> getAllDj(){return djDAO.getAllDj();}
+	public void borrarDj(DJ dj) throws SQLException {
+		djDAO.borrarDj(dj);
 	}
 }
 
