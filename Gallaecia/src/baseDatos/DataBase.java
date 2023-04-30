@@ -288,6 +288,9 @@ public class DataBase {
 
 	/** Métodos de ZonaDAO */
 	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
+	public void borrarZona(Zona zona) throws SQLException {
+		zonaDAO.borrarZona(zona);
+	}
 
 
 	/** Métodos de VisitantesDAO */
