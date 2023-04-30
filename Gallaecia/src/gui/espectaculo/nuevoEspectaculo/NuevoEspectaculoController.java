@@ -77,20 +77,23 @@ public class NuevoEspectaculoController implements Initializable {
      * Método que intenta añadir un nuevo espectáculo a la base de datos
      */
     public void anhadirEspectaculo() {
-        if (nombre.getText().isBlank()) {
-            nombre.getStyleClass().add("error-text-field");
+        if (nombre.getText().isBlank() || descripcion.getText().isBlank() || horaFin.getValue().before(horaInicio.getValue())) {
+            //nombre.getStyleClass().add("error-text-field");
             errorLabel.setVisible(true);
             return;
         }
         nombre.getStyleClass().remove("error-text-field");
         if (DataBase.getCurrentDB().getUser()!=null) {
                 Espectaculo espectaculo = new Espectaculo(nombre.getText(), horaInicio.getValue(), horaFin.getValue(), descripcion.getText(),tematica.getText() ,listaZonas.getSelectionModel().getSelectedItem());
-                try {
-                    DataBase.getCurrentDB().insertarEspectaculo(espectaculo);
-                    SceneManager.getSceneManager().switchScene("./espectaculo/reserva/ReservaExito.fxml");
-                } catch (SQLException e){
-                    errorLabel.setVisible(true);
-                }
+
+                    try {
+                        DataBase.getCurrentDB().insertarEspectaculo(espectaculo);
+                        SceneManager.getSceneManager().switchScene("./espectaculo/reserva/ReservaExito.fxml");
+                    } catch (SQLException e){
+                        errorLabel.setVisible(true);
+                    }
+
+
         }
     }
 }
