@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.RatingController">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.RatingController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+        <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="350" minHeight="60" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="45" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+    </rowConstraints>
     <children>
-        <ListView fx:id="myListView" editable="true" layoutX="52.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
-        <Label fx:id="myLabel" alignment="TOP_LEFT" layoutX="273.0" layoutY="130.0" prefHeight="158.0" prefWidth="307.0" text="" textAlignment="JUSTIFY" wrapText="true">
-            <font>
-                <Font size="16.0" />
-            </font>n
-        </Label>
-        <Label layoutX="40.0" layoutY="34.0" prefHeight="49.0" prefWidth="537.0" text="¡Tu opinión es importante! Consulta aquí reseñas de otros usuarios o escribe la tuya." textAlignment="CENTER" wrapText="true">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Button layoutX="356.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToNewRating" text="Escribir una reseña" />
-        <Text fx:id="errorMensaje" fill="RED" layoutX="340.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: tiene que registrarse" visible="false" />
-      <ImageView fx:id="starIcon" fitHeight="24.0" fitWidth="28.0" layoutX="382.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../images/star-emoji.png" />
-         </image>
-      </ImageView>
+        <Label text="Valoraciones" styleClass="title-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+        <Label text="¡Tu opinión es importante! Consulta aquí reseñas de otros usuarios o escribe la tuya." wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+        <Label fx:id="myLabel" style="-fx-text-alignment: justify;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <ListView fx:id="myListView" editable="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="errorLabel" text="Error: tiene que registrarse" visible="false" styleClass="error-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3"/>
+        <Button onAction="#switchToNewRating" text="Escribir una reseña" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
     </children>
-</AnchorPane>
+    <stylesheets>
+        <URL value="@../styles/basic.css" />
+        <URL value="@../styles/button.css" />
+        <URL value="@../styles/list-view.css" />
+    </stylesheets>
+</GridPane>

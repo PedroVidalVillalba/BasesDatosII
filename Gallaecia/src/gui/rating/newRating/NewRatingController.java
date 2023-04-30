@@ -32,10 +32,8 @@ public class NewRatingController implements Initializable {
     /**
      * Recoge los datos escritos por el usuario e intenta crear una nueva reseña con ellos
      * Luego, cambia a la escena de Valoraciones
-     * @param event Click en "Aceptar"
-     * @throws IOException
      */
-    public void newRating(ActionEvent event) throws IOException {
+    public void newRating() {
         if (DataBase.getCurrentDB().getUser()!=null) {
             int score = (int)scoreField.getValue();
             if(score < 1 || score > 5) score = 5;
@@ -47,12 +45,9 @@ public class NewRatingController implements Initializable {
 
     /**
      * Ignora los datos introducidos por el usuario y cambia a la escena de Valoraciones
-     * @param event Click en "Cancelar"
-     * @throws IOException
      */
-    public void cancel(ActionEvent event) throws IOException {
+    public void cancel() {
         SceneManager.getSceneManager().switchScene("./rating/Rating.fxml");
     }
-
 
 }
