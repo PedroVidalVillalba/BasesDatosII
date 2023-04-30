@@ -69,15 +69,7 @@ public class MenuController implements Initializable {
 	 * Cambio a la escena de espectáculos
 	 */
 	public void switchToEspectaculo() {
-
-		//if(DataBase.getCurrentDB().getUser() != null){
-			//User users = DataBase.getCurrentDB().getUser();
-			if (DataBase.getCurrentDB(). getUserType() == Admin) {
-				SceneManager.getSceneManager().switchScene("./espectaculo/EspectaculoAdmin.fxml");
-			} else {
-				SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");
-			}
-
+		SceneManager.getSceneManager().switchScene("./espectaculo/Espectaculo.fxml");
 	}
 
 	/**

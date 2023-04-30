@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import baseDatos.DataBase;
+import baseDatos.UserType;
 import gui.SceneManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,21 +32,21 @@ public class EspectaculoController implements Initializable {
     @FXML
     private ListView<Espectaculo> myListView;
     @FXML
-    private Label myLabel;
+    private Button nuevoButton;
     @FXML
-    private Button nuevoEspectaculo;
+    private Label myLabel;
     @FXML
     private Label errorMensaje;
     @FXML
     private Label errorNull;
 
-    private java.util.List<Espectaculo> espectaculos;
-
-    /** Inicialización de la vista */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (DataBase.getCurrentDB().getUserType() == UserType.Admin) {
+            nuevoButton.setVisible(true);
+        }
 
-        espectaculos = DataBase.getCurrentDB().getAllEspectaculos();
+        java.util.List<Espectaculo> espectaculos = DataBase.getCurrentDB().getAllEspectaculos();
 
         for (Espectaculo espectaculo : espectaculos) {
             myListView.getItems().add(espectaculo);
@@ -89,19 +90,14 @@ public class EspectaculoController implements Initializable {
      * Cambio a la vista de añadir espectáculos (solo para administradores)
      */
     public void nuevoEspectaculo(){
-        SceneManager.getSceneManager().switchScene("./nuevoEspectaculo/NuevoEspectaculo.fxml");
+        SceneManager.getSceneManager().switchScene("./espectaculo/nuevoEspectaculo/NuevoEspectaculo.fxml");
     }
 
-    /**
-     * Cambio a la escena de hacer una nueva reserva (solo para usuarios registrados)
-     * @param event Click en el botón "Hacer una reserva"
-     * @throws IOException
-     */
-    public void switchToNuevaReserva(javafx.event.ActionEvent event) throws IOException {
+    public void switchToNuevaReserva() {
         if (DataBase.getCurrentDB().getUser()!=null) {
             if (myListView.getSelectionModel().getSelectedItem()!=null) {
                 espectaculoElegido = myListView.getSelectionModel().getSelectedItem();
-                SceneManager.getSceneManager().switchScene("./reservaAsistir/Reserva.fxml");
+                SceneManager.getSceneManager().switchScene("./espectaculo/reserva/Reserva.fxml");
             } else {
                 errorNull.setVisible(true);
             }
@@ -110,14 +106,9 @@ public class EspectaculoController implements Initializable {
         }
     }
 
-    /**
-     * Cambio a la escena de Eliminar reserva (solo para usuarios registrados)
-     * @param event Click en el botón "Eliminar una reserva"
-     * @throws IOException
-     */
-    public void switchToEliminarReserva(ActionEvent event) throws IOException {
+    public void switchToEliminarReserva() {
         if (DataBase.getCurrentDB().getUser()!=null) {
-            SceneManager.getSceneManager().switchScene("./gestionReservaAsistir/GestionReserva.fxml");
+            SceneManager.getSceneManager().switchScene("./espectaculo/gestionReserva/GestionReserva.fxml");
         } else {
             errorMensaje.setVisible(true);
         }
