@@ -29,8 +29,12 @@ public class DataBase {
 	private ReservasAsistirDAO reservasAsistirDAO;
 	private RatingDAO ratingDAO;
 	private VisitantesDAO visitantesDAO;
-	private SistemasDeAudioDAO sistemasDeAudioDAO;
+	private AsistirDAO asistirDAO;
+	private AtraccionsFamiliaresDAO atraccionsFamiliaresDAO;
+	private AtraccionSoAdultosDAO atraccionSoAdultosDAO;
 	private TraballadorParqueDAO traballadorParqueDAO;
+	private DjDAO djDAO;
+	private SistemasDeAudioDAO sistemasDeAudioDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -59,10 +63,19 @@ public class DataBase {
 		this.DAOList.add(reservasAsistirDAO);
 		this.visitantesDAO = new VisitantesDAO();
 		this.DAOList.add(visitantesDAO);
+		this.asistirDAO = new AsistirDAO();
+		this.DAOList.add(asistirDAO);
+		this.atraccionsFamiliaresDAO = new AtraccionsFamiliaresDAO();
+		this.DAOList.add(atraccionsFamiliaresDAO);
+		this.atraccionSoAdultosDAO = new AtraccionSoAdultosDAO();
+		this.DAOList.add(atraccionSoAdultosDAO);
+		this.djDAO = new DjDAO();
+		this.DAOList.add(djDAO);
 		this.sistemasDeAudioDAO = new SistemasDeAudioDAO();
 		this.DAOList.add(sistemasDeAudioDAO);
 		this.traballadorParqueDAO = new TraballadorParqueDAO();
 		this.DAOList.add(traballadorParqueDAO);
+
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -266,8 +279,8 @@ public class DataBase {
 		return reservasIrDA0.getAllReservas();
 	}
 
-	public List<ReservaIrAtraccion> getAllReservasIrDNI(User user) throws SQLException {
-		return reservasIrDA0.getAllReservasDNI(user);
+	public List<ReservaIrAtraccion> getAllReservasIr(User user) throws SQLException {
+		return reservasIrDA0.getAllReservas(user);
 	}
 
 	public void insertarReservaIr(ReservaIrAtraccion reserva) throws SQLException{
@@ -281,6 +294,9 @@ public class DataBase {
 
 	/** Métodos de ZonaDAO */
 	public List<Zona> getAllZones(){return zonaDAO.getAllZones();}
+	public void borrarZona(Zona zona) throws SQLException {
+		zonaDAO.borrarZona(zona);
+	}
 
 
 	/** Métodos de VisitantesDAO */
@@ -289,7 +305,23 @@ public class DataBase {
 		visitantesDAO.borrarVisitante(visitante);
 	}
 
+	public List<Asistir> getAllAsistir(){return asistirDAO.getAllAsistir();}
+	public void borrarAsistir(Asistir asistir) throws SQLException {
+		asistirDAO.borrarAsistir(asistir);
+	}
+	public List<AtraccionFamiliar> getAllAtraccionsFamiliares(){return atraccionsFamiliaresDAO.getAllAtraccionsFamiliares();}
+	public void borrarAtraccionsFamiliares(AtraccionFamiliar atraccion) throws SQLException {
+		atraccionsFamiliaresDAO.borrarAtraccionFamiliar(atraccion);
+	}
 
+	public List<AtraccionSoAdultos> getAllAtraccionSoAdultos(){return atraccionSoAdultosDAO.getAllAtraccionSoAdultos();}
+	public void borrarAtraccionSoAdultos(AtraccionSoAdultos atraccion) throws SQLException {
+		atraccionSoAdultosDAO.borrarAtraccionSoAdultos(atraccion);
+	}
+	public List<DJ> getAllDj(){return djDAO.getAllDj();}
+	public void borrarDj(DJ dj) throws SQLException {
+		djDAO.borrarDj(dj);
+	}
 	/** Métodos de SistemasDeAudioDAO */
 	public List<SistemaDeAudio> getAllSistemas() throws SQLException{
 		return sistemasDeAudioDAO.getAllSistemas();

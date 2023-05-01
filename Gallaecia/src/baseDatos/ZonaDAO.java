@@ -1,6 +1,7 @@
 package baseDatos;
 
 
+import modelo.DJ;
 import modelo.Espectaculo;
 import modelo.Zona;
 
@@ -61,5 +62,22 @@ public class ZonaDAO extends AbstractDAO{
 
         return resultado;
 
+    }
+
+    public void borrarZona(Zona zona) throws SQLException {
+
+        Connection con = this.getConexion();
+        PreparedStatement stm = null;
+        String consulta = "DELETE FROM zona WHERE nome = ?;";
+
+        try {
+
+            stm = con.prepareStatement(consulta);
+            stm.setString(1, zona.getNome());
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

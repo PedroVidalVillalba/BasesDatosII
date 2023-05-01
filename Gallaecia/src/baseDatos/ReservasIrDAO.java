@@ -62,10 +62,9 @@ public class ReservasIrDAO extends AbstractDAO{
      * Método para obtener todas las reservas de atracciones de un usuario concreto.
      * @param user Usuario concreto
      * @return Lista con todas las reservas de atracciones del usuario
-     * @throws SQLException
      */
-    public List<ReservaIrAtraccion> getAllReservasDNI(User user) throws SQLException {
-        List<ReservaIrAtraccion> resultado = new java.util.ArrayList<ReservaIrAtraccion>();
+    public List<ReservaIrAtraccion> getAllReservas(User user) {
+        List<ReservaIrAtraccion> resultado = new java.util.ArrayList<>();
         ReservaIrAtraccion atraccionactual;
         Connection con;
 
@@ -74,12 +73,10 @@ public class ReservasIrDAO extends AbstractDAO{
 
         con = this.getConexion();
 
-        PreparedStatement stmRes=null;
-        stmRes = con.prepareStatement("SELECT * FROM ir a where visitante = ?");
-        stmRes.setString(1, user.getDni());
-
-
         try{
+            PreparedStatement stmRes=null;
+            stmRes = con.prepareStatement("SELECT * FROM ir a where visitante = ?");
+            stmRes.setString(1, user.getDni());
 
             rs = stmRes.executeQuery();
 

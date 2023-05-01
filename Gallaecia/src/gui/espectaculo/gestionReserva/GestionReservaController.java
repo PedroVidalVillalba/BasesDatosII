@@ -43,11 +43,6 @@ public class GestionReservaController implements Initializable {
         horaInicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
 
         List<ReservaAsistir> reservas = DataBase.getCurrentDB().getAllReservasAsistirDNI(DataBase.getCurrentDB().getUser());
-        /*for (ReservaAsistir r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
-                reservas.remove(r);
-            }
-        }*/
         ObservableList<ReservaAsistir> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
@@ -63,12 +58,10 @@ public class GestionReservaController implements Initializable {
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
                 tablaReservas.getItems().remove(selectedItem);
-                //DataBase.getCurrentDB().borrarReserva();
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
                 DataBase.getCurrentDB().borrarReservaAsistir(selectedItem);
             }
-
     }
 }

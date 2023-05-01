@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.asistir.AdminAsistirController">
+    <TableView fx:id="asistirTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="visitanteColumn" text="Visitante" />
+            <TableColumn fx:id="espectaculoColumn" text="Espectaculo" />
+            <TableColumn fx:id="horaInicioColumn" text="Hora Inicio" />
+            <TableColumn fx:id="fechaColumn" text="Fecha" />
+
+
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteAsistir" text="Borrar asistencia" />
+        </children></HBox>
+
+</AnchorPane>

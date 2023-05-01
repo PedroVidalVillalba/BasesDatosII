@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -16,12 +17,12 @@ public class DJ {
 	private String localidade;
 	private Float salario;
 	private String telefono;
-	private LocalDate dataInicio;
-	private LocalDate dataNacemento;
+	private Date dataInicio;
+	private Date dataNacemento;
 	private String formacion;
 	private SistemaDeAudio sistema;
 
-	public DJ(String dni, String nome, String rua, Integer numero, Integer cp, String localidade, Float salario, String telefono, LocalDate dataInicio, LocalDate dataNacemento, String formacion, SistemaDeAudio sistema) {
+	public DJ(String dni, String nome, String rua, Integer numero, Integer cp, String localidade, Float salario, String telefono, Date dataInicio, Date dataNacemento, String formacion, SistemaDeAudio sistema) {
 		if(dni!=null){
 			this.dni = dni;
 		}
@@ -92,11 +93,11 @@ public class DJ {
 		return telefono;
 	}
 
-	public LocalDate getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
 
-	public LocalDate getDataNacemento() {
+	public Date getDataNacemento() {
 		return dataNacemento;
 	}
 
@@ -156,13 +157,13 @@ public class DJ {
 		}
 	}
 
-	public void setDataInicio(LocalDate dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		if(dataInicio!=null){
 			this.dataInicio = dataInicio;
 		}
 	}
 
-	public void setDataNacemento(LocalDate dataNacemento) {
+	public void setDataNacemento(Date dataNacemento) {
 		if(dataNacemento!=null){
 			this.dataNacemento = dataNacemento;
 		}

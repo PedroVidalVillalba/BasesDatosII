@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 import modelo.Valoracion;
 
@@ -27,11 +26,9 @@ public class RatingController implements Initializable {
     @FXML
     private ListView<Valoracion> myListView;
     @FXML
-    private Text errorMensaje;
+    private Label errorLabel;
     @FXML
     private Label myLabel;
-    @FXML
-    private ImageView starIcon;
 
     /** Inicialización de la vista */
     @Override
@@ -43,7 +40,7 @@ public class RatingController implements Initializable {
         }
 
         // Para mostrar el nombre de cada valoración en la ListView.
-        myListView.setCellFactory(new Callback<ListView<Valoracion>, ListCell<Valoracion>>() {
+        myListView.setCellFactory(new Callback<>() {
             @Override
             public ListCell<Valoracion> call(ListView<Valoracion> valoracionListView) {
                 return new ListCell<Valoracion>() {
@@ -66,25 +63,18 @@ public class RatingController implements Initializable {
                         "Puntuación: " + t1.getPuntuacion() + "\u2B50\n" +
                         "Descripción: " + t1.getDescricion();
                 myLabel.setText(descripcion);
-                if(!starIcon.isVisible()) starIcon.setVisible(true);
-
             }
-
-
         });
-        //starIcon.isVisible();
     }
 
     /**
      * Cambio a la escena de Escribir una reseña (solo para usuarios registrados)
-     * @param event Click en "Escribir una reseña"
-     * @throws IOException
      */
-    public void switchToNewRating(ActionEvent event) throws IOException {
+    public void switchToNewRating() {
         if (DataBase.getCurrentDB().getUser()!=null) {
             SceneManager.getSceneManager().switchScene("./rating/newRating/NewRating.fxml");
         } else {
-            errorMensaje.setVisible(true);
+            errorLabel.setVisible(true);
         }
     }
 }

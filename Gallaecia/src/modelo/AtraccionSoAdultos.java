@@ -7,10 +7,10 @@ import java.util.Objects;
  * Representa a la tabla AtraccionesSoAdultos
  */
 public class AtraccionSoAdultos {
-	private Atraccion atraccion;
+	private String atraccion;
 	private Integer idadeMin;
 
-	public AtraccionSoAdultos(Atraccion atraccion, Integer idadeMin) {
+	public AtraccionSoAdultos(String atraccion, Integer idadeMin) {
 		if(atraccion!=null){
 			this.atraccion = atraccion;
 		}
@@ -19,7 +19,7 @@ public class AtraccionSoAdultos {
 		}
 	}
 
-	public Atraccion getAtraccion() {
+	public String getAtraccion() {
 		return atraccion;
 	}
 
@@ -28,7 +28,7 @@ public class AtraccionSoAdultos {
 	}
 
 
-	public void setAtraccion(Atraccion atraccion) {
+	public void setAtraccion(String atraccion) {
 		if(atraccion!=null){
 			this.atraccion = atraccion;
 		}

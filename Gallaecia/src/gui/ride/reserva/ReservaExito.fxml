@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 
-<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ride.reserva.ReservaController"
-          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
-   <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+<GridPane alignment="CENTER" hgap="10" styleClass="grid-pane" vgap="10" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ride.reserva.ReservaController">
+   <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
    <columnConstraints>
-      <ColumnConstraints maxWidth="450" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="450" minWidth="10" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
-      <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+      <RowConstraints maxHeight="60" minHeight="10" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60" minHeight="10" valignment="CENTER" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Label text="La reserva se ha realizado con éxito." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <Label text="Operación realizada con éxito." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
       <Button onAction="#switchToRide" text="Volver" GridPane.columnIndex="0" GridPane.rowIndex="1" />
    </children>
    <stylesheets>

@@ -2,16 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.newRating.NewRatingController">
-    <Text layoutX="70.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Describe aquí tu experiencia">
-      <font>
-         <Font size="14.0" />
-      </font></Text>
-    <TextArea fx:id="descriptionField" layoutX="70.0" layoutY="141.0" prefHeight="174.0" prefWidth="460.0" promptText="Descripción" wrapText="true" />
-    <Button layoutX="221.0" layoutY="348.0" mnemonicParsing="false" onAction="#newRating" text="Aceptar" />
-    <Button layoutX="309.0" layoutY="348.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar" />
-   <Slider fx:id="scoreField" blockIncrement="1.0" layoutX="220.0" layoutY="93.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" prefHeight="32.0" prefWidth="139.0" showTickLabels="true" />
-   <Text layoutX="70.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación" />
-</AnchorPane>
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.rating.newRating.NewRatingController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+        <ColumnConstraints maxWidth="300" minWidth="10" hgrow="SOMETIMES" halignment="CENTER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="350" minHeight="60" vgrow="SOMETIMES" valignment="CENTER"/>
+    </rowConstraints>
+    <children>
+        <Label text="Describe tu experiencia" styleClass="title-label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+        <Label text="Puntuación:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Slider fx:id="scoreField" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="LEFT"
+                blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" showTickLabels="true"/>
+        <TextArea fx:id="descriptionField" promptText="Descripción" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+        <Button onAction="#newRating" text="Aceptar" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="RIGHT" />
+        <Button onAction="#cancel" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="LEFT" />
+    </children>
+    <stylesheets>
+        <URL value="@../../styles/basic.css"/>
+        <URL value="@../../styles/button.css" />
+        <URL value="@../../styles/text-area.css"/>
+        <URL value="@../../styles/slider.css"/>
+    </stylesheets>
+</GridPane>

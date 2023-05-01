@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.ReservaXantar;
 import javafx.collections.FXCollections;
 
-
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -49,11 +48,6 @@ public class GestionReservaController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        /*for (ReservaXantar r : reservas) {
-            if (!r.getNombre().equals(DataBase.getCurrentDB().getUser().getDni())) {
-                reservas.remove(r);
-            }
-        }*/
         ObservableList<ReservaXantar> listaReservas = FXCollections.observableList(reservas);
 
         tablaReservas.setItems(listaReservas);
@@ -61,20 +55,17 @@ public class GestionReservaController implements Initializable {
 
     /**
      * Eliminación de una reserva seleccionada
-     * @param actionEvent Click en el botón "Eliminar"
      */
-    public void eliminarReserva(javafx.event.ActionEvent actionEvent) {
+    public void eliminarReserva() {
             ReservaXantar selectedItem = tablaReservas.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
                 // Elimina la fila seleccionada de la tabla
                 tablaReservas.getItems().remove(selectedItem);
-                //DataBase.getCurrentDB().borrarReserva();
 
                 // Actualiza la vista de la tabla
                 tablaReservas.refresh();
                 DataBase.getCurrentDB().borrarReservaXantar(selectedItem);
             }
-
     }
 }
