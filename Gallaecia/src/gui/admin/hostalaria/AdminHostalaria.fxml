@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.admin.hostalaria.AdminHostalariaController"
-            prefHeight="400.0" prefWidth="600.0">
-
-    <TableView fx:id="restaurantTable" prefWidth="600.0">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.hostalaria.AdminHostalariaController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" HBox.hgrow="ALWAYS">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="Infinity" minWidth="100" hgrow="ALWAYS" halignment="CENTER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
+    </rowConstraints>
+    <TableView fx:id="restaurantTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
             <TableColumn fx:id="nomeColumn" text="Nombre" />
             <TableColumn fx:id="aforoColumn" text="Aforo" />
@@ -19,7 +23,12 @@
             <TableColumn fx:id="horafinColumn" text="Hora fin" />
             <TableColumn fx:id="zonaColumn" text="Zona" />
         </columns>
+        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
     </TableView>
-
-
-</AnchorPane>
+    <stylesheets>
+        <URL value="@../../styles/basic.css"/>
+        <URL value="@../../styles/button.css"/>
+        <URL value="@../../styles/table-view.css"/>
+        <URL value="@../../styles/text-field.css"/>
+    </stylesheets>
+</GridPane>

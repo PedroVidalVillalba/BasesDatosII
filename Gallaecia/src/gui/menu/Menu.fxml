@@ -4,11 +4,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menu.MenuController">
     <MenuBar HBox.hgrow="NEVER">
         <Menu>
             <graphic>
-                <Label onMouseClicked="#switchToPrincipal" text="Gallaecia" />
+                <ImageView onMouseClicked="#switchToPrincipal" preserveRatio="true" fitHeight="18" pickOnBounds="true">
+                    <Image url="@../images/LogoBlanco.png" />
+                </ImageView>
             </graphic>
         </Menu>
         <Menu text="Ocio">

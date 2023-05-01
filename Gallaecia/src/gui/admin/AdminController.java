@@ -9,8 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController {
-	@FXML
-	private HBox hBox;
 
 	public void adminAsistir() {
 		SceneManager.getSceneManager().switchAdminTable("./admin/asistir/AdminAsistir.fxml");
@@ -70,6 +68,10 @@ public class AdminController {
 
 	public void adminUsers() {
 		SceneManager.getSceneManager().switchAdminTable("./admin/users/AdminUsers.fxml");
+	}
+
+	public void adminValoracions() {
+		SceneManager.getSceneManager().switchAdminTable("./admin/valoracions/AdminValoracions.fxml");
 	}
 
 	public void adminVisitantes() {

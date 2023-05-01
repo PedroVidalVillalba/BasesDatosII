@@ -10,49 +10,34 @@ import com.theokanning.openai.completion.chat.ChatMessage;
 import com.theokanning.openai.completion.chat.ChatMessageRole;
 import com.theokanning.openai.service.OpenAiService;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Clase controlador del patrón Modelo-Vista-Controlador. Tiene asociada una vista del mismo nombre
  * Controla la vista de consulta a ChatGPT utilizando una API
  */
-public class ChatController implements Initializable{
+public class ChatController {
     @FXML
     private TextField myTextField;
     @FXML
     private TextArea myTextArea;
-    @FXML
-    private Text texto;
-
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        texto.setVisible(false);
-        myTextArea.setWrapText(true);
-        }//mensaje de error
 
     /**
      * Utilizando la API de OpenAI, escribe una consulta a chatGPT y muestra su respuesta con un límite de 75 tokens
-     * @throws Exception
      */
-    public void consultaCHAT() throws Exception {
+    public void consultaCHAT() {
         // Configura la clave de API de OpenAI
         String token = "";
         StringBuilder resultado = new StringBuilder();
         String resultado2;
         OpenAiService service = new OpenAiService(token);
 
-
-        texto.setVisible(true);
+        myTextArea.setPromptText("Streaming chat completion...");
         final List<ChatMessage> messages = new ArrayList<>();
         final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), myTextField.getText());
         messages.add(systemMessage);
@@ -73,9 +58,7 @@ public class ChatController implements Initializable{
 
         System.out.println(resultado2);
         myTextArea.setText(resultado2);
-
-        texto.setVisible(false);
-
+        myTextArea.setPromptText("");
     }
 }
 
