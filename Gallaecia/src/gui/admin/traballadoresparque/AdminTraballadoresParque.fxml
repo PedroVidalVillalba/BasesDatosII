@@ -15,7 +15,7 @@
         <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
         <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
     </rowConstraints>
-    <Button onAction="#deleteTrabajador" text="Borrar asistencia" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Button onAction="#deleteTrabajador" text="Borrar trabajador" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
     <TableView fx:id="trabajadorTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
             <TableColumn fx:id="dniColumn" text="DNI" />

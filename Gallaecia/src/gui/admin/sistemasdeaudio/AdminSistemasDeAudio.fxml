@@ -15,7 +15,7 @@
         <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
         <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
     </rowConstraints>
-    <Button onAction="#deleteSistema" text="Borrar asistencia" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Button onAction="#deleteSistema" text="Borrar sistema de audio" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
     <TableView fx:id="sistemaTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
             <TableColumn fx:id="identificadorColumn" prefWidth="110.0" text="Identificador" />

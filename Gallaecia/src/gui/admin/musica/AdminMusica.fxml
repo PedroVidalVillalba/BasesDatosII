@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.admin.musica.AdminMusicaController"
-            prefHeight="400.0" prefWidth="600.0">
-
-    <TableView fx:id="musicaTable" prefWidth="600.0">
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.musica.AdminMusicaController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" HBox.hgrow="ALWAYS">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="Infinity" minWidth="100" hgrow="ALWAYS" halignment="CENTER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
+    </rowConstraints>
+    <Button onAction="#deleteMusica" text="Borrar usuario" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TableView fx:id="musicaTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
             <TableColumn fx:id="codigoCancionColumn" text="Código" />
             <TableColumn fx:id="nomeColumn" text="Nombre" />
@@ -20,11 +25,11 @@
             <TableColumn fx:id="artistaColumn" text="Artista" />
             <TableColumn fx:id="albumColumn" text="Álbum" />
         </columns>
+        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
     </TableView>
-
-    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
-        <children>
-            <Button mnemonicParsing="false" onAction="#deleteMusica" prefHeight="24.0" prefWidth="225.0" text="Eliminar música" />
-        </children></HBox>
-
-</AnchorPane>
+    <stylesheets>
+        <URL value="@../../styles/basic.css"/>
+        <URL value="@../../styles/button.css"/>
+        <URL value="@../../styles/table-view.css"/>
+    </stylesheets>
+</GridPane>
