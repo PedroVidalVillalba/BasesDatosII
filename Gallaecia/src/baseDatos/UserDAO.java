@@ -96,6 +96,7 @@ public class UserDAO extends AbstractDAO {
 			success = true;
 		} catch (SQLException exception) {
 			try {
+				System.err.println(exception.getMessage());
 				connection.rollback();
 			} catch (SQLException exception1) {
 				System.err.println(exception1.getMessage());

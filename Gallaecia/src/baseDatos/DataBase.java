@@ -44,7 +44,7 @@ public class DataBase {
 	private UserType userType;
 	private User user;
 
-	private DataBase(UserType userType) {
+	private DataBase() {
 		this.DAOList = new ArrayList<>();
 
 		/* Inicializar los DAOs */
@@ -111,7 +111,7 @@ public class DataBase {
 					break;
 				case Guest:
 				default:
-					configurationFile = new FileInputStream("properties/DataBaseAdmin.properties");
+					configurationFile = new FileInputStream("properties/DataBaseGuest.properties");
 					break;
 			}
 
@@ -151,7 +151,7 @@ public class DataBase {
 	 */
 	public static DataBase getCurrentDB() {
 		if (DataBase.currentDB == null) {
-			DataBase.currentDB = new DataBase(UserType.Guest);
+			DataBase.currentDB = new DataBase();
 		}
 		return DataBase.currentDB;
 	}
@@ -200,7 +200,9 @@ public class DataBase {
 	/** Métodos de UserDAO */
 	public void logout() {
 		this.user = null;
-		this.userType = UserType.Guest;
+		if (this.userType != UserType.Guest) {
+			this.establishConnection(UserType.Guest);
+		}
 	}
 
 	public boolean signUp(Visitante visitante, User user) {

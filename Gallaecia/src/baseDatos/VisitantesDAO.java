@@ -39,9 +39,12 @@ public class VisitantesDAO extends AbstractDAO{
 
         con = this.getConexion();
 
-        String consulta = "SELECT *" +
-                "FROM visitantes v " +
-                "JOIN medios m ON v.mediotransporte = m.nomemedio;";
+        /* El tema de los medios de transporte no está implementado */
+//        String consulta = "SELECT *" +
+//                "FROM visitantes v " +
+//                "JOIN medios m ON v.mediotransporte = m.nomemedio;";
+        String consulta = "SELECT * " +
+                "FROM visitantes;";
 
         try {
 
@@ -55,14 +58,14 @@ public class VisitantesDAO extends AbstractDAO{
                         rs.getString("nacionalidade"),
                         rs.getString("telefono"),
                         rs.getDate("datanacemento"),
-                        rs.getInt("altura"),
+                        rs.getInt("altura"), null); /*,
                         new Medio(rs.getString("nomemedio"),
                                 rs.getString("tipo"),
                                 rs.getFloat("prezo"),
                                 rs.getInt("capacidade"),
                                 rs.getFloat("velocidade"))
 
-                );
+                );*/
 
                 resultado.add(visitanteActual);
             }

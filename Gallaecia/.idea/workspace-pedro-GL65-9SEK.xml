@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ce57ae42-7205-4f10-9200-c6cd0953128a" name="Changes" comment="Valoración bonita" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/gui/signUp/SignUp.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2OH80P6JsZYUGiwiy9vpR0xysUG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pedro/OneDrive/Segundo/Segundo_Cuatri/BDII/Practicas/BasesDatosII/Gallaecia/JavaFXEmojiTextFlow_openmoji-1.0.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;,
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/gui/espectaculo/reserva" />
+      <recent name="$PROJECT_DIR$/src/gui/restaurant/reserva" />
+      <recent name="$PROJECT_DIR$/src/gui/ride/reserva" />
+      <recent name="$PROJECT_DIR$/src/gui/images" />
+      <recent name="$PROJECT_DIR$/properties" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Gallaecia" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="modelo.Main" />
+      <module name="Gallaecia" />
+      <option name="VM_PARAMETERS" value="--module-path /usr/share/openjfx/lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce57ae42-7205-4f10-9200-c6cd0953128a" name="Changes" comment="" />
+      <created>1681205924894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681205924894</updated>
+      <workItem from="1681205926013" duration="4601000" />
+      <workItem from="1681284789294" duration="8687000" />
+      <workItem from="1681322841294" duration="1457000" />
+      <workItem from="1681641592680" duration="5640000" />
+      <workItem from="1681656456825" duration="17342000" />
+      <workItem from="1681674062993" duration="3000" />
+      <workItem from="1681686579796" duration="2027000" />
+      <workItem from="1681889794600" duration="8432000" />
+      <workItem from="1681898886115" duration="5085000" />
+      <workItem from="1681910724632" duration="2116000" />
+      <workItem from="1681926547059" duration="3784000" />
+      <workItem from="1682087835651" duration="1578000" />
+      <workItem from="1682279307777" duration="2000" />
+      <workItem from="1682495003089" duration="10000" />
+      <workItem from="1682495021393" duration="13038000" />
+      <workItem from="1682533028043" duration="2415000" />
+      <workItem from="1682697938657" duration="12272000" />
+      <workItem from="1682717087520" duration="5288000" />
+      <workItem from="1682763555147" duration="6728000" />
+      <workItem from="1682787039547" duration="13696000" />
+      <workItem from="1682804299904" duration="4105000" />
+      <workItem from="1682849586732" duration="7217000" />
+      <workItem from="1682864896249" duration="19970000" />
+      <workItem from="1682893966056" duration="104000" />
+    </task>
+    <task id="LOCAL-00001" summary="Añadidas Main y Password">
+      <created>1681207496185</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681207496185</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Simplificada la funcionalidad del Menú para que se mantenga constante en todas las escenas">
+      <created>1681324239111</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681324239111</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Clases para el manejo de usuarios y login">
+      <created>1681647101577</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681647101577</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Logout, SignUp y cambiados los espacios a tabs">
+      <created>1681672564258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681672564258</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Hecho seguro el login y signup, y cambios varios">
+      <created>1681903895532</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681903895532</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adaptada clase DataBase al patrón singleton">
+      <created>1681912722193</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681912722193</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Creada clase SceneManager">
+      <created>1681930042840</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681930042840</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Arreglado problema conexión con los DAOs">
+      <created>1682089078253</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682089078253</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Empezando a rellenar la pestaña de administrador">
+      <created>1682498306153</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682498306153</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Menú en administración.">
+      <created>1682505650667</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682505650667</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Puesta la barra del menú bonita">
+      <created>1682534860481</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682534860481</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Menú bonito y submenú de administración">
+      <created>1682702851805</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682702851805</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Estilo en Login y Logout">
+      <created>1682722300679</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682722300679</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Estilo en SignUp">
+      <created>1682795835146</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682795835146</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Estilo en Principal y Ride">
+      <created>1682799704705</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682799704705</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactor del CSS">
+      <created>1682808092548</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682808092548</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Pestañas de Ocio y Reservas">
+      <created>1682870303161</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682870303161</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Puestas bonitas todas las escenas descendientes de Ocio">
+      <created>1682877906743</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682877906743</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Merge de comentarios">
+      <created>1682878959828</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682878959828</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Valoración bonita">
+      <created>1682883831945</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682883831945</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="078b523e-324f-4d62-8993-2c78693d2402" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="078b523e-324f-4d62-8993-2c78693d2402">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Añadidas Main y Password" />
+    <MESSAGE value="Simplificada la funcionalidad del Menú para que se mantenga constante en todas las escenas" />
+    <MESSAGE value="Clases para el manejo de usuarios y login" />
+    <MESSAGE value="Logout, SignUp y cambiados los espacios a tabs" />
+    <MESSAGE value="Hecho seguro el login y signup, y cambios varios" />
+    <MESSAGE value="Adaptada clase DataBase al patrón singleton" />
+    <MESSAGE value="Creada clase SceneManager" />
+    <MESSAGE value="Arreglado problema conexión con los DAOs" />
+    <MESSAGE value="Empezando a rellenar la pestaña de administrador" />
+    <MESSAGE value="Menú en administración." />
+    <MESSAGE value="Puesta la barra del menú bonita" />
+    <MESSAGE value="Menú bonito y submenú de administración" />
+    <MESSAGE value="Estilo en Login y Logout" />
+    <MESSAGE value="Estilo en SignUp" />
+    <MESSAGE value="Estilo en Principal y Ride" />
+    <MESSAGE value="Refactor del CSS" />
+    <MESSAGE value="Pestañas de Ocio y Reservas" />
+    <MESSAGE value="Puestas bonitas todas las escenas descendientes de Ocio" />
+    <MESSAGE value="Merge de comentarios" />
+    <MESSAGE value="Valoración bonita" />
+    <option name="LAST_COMMIT_MESSAGE" value="Valoración bonita" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="ProcessAttachRunConfigurationType">
+        <watch expression="DataBase.getCurrentDB().user" language="JAVA" custom="baseDatos.DataBase" />
+        <watch expression="DataBase.getCurrentDB().user.dni" language="JAVA" custom="baseDatos.DataBase" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

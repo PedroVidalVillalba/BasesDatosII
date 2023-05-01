@@ -61,8 +61,8 @@ public class AdminVisitantesController implements Initializable {
 
 
     /**
-     * Removes the selected users from the database and the observable list.
-     * This method is triggered when the "Eliminar usuario" button is clicked.
+     * Removes the selected visitors from the database and the observable list.
+     * This method is triggered when the "Eliminar visitante" button is clicked.
      */
     public void deleteVisitante() throws SQLException {
         // Get the selected shows from the table view

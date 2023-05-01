@@ -14,8 +14,8 @@
 		<Button onAction="#adminDJ" text="DJ" />
 		<Button onAction="#adminEspectaculos" text="Espectaculos" />
 		<Button onAction="#adminHostalaria" text="Hostalaria" />
-		<Button onAction="#adminHostaleiros" text="Hostaleiros" disable="true"/>
-		<Button onAction="#adminIr" text="Ir" disable="true" />
+		<Button onAction="#adminHostaleiros" text="Hostaleiros" />
+		<Button onAction="#adminIr" text="Ir" />
 		<Button onAction="#adminMedios" text="Medios" />
 		<Button onAction="#adminMusica" text="Musica" />
 		<Button onAction="#adminReproducir" text="Reproducir"/>
