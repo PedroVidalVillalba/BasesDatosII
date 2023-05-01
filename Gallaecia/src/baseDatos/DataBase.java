@@ -33,6 +33,9 @@ public class DataBase {
 	private AtraccionsFamiliaresDAO atraccionsFamiliaresDAO;
 	private AtraccionSoAdultosDAO atraccionSoAdultosDAO;
 	private TraballadorParqueDAO traballadorParqueDAO;
+	private HostaleiroDAO hostaleiroDAO;
+	private IrDAO irDAO;
+	private ReproducirDAO reproducirDAO;
 	private DjDAO djDAO;
 	private SistemasDeAudioDAO sistemasDeAudioDAO;
 	private MusicaDAO musicaDAO;
@@ -78,6 +81,12 @@ public class DataBase {
 		this.DAOList.add(traballadorParqueDAO);
 		this.musicaDAO = new MusicaDAO();
 		this.DAOList.add(musicaDAO);
+		this.hostaleiroDAO = new HostaleiroDAO();
+		this.DAOList.add(hostaleiroDAO);
+		this.irDAO = new IrDAO();
+		this.DAOList.add(irDAO);
+		this.reproducirDAO = new ReproducirDAO();
+		this.DAOList.add(reproducirDAO);
 
 
 		/* Establecer la conexión */
@@ -217,6 +226,7 @@ public class DataBase {
 	}
 
 	public void updateRestaurant (Hostalaria hostalaria) { restaurantDAO.updateRestaurant(hostalaria);}
+	public void deleteRestaurant (Hostalaria hostalaria ) { restaurantDAO.deleteRestaurant(hostalaria.getNomeEstablecemento());}
 
 
 	/** Métodos de EspectaculoDAO */
@@ -352,6 +362,27 @@ public class DataBase {
 
 	public void borrarMusica(Musica musica) {
 		musicaDAO.borrarMusica(musica);
+	}
+
+	/** Métodos de HostaleiroDAO */
+	public List<Hostaleiro> getAllHostaleiros() throws SQLException{
+		return hostaleiroDAO.getAllHostaleiros();
+	}
+
+	public void borrarHostaleiro(Hostaleiro hostaleiro) {
+		hostaleiroDAO.borrarHostaleiro(hostaleiro);
+	}
+
+	/** Métodos de IrDAO */
+	public List<Ir> getAllIr(){return irDAO.getAllIr();}
+	public void borrarIr(Ir ir) throws SQLException {
+		irDAO.borrarIr(ir);
+	}
+
+	/** Métodos de ReproducirDAO */
+	public List<Reproducir> getAllReproducir(){return reproducirDAO.getAllReproducir();}
+	public void borrarReproducir(Reproducir reproducir) throws SQLException {
+		reproducirDAO.borrarReproducir(reproducir);
 	}
 }
 

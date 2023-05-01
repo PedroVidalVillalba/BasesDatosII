@@ -94,4 +94,21 @@ public class RestaurantDAO extends AbstractDAO{
 			System.out.println(e.getMessage());
 		}
 	}
+
+	public void deleteRestaurant(String nomeEstablecemento) {
+
+		Connection con = this.getConexion();
+		PreparedStatement stm = null;
+		String consulta = "DELETE FROM hostalaria WHERE nomeestablecemento = ?;";
+
+		try {
+
+			stm = con.prepareStatement(consulta);
+			stm.setString(1, nomeEstablecemento);
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

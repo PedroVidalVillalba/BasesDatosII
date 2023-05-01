@@ -43,7 +43,7 @@ public class AdminController {
 	}
 
 	public void adminIr() {
-		SceneManager.getSceneManager().switchAdminTable("./admin/atraccions/AdminIr.fxml");
+		SceneManager.getSceneManager().switchAdminTable("./admin/ir/AdminIr.fxml");
 	}
 
 	public void adminMedios() {
