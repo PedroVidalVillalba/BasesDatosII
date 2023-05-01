@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.admin.musica.AdminMusicaController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <TableView fx:id="musicaTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="codigoCancionColumn" text="Código" />
+            <TableColumn fx:id="nomeColumn" text="Nombre" />
+            <TableColumn fx:id="clasificacionColumn" text="Clasificación" />
+            <TableColumn fx:id="popularidadeColumn" text="Popularidad" />
+            <TableColumn fx:id="artistaColumn" text="Artista" />
+            <TableColumn fx:id="albumColumn" text="Álbum" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteMusica" prefHeight="24.0" prefWidth="225.0" text="Eliminar música" />
+        </children></HBox>
+
+</AnchorPane>

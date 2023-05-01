@@ -35,6 +35,7 @@ public class DataBase {
 	private TraballadorParqueDAO traballadorParqueDAO;
 	private DjDAO djDAO;
 	private SistemasDeAudioDAO sistemasDeAudioDAO;
+	private MusicaDAO musicaDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -75,6 +76,8 @@ public class DataBase {
 		this.DAOList.add(sistemasDeAudioDAO);
 		this.traballadorParqueDAO = new TraballadorParqueDAO();
 		this.DAOList.add(traballadorParqueDAO);
+		this.musicaDAO = new MusicaDAO();
+		this.DAOList.add(musicaDAO);
 
 
 		/* Establecer la conexión */
@@ -339,6 +342,16 @@ public class DataBase {
 
 	public void borrarTrabajador(TraballadorParque traballadorParque) {
 		traballadorParqueDAO.borrarTrabajador(traballadorParque);
+	}
+
+
+	/** Métodos de MusicaDAO */
+	public List<Musica> getAllMusica() throws SQLException{
+		return musicaDAO.getAllMusic();
+	}
+
+	public void borrarMusica(Musica musica) {
+		musicaDAO.borrarMusica(musica);
 	}
 }
 
