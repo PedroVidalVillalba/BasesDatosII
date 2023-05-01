@@ -5,7 +5,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 
-<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.hostalaria.AdminHostalariaController"
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.ir.AdminIrController"
           alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" HBox.hgrow="ALWAYS">
     <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
     <columnConstraints>
@@ -15,13 +15,13 @@
         <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
         <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
     </rowConstraints>
-    <Button onAction="#deleteRestaurant" text="Borrar restaurante" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <TableView fx:id="restaurantTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <Button onAction="#deleteIr" text="Borrar asistencia" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TableView fx:id="irTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
-            <TableColumn fx:id="nomeColumn" text="Nombre" />
-            <TableColumn fx:id="aforoColumn" text="Aforo" />
-            <TableColumn fx:id="horainicioColumn" text="Hora inicio" />
-            <TableColumn fx:id="horafinColumn" text="Hora fin" />
+            <TableColumn fx:id="visitanteColumn" text="Visitante" />
+            <TableColumn fx:id="atraccionColumn" text="Atracción" />
+            <TableColumn fx:id="horaInicioColumn" text="Hora Inicio" />
+            <TableColumn fx:id="fechaColumn" text="Fecha" />
         </columns>
         <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
     </TableView>
@@ -29,6 +29,5 @@
         <URL value="@../../styles/basic.css"/>
         <URL value="@../../styles/button.css"/>
         <URL value="@../../styles/table-view.css"/>
-        <URL value="@../../styles/text-field.css"/>
     </stylesheets>
 </GridPane>

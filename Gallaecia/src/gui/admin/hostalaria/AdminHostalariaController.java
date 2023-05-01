@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
+import modelo.Atraccion;
 import modelo.Hostalaria;
 import modelo.Zona;
 
@@ -36,7 +37,7 @@ public class AdminHostalariaController implements Initializable {
     @FXML
     TableColumn<Hostalaria, Time> horafinColumn;
     @FXML
-    TableColumn<Hostalaria, Zona> zonaColumn;
+    //TableColumn<Hostalaria, Zona> zonaColumn;
 
     private ObservableList<Hostalaria> restaurantList;
 
@@ -47,7 +48,7 @@ public class AdminHostalariaController implements Initializable {
         aforoColumn.setCellValueFactory(new PropertyValueFactory<>("aforo"));
         horainicioColumn.setCellValueFactory(new PropertyValueFactory<>("horaInicio"));
         horafinColumn.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
-        zonaColumn.setCellValueFactory(new PropertyValueFactory<>("zona"));
+        //zonaColumn.setCellValueFactory(new PropertyValueFactory<>("zona"));
 
         // Habilitar la edición en la tabla.
         restaurantTable.setEditable(true);
@@ -69,5 +70,23 @@ public class AdminHostalariaController implements Initializable {
         }
 
         restaurantTable.setItems(restaurantList);
+    }
+
+    /**
+     * Removes the selected restaurant from the database and the observable list.
+     * This method is triggered when the "Eliminar restaurante" button is clicked.
+     */
+    public void deleteRestaurant() throws SQLException {
+        // Get the selected shows from the table view
+        Hostalaria selectedRestaurant = restaurantTable.getSelectionModel().getSelectedItem();
+
+        // Only delete if one is selected
+        if (selectedRestaurant != null) {
+            // Remove from the database
+            DataBase.getCurrentDB().deleteRestaurant(selectedRestaurant);
+
+            // Remove from the observable list
+            restaurantList.remove(selectedRestaurant);
+        }
     }
 }
