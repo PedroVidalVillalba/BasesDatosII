@@ -29,6 +29,8 @@ public class DataBase {
 	private ReservasAsistirDAO reservasAsistirDAO;
 	private RatingDAO ratingDAO;
 	private VisitantesDAO visitantesDAO;
+	private SistemasDeAudioDAO sistemasDeAudioDAO;
+	private TraballadorParqueDAO traballadorParqueDAO;
 	private List<AbstractDAO> DAOList;
 	private UserType userType;
 	private User user;
@@ -57,6 +59,10 @@ public class DataBase {
 		this.DAOList.add(reservasAsistirDAO);
 		this.visitantesDAO = new VisitantesDAO();
 		this.DAOList.add(visitantesDAO);
+		this.sistemasDeAudioDAO = new SistemasDeAudioDAO();
+		this.DAOList.add(sistemasDeAudioDAO);
+		this.traballadorParqueDAO = new TraballadorParqueDAO();
+		this.DAOList.add(traballadorParqueDAO);
 
 		/* Establecer la conexión */
 		this.establishConnection(UserType.Guest);
@@ -281,6 +287,26 @@ public class DataBase {
 	public List<Visitante> getAllVisitantes(){return visitantesDAO.getAllVisitantes();}
 	public void borrarVisitante(Visitante visitante) throws SQLException {
 		visitantesDAO.borrarVisitante(visitante);
+	}
+
+
+	/** Métodos de SistemasDeAudioDAO */
+	public List<SistemaDeAudio> getAllSistemas() throws SQLException{
+		return sistemasDeAudioDAO.getAllSistemas();
+	}
+
+	public void borrarSistema(SistemaDeAudio sistema) {
+		sistemasDeAudioDAO.borrarSistema(sistema);
+	}
+
+
+	/** Métodos de TraballadorParqueDAO */
+	public List<TraballadorParque> getAllWorkers() throws SQLException{
+		return traballadorParqueDAO.getAllWorkers();
+	}
+
+	public void borrarTrabajador(TraballadorParque traballadorParque) {
+		traballadorParqueDAO.borrarTrabajador(traballadorParque);
 	}
 }
 

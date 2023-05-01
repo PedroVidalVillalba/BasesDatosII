@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.sistemasdeaudio.AdminSistemasDeAudioController">
+
+    <TableView fx:id="sistemaTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="identificadorColumn" prefWidth="110.0" text="Identificador" />
+            <TableColumn fx:id="funcionColumn" prefWidth="134.0" text="Función" />
+            <TableColumn fx:id="descricionColumn" prefWidth="355.0" text="Descripción" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteSistema" prefHeight="24.0" prefWidth="225.0" text="Eliminar sistema" />
+        </children></HBox>
+
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.traballadoresparque.AdminTraballadoresParqueController">
+
+    <TableView fx:id="trabajadorTable" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="dniColumn" text="DNI" />
+            <TableColumn fx:id="nomeColumn" text="Nombre" />
+            <TableColumn fx:id="ruaColumn" text="Calle" />
+            <TableColumn fx:id="numeroColumn" text="Número" />
+            <TableColumn fx:id="cpColumn" text="CP" />
+            <TableColumn fx:id="localidadeColumn" text="Localidad" />
+            <TableColumn fx:id="salarioColumn" text="Salario" />
+            <TableColumn fx:id="telefonoColumn" text="Teléfono" />
+            <TableColumn fx:id="dataInicioColumn" text="Fecha inicio" />
+            <TableColumn fx:id="dataNacementoColumn" text="Fecha nacimiento" />
+            <TableColumn fx:id="formacionColumn" text="Formación" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER" layoutX="210.0" layoutY="336.0" prefHeight="48.0" prefWidth="185.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#deleteTrabajador" prefHeight="24.0" prefWidth="225.0" text="Eliminar trabajador" />
+        </children></HBox>
+
+</AnchorPane>
