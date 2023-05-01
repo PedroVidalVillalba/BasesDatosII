@@ -60,7 +60,7 @@ public class AdminSistemasDeAudioController implements Initializable {
 
     /**
      * Removes the selected system from the database and the observable list.
-     * This method is triggered when the "Eliminar sistema" button is clicked.
+     * This method is triggered when the "Borrar sistema" button is clicked.
      */
     public void deleteSistema() throws SQLException {
         // Get the selected shows from the table view

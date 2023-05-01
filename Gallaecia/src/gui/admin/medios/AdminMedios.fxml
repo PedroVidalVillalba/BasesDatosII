@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.medios.AdminMediosController"
+          alignment="CENTER" vgap="10" hgap="10" styleClass="grid-pane" HBox.hgrow="ALWAYS">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="Infinity" minWidth="100" hgrow="ALWAYS" halignment="CENTER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
+        <RowConstraints maxHeight="Infinity" minHeight="50" vgrow="ALWAYS" valignment="CENTER" />
+    </rowConstraints>
+    <Button onAction="#deleteMedio" text="Borrar medio" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TableView fx:id="medioTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <columns>
+            <TableColumn fx:id="nomeMedioColumn" prefWidth="110.0" text="Nombre" />
+            <TableColumn fx:id="tipoColumn" prefWidth="134.0" text="Tipo" />
+            <TableColumn fx:id="prezoColumn" prefWidth="355.0" text="Precio" />
+            <TableColumn fx:id="capacidadeColumn" prefWidth="134.0" text="Capacidad" />
+            <TableColumn fx:id="velocidadeColumn" prefWidth="355.0" text="Velocidad" />
+        </columns>
+        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+    </TableView>
+    <stylesheets>
+        <URL value="@../../styles/basic.css"/>
+        <URL value="@../../styles/button.css"/>
+        <URL value="@../../styles/table-view.css"/>
+    </stylesheets>
+</GridPane>
+
+
