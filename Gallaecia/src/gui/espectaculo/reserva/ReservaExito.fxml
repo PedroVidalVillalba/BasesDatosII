@@ -16,7 +16,7 @@
       <RowConstraints maxHeight="60" minHeight="10" vgrow="SOMETIMES" valignment="CENTER"/>
    </rowConstraints>
    <children>
-      <Label text="La reserva se ha realizado con éxito." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <Label text="La operación se ha realizado con éxito." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
       <Button onAction="#switchToEspectaculo" text="Volver" GridPane.columnIndex="0" GridPane.rowIndex="1" />
    </children>
    <stylesheets>
