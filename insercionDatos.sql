@@ -1,8 +1,8 @@
 --Zonas
-insert into zonas values ('Cubierta A', 150.00, 25.00, 150.00);
-insert into zonas values ('Cubierta B', 225.00, 130.00, -15.00);
-insert into zonas values ('Descampado A', 1025.00, 480.00, -400.00);
-insert into zonas values ('Descampado B', 750.00, 300.00, 100.00);
+insert into zonas values ('Cubierta A', 150.00, 42.2314, -8.9352);
+insert into zonas values ('Cubierta B', 225.00, 42.2321, -8.9385);
+insert into zonas values ('Descampado A', 1025.00, 42.2397, -8.9389);
+insert into zonas values ('Descampado B', 750.00, 42.2226, -8.931);
 
 
 --Hostalaria
